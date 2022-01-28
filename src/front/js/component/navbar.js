@@ -1,22 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/Logo-con-nombre.png";
+import "../../styles/navbar.css"
 
 export const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-white pe-none">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img
+    <nav className="navbar navbar-expand-lg navbar-light bg-white pe-none">
+      <div className="container-fluid p-0 mt-n1">
+        <a className="navbar-brand" href="#">
+          <Link to="/"><img
             src={Logo}
             alt="xmile"
             width="80"
             height="50"
-            class="d-inline-block align-text-top"
+            className="d-inline-block align-text-top"
           />
+          </Link>
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -24,33 +26,38 @@ export const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav mt-n1 p-0">
+            <li className="nav-item sombreado">
               <a
-                class="nav-link active pe-auto text-info"
+                className="nav-link active pe-auto"
                 aria-current="page"
                 href="#"
               >
-                Home
+                Profile
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active pe-auto" href="#">
-                Features
+            <li className="nav-item sombreado">
+              <a className="nav-link active pe-auto" href="#">
+                Clientes
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active pe-auto" href="#">
-                Pricing
+            <li className="nav-item sombreado">
+              <a className="nav-link active pe-auto" href="#">
+                Crear Cliente
               </a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item sombreado">
+              <a className="nav-link active pe-auto" href="#">
+                Cargar Facturas
+              </a>
+            </li>
+            <li className="nav-item">
               <button
                 type="button"
-                class="btn btn-success pe-auto position-absolute end-0 pr-2"
+                className="btn btn-success pe-auto position-absolute end-0 pr-2"
               >
                 Cerrar Sesión
               </button>

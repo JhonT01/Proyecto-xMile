@@ -1,0 +1,7 @@
+.sombreado:hover {
+background-color: aqua;
+}
+.navbar {
+border: solid black 1px; 
+padding-top: -10px;  
+}
