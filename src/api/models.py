@@ -12,7 +12,7 @@ class User(db.Model):
     apellido =  db.Column(db.String(250), unique=False, nullable=False)
     rol =  db.Column(db.String(100), unique=False, nullable=False)
     created_at =  db.Column(db.DateTime(), unique=False, nullable=False)
-    user_id = relationship("User_Client", backref="user", lazy=True)
+    user_clients = db.relationship("User_Client", backref="user", lazy=True)
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -29,7 +29,7 @@ class Client(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fiscal_id = db.Column(db.Integer, unique=True, nullable=False)
     razon_social = db.Column(db.String(80), unique=False, nullable=False)
-    client_id = relationship("User_Client",  backref="client", lazy=True)
+    client_users = db.relationship("User_Client",  backref="client", lazy=True)
 
     def __repr__(self):
         return '<Client %r>' % self.id
@@ -44,7 +44,7 @@ class Client(db.Model):
 class Factura(db.Model):
     __tablename__ = 'factura'
     id = db.Column(db.Integer, primary_key=True)
-    cliente_id = db.Column(db.Integer, unique=True, nullable=False)
+    client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=True, nullable=False)
     doc = db.Column(db.String(100), unique=False, nullable=False)
     num_fac = db.Column(db.String(100), unique=False, nullable=False)
     lin_fac = db.Column(db.Integer, unique=False, nullable=False)
@@ -55,7 +55,7 @@ class Factura(db.Model):
     receptor_id = db.Column(db.String(100), unique=False, nullable=False)
     moneda = db.Column(db.String(100), unique=False, nullable=False)
     actividad = db.Column(db.Integer, unique=False, nullable=False)
-    factura_id = relationship("Factura_detalle",  backref="factura_detalle", lazy=True)
+    factura_detalles = db.relationship("Factura_detalle",  backref="factura", lazy=True)
 
     def __repr__(self):
         return '<Factura %r>' % self.id
@@ -79,7 +79,7 @@ class Factura(db.Model):
 class Factura_detalle(db.Model):
     __tablename__ = 'factura_detalle'
     id = db.Column(db.Integer, primary_key=True)
-    factura_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
+    factura_id = db.Column(db.Integer, db.ForeignKey('factura.id'), unique=True, nullable=False)
     codigo = db.Column(db.Integer, unique=False, nullable=False)
     detalle = db.Column(db.String(100), unique=False, nullable=False)
     tarifa = db.Column(db.Integer, unique=False, nullable=False)
@@ -138,8 +138,8 @@ class User_Client(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
     client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=True, nullable=False)
-    user = relationship("User", back_populates="user.id")
-    client = relationship("Client", back_populates="client.id")
+    #user = db.relationship("User", back_populates="user.id")
+    #client = db.relationship("Client", back_populates="client.id")
 
     def __repr__(self):
         return '<User_Client %r>' % self.id
@@ -149,4 +149,5 @@ class User_Client(db.Model):
             "id": self.id,
             "user_id": self.user_id,
             "client_id": self.client_id,
+            "user_email": User.query.get(self.user_id).serialize()["email"]
         }
