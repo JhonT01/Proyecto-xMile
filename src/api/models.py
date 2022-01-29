@@ -47,7 +47,7 @@ class Factura(db.Model):
     cliente_id = db.Column(db.Integer, unique=True, nullable=False)
     doc = db.Column(db.String(100), unique=False, nullable=False)
     num_fac = db.Column(db.String(100), unique=False, nullable=False)
-    lin_fac = db.Column(db.Integer), unique=False, nullable=False)
+    lin_fac = db.Column(db.Integer, unique=False, nullable=False)
     fecha = db.Column(db.DateTime(), unique=False, nullable=False)
     emisor = db.Column(db.String(100), unique=False, nullable=False)
     emisor_id = db.Column(db.String(100), unique=False, nullable=False)
