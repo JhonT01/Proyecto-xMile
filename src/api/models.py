@@ -27,7 +27,7 @@ class User(db.Model):
 class Client(db.Model):
     __tablename__ = 'client'
     id = db.Column(db.Integer, primary_key=True)
-    fiscal_id = db.Column(db.Integer, unique=True, nullable=False)
+    fiscal_id = db.Column(db.String, unique=True, nullable=False)
     razon_social = db.Column(db.String(80), unique=False, nullable=False)
     client_users = db.relationship("User_Client",  backref="client", lazy=True)
 
