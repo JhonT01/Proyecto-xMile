@@ -1,20 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/Logo-con-nombre.png";
-import "../../styles/navbar.css"
+import "../../styles/navbar.css";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white pe-none">
-      <div className="container-fluid p-0 mt-n1">
+    <nav className="navbar-fixed navbar-expand-lg navbar-light bg-white pe-none">
+      <div className="container-fluid p-0 mt-n1 d-flex">
         <a className="navbar-brand" href="#">
-          <Link to="/"><img
-            src={Logo}
-            alt="xmile"
-            width="80"
-            height="50"
-            className="d-inline-block align-text-top"
-          />
+          <Link to="/">
+            <img
+              src={Logo}
+              alt="xmile"
+              width="80"
+              height="50"
+              className="d-inline-block align-text-top"
+            />
           </Link>
         </a>
         <button
@@ -57,7 +58,7 @@ export const Navbar = () => {
             <li className="nav-item">
               <button
                 type="button"
-                className="btn btn-success pe-auto position-absolute end-0 pr-2"
+                className="btn pe-auto position-absolute end-0 pr-2"
               >
                 Cerrar Sesión
               </button>
