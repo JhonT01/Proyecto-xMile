@@ -31,3 +31,9 @@
   -moz-box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
   box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
 }
+
+.form-label {
+  flex: 0 0 100px;
+  font-weight: bold;
+  
+}

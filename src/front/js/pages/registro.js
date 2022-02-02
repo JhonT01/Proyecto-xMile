@@ -1,25 +1,24 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
 
-export const Login = () => {
-  
-  
+export const Registro = () => {
   //State para iniciar Sesion
   const [usuario, guardarUsuario] = useState({
+    nombre: "",
+    apellido: "",
     email: "",
     password: "",
+    confirmar: ""
   });
 
+  // extraer de usuario
+  const {nombre, apellido, email, password, confirmar } = usuario;
 
-  //extraer de usuario
-  const { email, password } = usuario;
-
-  const onChange = e => {
+  const onChange = (e) => {
     guardarUsuario({
-      ...usuario, //crea una copa de usuario
-      [e.target.name]: e.target.value //reescribe la actual
+      ...usuario,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -53,67 +52,93 @@ export const Login = () => {
     <div className="form-usuario">
       <div className=" contenedor-form text-center mt-5 sombra-dark">
         <img src={logoIma} />
-        <h1>Iniciar Sesión</h1>
+        <h1>Registro</h1>
 
-        <form className="px-4 py-3">
+        <form className="px-4 py-7">
+          <div className="mb-4">
+            <label htmlFor="nombre" className="form-label">
+              Nombre
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              name="nombre"
+              id="nombre"
+              placeholder="Nombre"
+              value={nombre}
+              onChange={onChange}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="apellido" className="form-label">
+              Apellido
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              name="apellido"
+              id="apellido"
+              placeholder="Apellido"
+              value={apellido}
+              onChange={onChange}
+            />
+          </div>
+
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Usuario Email
             </label>
             <input
+              className="form-control"
               type="email"
               name="email"
-              className="form-control"
               id="email"
-              placeholder="TuEmail@email.com"
+              placeholder="Correo Electronico"
               value={email}
               onChange={onChange}
             />
           </div>
+
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
               Contraseña
             </label>
             <input
+              className="form-control"
               type="password"
               name="password"
-              className="form-control"
               id="password"
               placeholder="Contraseña"
               value={password}
               onChange={onChange}
             />
           </div>
+
           <div className="mb-3">
-            <div className="form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="dropdownCheck"
-              />
-              <label className="form-check-label" htmlFor="dropdownCheck">
-                Recordar
-              </label>
-            </div>
+            <label htmlFor="confirmar" className="form-label">
+              Confirmar Contraseña
+            </label>
+            <input
+              className="form-control"
+              type="password"
+              name="confirmar"
+              id="confirmar"
+              placeholder="Repetir Contraseña"
+              value={confirmar}
+              onChange={onChange}
+            />
           </div>
+
           <button
             type="submit"
             className="btn btn-outline-info"
             onClick={handleSubmission}
           >
-            Iniciar Sesión
+            Registrarse
           </button>
         </form>
-        <div className="dropdown-divider"></div>
-        <Link to={'/registro'} className="dropdown-item" >
-          Registrarse
-        </Link>
-        <a className="dropdown-item" href="#">
-          ¿Olvido su contraseña?
-        </a>
       </div>
     </div>
   );
 };
-
-export default Login;
