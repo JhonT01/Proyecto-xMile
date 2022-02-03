@@ -1,0 +1,27 @@
+:root {
+  --blanco: #ffffff;
+}
+
+.client-form {
+  background: linear-gradient(135deg, #42fefe 0%, #06bfa7 100%);
+  padding-top: 5px;
+  height: 900px;
+  display: flex;
+  align-content: top;
+  padding-bottom: 25%;
+  justify-content: center;
+}
+
+.contenedor-form {
+  padding: 2rem 3rem;
+  max-width: 600px;
+  width: 95%;
+  background-color: var(--blanco);
+  border-radius: 1rem;
+}
+
+.sombra-dark {
+  -webkit-box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
+}
