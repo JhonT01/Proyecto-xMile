@@ -1,4 +1,12 @@
+const BASE_URL = "https://jhont01-proyectoxmile-8qyohhug9r5.ws-us30.gitpod.io";
+
+
 const getState = ({ getStore, getActions, setStore }) => {
+
+
+
+
+
 	return {
 		store: {
 			message: null,
@@ -16,6 +24,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			
+			
+			crearUsuario : async (nombre, apellido, email, password) => {
+					let urlEndPoint = BASE_URL + "/api/registro";
+					let actions = getActions ();
+					//if para confirmar password +  confirmar
+					let nuevoUsuario = {
+						nombre: nombre,
+						apellido: apellido,
+						emial: email,
+						password: password,
+						
+					};
+					let response =  await fetch (urlEndPoint,{
+						method:"POST",
+						headers = {
+							"Content-Type": "application/json",
+
+						},
+
+						body : JSON.stringify(
+							nuevoUsuario
+						)
+
+					})
+			},
+			
+			
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

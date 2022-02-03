@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
+import { Context } from "../store/appContext";
 
 export const Registro = () => {
   //State para iniciar Sesion
+  const { store, actions } = useContext(Context);
+
   const [usuario, guardarUsuario] = useState({
     nombre: "",
     apellido: "",
     email: "",
     password: "",
-    confirmar: ""
+    confirmar: "",
   });
 
   // extraer de usuario
-  const {nombre, apellido, email, password, confirmar } = usuario;
+  const { nombre, apellido, email, password, confirmar } = usuario;
 
   const onChange = (e) => {
     guardarUsuario({
@@ -133,7 +136,7 @@ export const Registro = () => {
           <button
             type="submit"
             className="btn btn-outline-info"
-            onClick={handleSubmission}
+            onClick={actions.crearUsuario()}
           >
             Registrarse
           </button>

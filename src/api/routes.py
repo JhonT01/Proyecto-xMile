@@ -21,3 +21,10 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/login', methods=['POST'])
+def crearUser():
+    email = request.json['email']
+    contaseña = request.json['contraseña']
+    print(request.json)
+    return "recibido"
