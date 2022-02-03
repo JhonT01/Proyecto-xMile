@@ -1,13 +1,11 @@
 import os
 import xml.etree.ElementTree as ET
+from .models import db, Factura, Factura_detalle
 import re
 import sqlite3
 import time
 
 def doc_elec(client_id,xml,filename,factura,tipo):
-
-    conn = sqlite3.connect('datosfacturas _V5.sqlite')
-    cur = conn.cursor()
 
     #el url es el nameholder de todo el xml.
     #Está al inicio de todos los nombres de los elementos, incluso si no aparecen visualmente en el arbol.
@@ -135,6 +133,27 @@ def doc_elec(client_id,xml,filename,factura,tipo):
 
         print('El detalle de la factura es el siguiente:')
 
+    #Insertar en SQLAlchemy
+
+    factura_general = Factura(
+    client_id = client_id,
+    doc = doc_name,
+    num_fac = val_numfac,
+    fecha = val_fecha,
+    emisor = val_proveedor,
+    emisor_id = val_cedulaprov,
+    receptor = val_cliente,
+    receptor_id = val_cedulaclien,
+    moneda = val_moneda,
+    actividad = val_actividad
+    )
+
+    db.session.add(factura_general)
+    db.session.commit()
+
+
+
+
     for instancia in factura.iter(ubi_lin_detalle):
 
         for detalle in instancia.iter(ubi_lin_detalle):
@@ -154,6 +173,7 @@ def doc_elec(client_id,xml,filename,factura,tipo):
 
             val_descuento = str(0)
             val_otroCargo = str(0)
+            otro_cargo_lin_fac = 900
 
             try:
                 for dato in detalle.iter(ubi_descuento):
@@ -234,26 +254,50 @@ def doc_elec(client_id,xml,filename,factura,tipo):
             val_total = str(detalle.find(elemento_total).text)
             print('Total línea: ', val_total)
 
-            cur.execute('''INSERT INTO Facturas
-            (num_fac, doc, fecha, proveedor, ced_prov, cliente, ced_clien, moneda, actividad, precio_unit, cantidad, unidad, codigo, lin_fac,
-            detalle, tarifa, monto_linea, gravado, exento, exonerado, si_otro, descuento, subtotal, impuesto, mon_total, auto_exon, fecha_exon)
-            VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )''',
-            (val_numfac, doc_name, val_fecha, val_proveedor, val_cedulaprov, val_cliente, val_cedulaclien, val_moneda, val_actividad, val_precioUni, val_cantidad,
-            val_unidad, val_codigo, val_num_det, val_detalle, val_tarifa, val_montoTotal, val_gravado, val_exento, val_montExon, val_otroCargo, val_descuento, val_subtotal, val_impuesto, val_total, val_docExon, val_fechaExon ) )
+            factura_detalle = Factura_detalle(
+            factura_id = factura_general.id,
+            lin_fac = val_num_det,
+            codigo = val_codigo,
+            detalle = val_detalle,
+            tarifa = val_tarifa,
+            precio_unit = val_precioUni,
+            cantidad = val_cantidad,
+            unidad = val_unidad,
+            gravado_isc = 0,
+            exento_isc = 0,
+            imp_especif = 0,
+            monto_linea = val_montoTotal,
+            gravado = val_gravado,
+            exento = val_exento,
+            exonerado = val_montExon,
+            si_otro = val_otroCargo,
+            descuento = val_descuento,
+            subtotal = val_subtotal,
+            monto_isc = 0,
+            impuesto = val_impuesto,
+            mon_total = val_total,
+            auto_exon = val_docExon,
+            fecha_exon = val_fechaExon
 
-            conn.commit()
+            )
+
+            db.session.add(factura_detalle)
+            db.session.commit()   
 
     try:
         for instancia in factura.iter(ubi_otros):
 
             for detalle in instancia.iter(ubi_otros):
 
+                val_num_det = otro_cargo_lin_fac + 1
+
+
+
                 val_montoTotal = 0
                 val_subtotal = 0
                 val_exento = 0
 
                 print('Se detectaron Otros Cargos en la factura:')
-                val_num_det = str(999)
                 val_detalle = str(detalle.find(elemento_detalle).text)
                 print('Detalle de Otros Cargos: ', val_detalle)
                 val_otroCargo = str(detalle.find(elemento_otcar).text)
@@ -277,16 +321,35 @@ def doc_elec(client_id,xml,filename,factura,tipo):
                 val_tarifa = str(0)
                 val_impuesto = str(0)
 
-                cur.execute('''INSERT INTO Facturas
-                (num_fac, doc, fecha, proveedor, ced_prov, cliente, ced_clien, moneda, actividad, precio_unit, cantidad, unidad, codigo, lin_fac,
-                detalle, tarifa, monto_linea, gravado, exento, exonerado, si_otro, descuento, subtotal, impuesto, mon_total, auto_exon, fecha_exon)
-                VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )''',
-                (val_numfac, doc_name, val_fecha, val_proveedor, val_cedulaprov, val_cliente, val_cedulaclien, val_moneda, val_actividad, val_precioUni, val_cantidad,
-                val_unidad, val_codigo, val_num_det, val_detalle, val_tarifa, val_montoTotal, val_gravado, val_exento, val_montExon, val_otroCargo, val_descuento, val_subtotal, val_impuesto, val_total, val_docExon, val_fechaExon ) )
+            factura_detalle = Factura_detalle(
+            factura_id = factura_general.id,
+            lin_fac = val_num_det,
+            codigo = val_codigo,
+            detalle = val_detalle,
+            tarifa = val_tarifa,
+            precio_unit = val_precioUni,
+            cantidad = val_cantidad,
+            unidad = val_unidad,
+            gravado_isc = 0,
+            exento_isc = 0,
+            imp_especif = 0,
+            monto_linea = val_montoTotal,
+            gravado = val_gravado,
+            exento = val_exento,
+            exonerado = val_montExon,
+            si_otro = val_otroCargo,
+            descuento = val_descuento,
+            subtotal = val_subtotal,
+            monto_isc = 0,
+            impuesto = val_impuesto,
+            mon_total = val_total,
+            auto_exon = val_docExon,
+            fecha_exon = val_fechaExon
 
-                conn.commit()
+            )
+
+            db.session.add(factura_detalle)
+            db.session.commit()  
 
     except:
         print('No se detectaron Otros Cargos en la factura.')
-
-    cur.close()

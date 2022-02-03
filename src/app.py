@@ -2,6 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 import os
+import xml.etree.ElementTree as ET
 from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
@@ -10,6 +11,7 @@ from api.utils import APIException, generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
+from api.doc_elec import doc_elec
 #from models import Person
 
 ENV = os.getenv("FLASK_ENV")
@@ -57,6 +59,30 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0 # avoid cache memory
     return response
+
+@app.route('/procesar', methods=['GET'])
+def procesamiento():
+
+    client_id = 1
+    
+    string = str(r'/workspace/Proyecto-xMile/src/git/xmls')
+    filename = 'FE_50612012200310161019800100024010020813610200000000 copy.xml'
+    xml = string + "/" + filename
+    
+    parser = ET.XMLParser(encoding="utf-8")
+    persed = ET.parse(xml, parser=parser)
+
+    factura = persed.getroot()
+    
+    print(factura)
+
+    documento_re = 'facturaElectronica'
+
+    doc_elec(client_id,xml,filename,factura,documento_re)
+
+    
+
+    return jsonify({'msj':'AYY'})
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
