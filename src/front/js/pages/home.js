@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import {Separador} from "../component/separador";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -33,7 +34,7 @@ export const Home = () => {
   };
 
   return (
-    <div>
+    <div >
       <input type="file" name="file" onChange={changeHandler} multiple />
       {isSelected ? (
         <div>
