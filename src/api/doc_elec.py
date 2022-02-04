@@ -151,7 +151,7 @@ def doc_elec(client_id,xml,filename,factura,tipo):
     db.session.add(factura_general)
     db.session.commit()
 
-
+    num = 900
 
 
     for instancia in factura.iter(ubi_lin_detalle):
@@ -170,10 +170,9 @@ def doc_elec(client_id,xml,filename,factura,tipo):
             val_precioUni = str(detalle.find(elemento_precioUni).text)
             print('Precio unitario de bien/servicio: ', val_precioUni)
 
-
+            
             val_descuento = str(0)
             val_otroCargo = str(0)
-            otro_cargo_lin_fac = 900
 
             try:
                 for dato in detalle.iter(ubi_descuento):
@@ -286,12 +285,8 @@ def doc_elec(client_id,xml,filename,factura,tipo):
 
     try:
         for instancia in factura.iter(ubi_otros):
-
+            
             for detalle in instancia.iter(ubi_otros):
-
-                val_num_det = otro_cargo_lin_fac + 1
-
-
 
                 val_montoTotal = 0
                 val_subtotal = 0
@@ -313,6 +308,7 @@ def doc_elec(client_id,xml,filename,factura,tipo):
                 except:
                     print('No se detectó código de bien/servicio.')
 
+                val_num_det = 999
                 val_subtotal = val_otroCargo
                 val_montoTotal = val_otroCargo
                 val_gravado = str(0)
