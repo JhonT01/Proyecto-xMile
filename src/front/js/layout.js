@@ -8,6 +8,7 @@ import { Single } from "./pages/single";
 import { Subir_archivo } from "./pages/subir-archivo";
 import injectContext from "./store/appContext";
 
+import { Separador } from "./component/separador";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
