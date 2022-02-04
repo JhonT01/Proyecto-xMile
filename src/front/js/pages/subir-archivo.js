@@ -11,7 +11,7 @@ export const Subir_archivo = () => {
 
   return (
     <div className="form-usuario">
-      <div className=" contenedor-form text-center mt-5 sombra-dark">
+      <div className="contenedor-form border text-center mt-5 sombra-dark">
         <img src={logoIma} />
         <h1>Subir archivos</h1>
 
