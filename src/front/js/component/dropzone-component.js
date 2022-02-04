@@ -27,22 +27,31 @@ export const Dropzone = (props) => {
   ));
 
   return (
-    <section className="container border rounded bg-light.bg-gradient">
+    <section className="contenedor-form text-center mt-5 sombra-dark">
       <div
-        {...getRootProps({ className: "dropzone  bg-secondary text-white" })}
+        {...getRootProps({
+          className: "dropzone container border rounded bg-light.bg-gradient",
+        })}
       >
         <input {...getInputProps()} />
         <p>Drag 'n' drop some files here, or click to select files</p>
         <em>(Only *.xml files will be accepted)</em>
       </div>
-      <button type="button" className="btn" onClick={open}>
-        Open File Dialog
-      </button>
+      <div className="container">
+        <button type="button" className="btn" onClick={open}>
+          Seleccionar archivos
+        </button>
+      </div>
+
       <aside>
-        <h4>Accepted files</h4>
-        <ul>{acceptedFileItems}</ul>
-        <h4>Rejected files</h4>
-        <ul>{fileRejectionItems}</ul>
+        <div className="mb-4">
+          <h4>Accepted files</h4>
+          <ul>{acceptedFileItems}</ul>
+        </div>
+        <div className="mb-4">
+          <h4>Rejected files</h4>
+          <ul>{fileRejectionItems}</ul>
+        </div>
       </aside>
     </section>
   );

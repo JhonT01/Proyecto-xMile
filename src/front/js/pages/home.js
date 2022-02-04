@@ -3,9 +3,6 @@ import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
-// Se importa para probar el funcionamiento del Dropzone en la pagina principal, borrar e importar donde sea necesario
-import { Dropzone } from "../component/dropzone_component";
-
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
@@ -25,7 +22,6 @@ export const Home = () => {
           Read documentation
         </a>
       </p>
-      <Dropzone />
     </div>
   );
 };
