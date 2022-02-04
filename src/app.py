@@ -7,7 +7,7 @@ import os
 from flask import Flask, request, jsonify, url_for, send_from_directory, flash, redirect
 from werkzeug.utils import secure_filename
 import xml.etree.ElementTree as ET
-
+import re
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
@@ -19,7 +19,7 @@ from api.admin import setup_admin
 #from models import Person
 
 UPLOAD_FOLDER = './src/uploads'
-ALLOWED_EXTENSIONS = {"xml"}
+ALLOWED_EXTENSIONS = {"xml", "XML"}
 
 
 ENV = os.getenv("FLASK_ENV")
@@ -88,9 +88,7 @@ def upload_file():
 
     client_id = 1
     string = str(r'/workspace/Proyecto-xMile/src/uploads')
-    documento_re = 'facturaElectronica'
 
-    
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -104,14 +102,38 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
+            #If the file extension is valid, parse the xml file for addittional tests
             xml = string + "/" + filename
             parser = ET.XMLParser(encoding="utf-8")
             persed = ET.parse(xml, parser=parser)
             factura = persed.getroot()
+            str_factura = str(factura)
 
-            doc_elec(client_id,xml,filename,factura,documento_re)
+            #If the file extension is valid, test if it's an electronic invoice
+            #by accessing the file 
+            str_factura = str(factura)
 
+            #Validates if the invoice is the current version, otherwise exits loop.
 
+            documento_re = re.findall('v4.3/(.*?)}', str_factura)
+            try:
+                documento_re = documento_re[0]
+            except:
+                print('FACTURA NO ES VERSIÓN 4.3')
+                return jsonify({"Msj": "Factura no es versión 4.3."})
+
+            print(documento_re)
+
+            #Validates if the xml file is an electronic ivoice, otherwise exits loop.
+            if documento_re == "facturaElectronica" or documento_re == "tiqueteElectronico" or documento_re == "facturaElectronicaExportacion" or documento_re == "notaDebitoElectronica":
+                
+                doc_elec(client_id,xml,filename,factura,documento_re)
+
+            else:
+                print(filename, 'no es un combrobante electrónico.')
+                return jsonify({"Msj": "No es un documento electrónico valido"})
+
+            
             return jsonify({"Msj": "Archivo subido correctamente"})
             
 
