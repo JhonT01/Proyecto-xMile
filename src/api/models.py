@@ -27,9 +27,10 @@ class User(db.Model):
 class Client(db.Model):
     __tablename__ = 'client'
     id = db.Column(db.Integer, primary_key=True)
-    fiscal_id = db.Column(db.Integer, unique=True, nullable=False)
+    fiscal_id = db.Column(db.String, unique=True, nullable=False)
     razon_social = db.Column(db.String(80), unique=False, nullable=False)
     client_users = db.relationship("User_Client",  backref="client", lazy=True)
+    client_factura = db.relationship("Factura",  backref="client", lazy=True)
 
     def __repr__(self):
         return '<Client %r>' % self.id
@@ -44,10 +45,9 @@ class Client(db.Model):
 class Factura(db.Model):
     __tablename__ = 'factura'
     id = db.Column(db.Integer, primary_key=True)
-    client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=True, nullable=False)
+    client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=False, nullable=False)
     doc = db.Column(db.String(100), unique=False, nullable=False)
     num_fac = db.Column(db.String(100), unique=False, nullable=False)
-    lin_fac = db.Column(db.Integer, unique=False, nullable=False)
     fecha = db.Column(db.DateTime(), unique=False, nullable=False)
     emisor = db.Column(db.String(100), unique=False, nullable=False)
     emisor_id = db.Column(db.String(100), unique=False, nullable=False)
@@ -66,7 +66,6 @@ class Factura(db.Model):
             "cliente_id": self.cliente_id,
             "doc": self.doc,
             "num_fac": self.num_fac,
-            "lin_fac": self.lin_fac,
             "fecha": self.fecha,
             "emisor": self.emisor,
             "emisor_id": self.emisor_id,
@@ -79,28 +78,29 @@ class Factura(db.Model):
 class Factura_detalle(db.Model):
     __tablename__ = 'factura_detalle'
     id = db.Column(db.Integer, primary_key=True)
-    factura_id = db.Column(db.Integer, db.ForeignKey('factura.id'), unique=True, nullable=False)
-    codigo = db.Column(db.Integer, unique=False, nullable=False)
-    detalle = db.Column(db.String(100), unique=False, nullable=False)
-    tarifa = db.Column(db.Integer, unique=False, nullable=False)
-    precio_unit = db.Column(db.Float, unique=False, nullable=False)
-    cantidad = db.Column(db.Float, unique=False, nullable=False)
-    unidad = db.Column(db.String(100), unique=False, nullable=False)
-    gravado_isc = db.Column(db.Float, unique=False, nullable=False)
-    exento_isc = db.Column(db.Float, unique=False, nullable=False)
-    imp_especif = db.Column(db.Float, unique=False, nullable=False)
-    monto_linea = db.Column(db.Float, unique=False, nullable=False)
-    gravado = db.Column(db.Float, unique=False, nullable=False)
-    exento = db.Column(db.Float, unique=False, nullable=False)
-    exonerado = db.Column(db.Float, unique=False, nullable=False)
-    si_otro = db.Column(db.Float, unique=False, nullable=False)
-    descuento = db.Column(db.Float, unique=False, nullable=False)
-    subtotal = db.Column(db.Float, unique=False, nullable=False)
-    monto_isc = db.Column(db.Float, unique=False, nullable=False)
-    impuesto = db.Column(db.Float, unique=False, nullable=False)
-    mon_total = db.Column(db.Float, unique=False, nullable=False)
-    auto_exon = db.Column(db.String(100), unique=False, nullable=False)
-    fecha_exon = db.Column(db.String(100), unique=False, nullable=False)   
+    factura_id = db.Column(db.Integer, db.ForeignKey('factura.id'), unique=False, nullable=False)
+    lin_fac = db.Column(db.Integer, unique=False, nullable=False)
+    codigo = db.Column(db.String(100), unique=False, nullable=True)
+    detalle = db.Column(db.String(100), unique=False, nullable=True)
+    tarifa = db.Column(db.String(10), unique=False, nullable=True)
+    precio_unit = db.Column(db.Float, unique=False, nullable=True)
+    cantidad = db.Column(db.Float, unique=False, nullable=True)
+    unidad = db.Column(db.String(100), unique=False, nullable=True)
+    gravado_isc = db.Column(db.Float, unique=False, nullable=True)
+    exento_isc = db.Column(db.Float, unique=False, nullable=True)
+    imp_especif = db.Column(db.Float, unique=False, nullable=True)
+    monto_linea = db.Column(db.Float, unique=False, nullable=True)
+    gravado = db.Column(db.Float, unique=False, nullable=True)
+    exento = db.Column(db.Float, unique=False, nullable=True)
+    exonerado = db.Column(db.Float, unique=False, nullable=True)
+    si_otro = db.Column(db.Float, unique=False, nullable=True)
+    descuento = db.Column(db.Float, unique=False, nullable=True)
+    subtotal = db.Column(db.Float, unique=False, nullable=True)
+    monto_isc = db.Column(db.Float, unique=False, nullable=True)
+    impuesto = db.Column(db.Float, unique=False, nullable=True)
+    mon_total = db.Column(db.Float, unique=False, nullable=True)
+    auto_exon = db.Column(db.String(100), unique=False, nullable=True)
+    fecha_exon = db.Column(db.String(100), unique=False, nullable=True)   
 
     def __repr__(self):
         return '<Factura_detalle %r>' % self.id
@@ -109,6 +109,7 @@ class Factura_detalle(db.Model):
         return {
             "id": self.id,
             "factura_id": self.factura_id,
+            "lin_fac": self.lin_fac,
             "detalle": self.detalle,
             "tarifa": self.tarifa,
             "precio_unit": self.precio_unit,
@@ -136,8 +137,8 @@ class Factura_detalle(db.Model):
 class User_Client(db.Model):
     __tablename__ = 'user_Client'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
-    client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=False, nullable=False)
+    client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=False, nullable=False)
     #user = db.relationship("User", back_populates="user.id")
     #client = db.relationship("Client", back_populates="client.id")
 
