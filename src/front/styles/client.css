@@ -2,19 +2,19 @@
   --blanco: #ffffff;
 }
 
-.client-form {
-  background: linear-gradient(135deg, #42fefe 0%, #06bfa7 100%);
-  padding-top: 5px;
-  height: 900px;
+.form-cliente {
+  background: #06bfa7;
+  height: 100vh;
+  min-height: 800px;
   display: flex;
-  align-content: top;
-  padding-bottom: 25%;
+  align-items: center;
   justify-content: center;
 }
 
 .contenedor-form {
-  padding: 2rem 3rem;
-  max-width: 600px;
+  margin: 0%;
+  padding: 1px;
+  max-width: 500px;
   width: 95%;
   background-color: var(--blanco);
   border-radius: 1rem;
@@ -24,4 +24,9 @@
   -webkit-box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
   -moz-box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
   box-shadow: 0px 6px 11px -8px rgba(0, 0, 0, 0.9);
+}
+
+.form-label {
+  flex: 0 0 100px;
+  font-weight: bold;
 }

@@ -5,6 +5,10 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 
+#from flask_jwt_extended import create_access_token
+#from flask_jwt_extended import get_jwt_identity
+#from flask_jwt_extended import jwt_required
+
 api = Blueprint('api', __name__)
 
 
@@ -16,3 +20,18 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+
+    
+
+
+
+
+
+
+@api.route('/client', methods=['POST'])
+def crearCliente():
+    razonsocial = request.json['razonsocial']
+    cedulajuridica = request.json['cedulajuridica']
+    print(razonsocial, cedulajuridica)
+    return jsonify("recibido")
