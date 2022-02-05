@@ -4,10 +4,12 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 
 
 import os
+from sqlalchemy.orm import sessionmaker
 from flask import Flask, request, jsonify, url_for, send_from_directory, flash, redirect
 from werkzeug.utils import secure_filename
 import xml.etree.ElementTree as ET
 import re
+import csv
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
@@ -86,7 +88,7 @@ def allowed_file(filename):
 @app.route('/subir', methods=['POST'])
 def upload_file():
 
-    client_id = 1
+    client_id = 2
     string = str(r'/workspace/Proyecto-xMile/src/uploads')
 
     if request.method == 'POST':
@@ -137,27 +139,34 @@ def upload_file():
             return jsonify({"Msj": "Archivo subido correctamente"})
             
 
-@app.route('/procesar', methods=['GET'])
-def procesamiento():
-
-    client_id = 1
+@app.route('/descargar', methods=['GET'])
+def descarga():
+    string = str(r'/workspace/Proyecto-xMile/src/outputs')
+    out = string + "/facturas.csv"
+    #for c, i in db.session.query(Factura, Factura_detalle).filter(Factura.id == Factura_detalle.factura_id).all(): print ("Factura: {} Emisor: {} Detalle: {} Monto: {}".format(c.num_fac,c.emisor, i.detalle, i.mon_total))
+    #q = db.session.query(Client).all()
+    q = db.session.query(Client, Factura, Factura_detalle).filter(Client.id == Factura.client_id).filter(Factura.id == Factura_detalle.factura_id).filter(Client.id==1).all()
     
-    string = str(r'/workspace/Proyecto-xMile/src/uploads')
-    filename = 'FE-50628112100080114027200100001010000000096101113749.xml'
-    xml = string + "/" + filename
+    # for row in q:
+    #     clienteX = row[2].serialize()
+    #     print(clienteX['detalle'])
+
+    # return jsonify({"Msj": "Query Exitoso"})
     
-    parser = ET.XMLParser(encoding="utf-8")
-    persed = ET.parse(xml, parser=parser)
+    with open(out, 'w', newline='') as csvFile:
+        csvwriter = csv.writer(csvFile, delimiter = ',')
+        csvwriter.writerow(["ID Cliente", "Numero de Factura", "Fecha", "Linea Factura", "Detalle", "Monto Total"])
+        for row in q:
+            regClient = row[0].serialize()  
+            regFactura = row[1].serialize()
+            regDetalle = row[2].serialize()
+            csvwriter.writerow([regFactura['num_fac']])
 
-    factura = persed.getroot()
-    
-    print(factura)
+            #csvwriter.writerow([q.factura.client_id, q.factura.num_fac, q.facturafecha, q.factura_detalle.lin_fac, q.factura_detalle.detalle, q.factura_detalle.mon_total])
+    #return send_file(out,mimetype='text/csv',attachment_filename='prueba.csv',as_attachment=True)
+    return jsonify({"Msj": "Query Exitoso"})
 
-    documento_re = 'facturaElectronica'
-
-    doc_elec(client_id,xml,filename,factura,documento_re)
-
-    return jsonify({'msj':'AYY'})
+   
 
 
 # this only runs if `$ python src/main.py` is executed

@@ -63,7 +63,7 @@ class Factura(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "cliente_id": self.cliente_id,
+            "cliente_id": self.client_id,
             "doc": self.doc,
             "num_fac": self.num_fac,
             "fecha": self.fecha,
