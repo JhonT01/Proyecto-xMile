@@ -1,14 +1,12 @@
-import React, { useCallback } from "react";
-import { useDropzone } from "react-dropzone";
+import React from "react";
 
-export const Dropzone = (props) => {
-  const { acceptedFiles, fileRejections, getRootProps, getInputProps, open } =
-    useDropzone({
-      accept: ".xml",
-      noClick: false,
-      noKeyboard: true,
-    });
-
+export const Dropzone = ({
+  acceptedFiles,
+  fileRejections,
+  getRootProps,
+  getInputProps,
+  open,
+}) => {
   const acceptedFileItems = acceptedFiles.map((file) => (
     <li key={file.path}>
       {file.path} - {file.size} bytes

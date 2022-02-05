@@ -25,19 +25,27 @@ const Layout = () => {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Separador>
+                <Home />
+              </Separador>
             </Route>
             <Route exact path="/demo">
-              <Demo />
+              <Separador>
+                <Demo />
+              </Separador>
             </Route>
             <Route exact path="/single/:theid">
-              <Single />
+              <Separador>
+                <Single />
+              </Separador>
             </Route>
             <Route exact path="/subir-archivo">
               <Subir_archivo />
             </Route>
             <Route>
-              <h1>Not found!</h1>
+              <Separador>
+                <h1>Not found!</h1>
+              </Separador>
             </Route>
           </Switch>
           <Footer />
