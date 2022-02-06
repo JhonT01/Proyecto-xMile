@@ -5,11 +5,12 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 
 import os
 from sqlalchemy.orm import sessionmaker
-from flask import Flask, request, jsonify, url_for, send_from_directory, flash, redirect
+from flask import Flask, request, jsonify, url_for, send_from_directory, flash, redirect, send_file
 from werkzeug.utils import secure_filename
 import xml.etree.ElementTree as ET
 import re
 import csv
+import time
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
@@ -135,7 +136,7 @@ def upload_file():
                 print(filename, 'no es un combrobante electrónico.')
                 return jsonify({"Msj": "No es un documento electrónico valido"})
 
-            
+            time.sleep(2)
             return jsonify({"Msj": "Archivo subido correctamente"})
             
 
@@ -143,32 +144,91 @@ def upload_file():
 def descarga():
     string = str(r'/workspace/Proyecto-xMile/src/outputs')
     out = string + "/facturas.csv"
-    #for c, i in db.session.query(Factura, Factura_detalle).filter(Factura.id == Factura_detalle.factura_id).all(): print ("Factura: {} Emisor: {} Detalle: {} Monto: {}".format(c.num_fac,c.emisor, i.detalle, i.mon_total))
-    #q = db.session.query(Client).all()
-    q = db.session.query(Client, Factura, Factura_detalle).filter(Client.id == Factura.client_id).filter(Factura.id == Factura_detalle.factura_id).filter(Client.id==1).all()
-    
-    # for row in q:
-    #     clienteX = row[2].serialize()
-    #     print(clienteX['detalle'])
 
-    # return jsonify({"Msj": "Query Exitoso"})
+    q = db.session.query(Client, Factura, Factura_detalle).filter(Client.id == Factura.client_id).filter(Factura.id == Factura_detalle.factura_id).filter(Client.id==2).all()
     
     with open(out, 'w', newline='') as csvFile:
+
+        #Extraccion de los nombres de todas las columnas
+        csvHeaders = []
         csvwriter = csv.writer(csvFile, delimiter = ',')
-        csvwriter.writerow(["ID Cliente", "Numero de Factura", "Fecha", "Linea Factura", "Detalle", "Monto Total"])
+        clientCols = Client.query.all()
+        clientCols = clientCols[0].serialize()
+        clientCols = clientCols.keys()
+        
+        for k in clientCols:
+            csvHeaders.append(k)
+
+        facturaCols = Factura.query.all()
+        facturaCols = facturaCols[0].serialize()
+        facturaCols = facturaCols.keys()
+        
+        for k in facturaCols:
+            csvHeaders.append(k)
+
+        detalleCols = Factura_detalle.query.all()
+        detalleCols = detalleCols[0].serialize()
+        detalleCols = detalleCols.keys()
+        
+        for k in detalleCols:
+            csvHeaders.append(k)
+
+        print(csvHeaders)
+
+        #Insercion de todos los registros
+        csvwriter.writerow(csvHeaders)
         for row in q:
             regClient = row[0].serialize()  
             regFactura = row[1].serialize()
             regDetalle = row[2].serialize()
-            csvwriter.writerow([regFactura['num_fac']])
+            csvwriter.writerow(
+                #Registros Cliente
+                [regClient['id'],
+                regClient['fiscal_id'],
+                regClient['razon_social'],
+                #Registros Factura
+                regFactura['id'],
+                regFactura['cliente_id'],
+                regFactura['doc'],
+                regFactura['num_fac'],
+                regFactura['fecha'],
+                regFactura['emisor'],
+                regFactura['emisor_id'],
+                regFactura['receptor'],
+                regFactura['receptor_id'],
+                regFactura['moneda'],
+                regFactura['actividad'],
+                #Registros Detalle
+                regDetalle['id'],
+                regDetalle['factura_id'],
+                regDetalle['lin_fac'],
+                regDetalle['codigo'],
+                regDetalle['detalle'],
+                regDetalle['tarifa'],
+                regDetalle['precio_unit'],
+                regDetalle['cantidad'],
+                regDetalle['unidad'],
+                regDetalle['gravado_isc'],
+                regDetalle['exento_isc'],
+                regDetalle['imp_especif'],
+                regDetalle['monto_linea'],
+                regDetalle['gravado'],
+                regDetalle['exento'],
+                regDetalle['exonerado'],
+                regDetalle['si_otro'],
+                regDetalle['descuento'],
+                regDetalle['subtotal'],
+                regDetalle['monto_isc'],
+                regDetalle['impuesto'],
+                regDetalle['mon_total'],
+                regDetalle['auto_exon'],
+                regDetalle['fecha_exon'],
+                ])
 
-            #csvwriter.writerow([q.factura.client_id, q.factura.num_fac, q.facturafecha, q.factura_detalle.lin_fac, q.factura_detalle.detalle, q.factura_detalle.mon_total])
-    #return send_file(out,mimetype='text/csv',attachment_filename='prueba.csv',as_attachment=True)
-    return jsonify({"Msj": "Query Exitoso"})
+    return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
+
 
    
-
-
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+import { Separador } from "../component/separador";
 import "../../styles/home.css";
 
 export const Home = () => {

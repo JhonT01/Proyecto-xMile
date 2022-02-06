@@ -110,6 +110,7 @@ class Factura_detalle(db.Model):
             "id": self.id,
             "factura_id": self.factura_id,
             "lin_fac": self.lin_fac,
+            "codigo" : self.codigo,
             "detalle": self.detalle,
             "tarifa": self.tarifa,
             "precio_unit": self.precio_unit,

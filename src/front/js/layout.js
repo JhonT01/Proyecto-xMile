@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { Subir_archivo } from "./pages/subir-archivo";
 import injectContext from "./store/appContext";
 
 import { Separador } from "./component/separador";
@@ -37,6 +38,9 @@ const Layout = () => {
               <Separador>
                 <Single />
               </Separador>
+            </Route>
+            <Route exact path="/subir-archivo">
+              <Subir_archivo />
             </Route>
             <Route>
               <Separador>
