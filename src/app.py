@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
-from api.models import db
+from api.models import db, Client
 from api.routes import api
 from api.admin import setup_admin
 #from models import Person
@@ -57,6 +57,15 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0 # avoid cache memory
     return response
+
+@app.route('/client', methods=['POST'])
+def add_client():
+    body = request.get_json()
+    print (body)
+    newclient = Client(fiscal_id=body["cedulajuridica"], razon_social=body["razonsocial"])
+    db.session.add(newclient)
+    db.session.commit()
+    return jsonify({"mensaje": "Cliente creado exitosamente"}), 201
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':

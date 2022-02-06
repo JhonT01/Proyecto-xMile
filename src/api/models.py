@@ -30,6 +30,7 @@ class Client(db.Model):
     fiscal_id = db.Column(db.Integer, unique=True, nullable=False)
     razon_social = db.Column(db.String(80), unique=False, nullable=False)
     client_users = db.relationship("User_Client",  backref="client", lazy=True)
+    client_factura = db.relationship("Factura",  backref="client", lazy=True)
 
     def __repr__(self):
         return '<Client %r>' % self.id
@@ -63,7 +64,7 @@ class Factura(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "cliente_id": self.cliente_id,
+            "client_id": self.client_id,
             "doc": self.doc,
             "num_fac": self.num_fac,
             "lin_fac": self.lin_fac,

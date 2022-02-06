@@ -1,5 +1,5 @@
 const BASE_URL =
-  "https://3001-jhont01-proyectoxmile-hhc5ypl7kz4.ws-us30.gitpod.io";
+  "https://3001-jhont01-proyectoxmile-zg1v6k2yxky.ws-us30.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
