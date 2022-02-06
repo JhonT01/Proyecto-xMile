@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import {Separador} from "../component/separador";
+import { Separador } from "../component/separador";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -18,7 +18,7 @@ export const Home = () => {
     formData.append("file", selectedFile);
 
     fetch(
-      "https://3001-jhont01-proyectoxmile-msgpnujt3o6.ws-us30.gitpod.io/subir",
+      "https://3001-jhont01-proyectoxmile-8dimbo8wt0x.ws-us30.gitpod.io/subir",
       {
         method: "POST",
         body: formData,
@@ -34,7 +34,7 @@ export const Home = () => {
   };
 
   return (
-    <div >
+    <div>
       <input type="file" name="file" onChange={changeHandler} multiple />
       {isSelected ? (
         <div>
