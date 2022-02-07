@@ -9,6 +9,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
+from datetime import date
 
 api = Blueprint('api', __name__)
 
@@ -22,9 +23,16 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@api.route('/login', methods=['POST'])
+@api.route('/registro', methods=['POST'])
 def crearUser():
-    email = request.json['email']
-    contaseña = request.json['contraseña']
+    # nombre= request.json['nombre']
+    # apellido = request.json['apellido']
+    # email = request.json['email']
+    # contaseña = request.json['password']
+    rol = "empty"
+    body = request.get_json()
+    nuevoUsuario = User(nombre=body["nombre"], apellido=body["apellido"], email=body["email"], password=body["password"], rol = rol, is_active = True, created_at = date.today() )
+    db.session.add(nuevoUsuario)
+    db.session.commit()
     print(request.json)
-    return "recibido"
+    return jsonify({'message':"Usuario Registrado"}), 200

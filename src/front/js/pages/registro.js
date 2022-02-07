@@ -35,7 +35,7 @@ export const Registro = () => {
     //formData.append("file", selectedFile);
 
     fetch(
-      "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us30.gitpod.io/login",
+      "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us30.gitpod.io/registro",
       {
         method: "POST",
         body: JSON.stringify(obj),
@@ -136,7 +136,12 @@ export const Registro = () => {
           <button
             type="submit"
             className="btn btn-outline-info"
-            onClick={actions.crearUsuario()}
+            onClick={actions.crearUsuario(
+              usuario.nombre,
+              usuario.apellido,
+              usuario.email,
+              usuario.password
+            )}
           >
             Registrarse
           </button>
