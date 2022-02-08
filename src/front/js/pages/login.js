@@ -25,12 +25,18 @@ export const Login = () => {
 
   const handleSubmission = () => {
     const formData = usuario;
-
     let obj = {};
-
     obj["email"] = usuario.email;
 
-    //formData.append("file", selectedFile);
+
+    if([guardarUsuario].includes('')){
+      console.log("Vacio")
+    }else{
+      console.log('Full')
+    }
+
+
+
 
     fetch(
       "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us30.gitpod.io/login",
