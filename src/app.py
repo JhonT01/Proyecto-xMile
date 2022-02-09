@@ -89,7 +89,7 @@ def allowed_file(filename):
 @app.route('/subir', methods=['POST'])
 def upload_file():
 
-    client_id = 2
+    
     string = str(r'/workspace/Proyecto-xMile/src/uploads')
 
     if request.method == 'POST':
@@ -106,6 +106,8 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             #If the file extension is valid, parse the xml file for addittional tests
+            
+            client_id = request.form['client_id']
             xml = string + "/" + filename
             parser = ET.XMLParser(encoding="utf-8")
             persed = ET.parse(xml, parser=parser)
@@ -227,7 +229,27 @@ def descarga():
 
     return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
 
+@app.route('/clients', methods=['GET'])
+def get_clients():
+    response = []
+    q = db.session.query(Client).all()
+    for row in q:
+        cliente = row.serialize()
+        response.append(cliente)
 
+    print(response)    
+    return jsonify(response),200
+
+@app.route('/facturas', methods=['GET'])
+def get_facturas():
+    response = []
+    q = db.session.query(Factura).all()
+    for row in q:
+        factura = row.serialize()
+        response.append(factura)
+
+    print('Query exitoso')    
+    return jsonify(response),200
    
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':

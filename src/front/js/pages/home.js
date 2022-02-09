@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../store/appContext"
 
 import { Separador } from "../component/separador";
 import "../../styles/home.css";
 
 export const Home = () => {
+
+  const {store, actions} = useContext(Context)
+  
   const [selectedFile, setSelectedFile] = useState();
   const [isSelected, setIsSelected] = useState(false);
 
@@ -34,6 +38,7 @@ export const Home = () => {
   };
 
   return (
+
     <div>
       <input type="file" name="file" onChange={changeHandler} multiple />
       {isSelected ? (
