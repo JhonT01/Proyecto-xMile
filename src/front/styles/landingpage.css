@@ -11,6 +11,7 @@ body {
   background: #eee;
   margin-top: 20px;
 }
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -31,4 +32,10 @@ body {
   border-radius: 50%;
   transition: all 0.3s;
   font-size: 0.9rem;
+}
+
+.team5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

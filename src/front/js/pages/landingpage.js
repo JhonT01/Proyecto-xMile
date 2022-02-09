@@ -120,13 +120,17 @@ export const Landing_page = () => {
 
       {/* <!--     FEATURE 2     --> */}
 
-      <div className="container px-4 py-5" id="custom-cards">
+      <div
+        className="container d-flex align-items-center px-4 py-5"
+        id="custom-cards"
+      >
         <link
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet"
         />
 
-        <div className="container py-5">
+        <div className="container">
+          {/* <!-- Tittle --> */}
           <div className="row mb-4">
             <div className="col-lg-5">
               <h2 className="display-4 font-weight-light">Our team</h2>
@@ -135,6 +139,7 @@ export const Landing_page = () => {
               </p>
             </div>
           </div>
+          {/* <!-- Tittle--> */}
 
           <div className="row text-center align-items-center">
             {/* <!-- Team item--> */}
@@ -292,9 +297,52 @@ export const Landing_page = () => {
               </div>
             </div>
             {/* <!-- End--> */}
+
+            {/* <!-- Team item--> */}
+            <span className="team5">
+              <div className="col-xl-3 col-sm-6 mb-5">
+                <div className="bg-white rounded shadow-sm py-5 px-4">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                    alt=""
+                    width="100"
+                    className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
+                  />
+                  <h5 className="mb-0">John Tarly</h5>
+                  <span className="small text-uppercase text-muted">
+                    CEO - Founder
+                  </span>
+                  <ul className="social mb-0 list-inline mt-3">
+                    <li className="list-inline-item">
+                      <a href="#" className="social-link">
+                        <i className="fa fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="#" className="social-link">
+                        <i className="fa fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="#" className="social-link">
+                        <i className="fa fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="#" className="social-link">
+                        <i className="fa fa-linkedin"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </span>
+
+            {/* <!-- End--> */}
           </div>
         </div>
       </div>
+
       {/* <!--    /FEATURE 2     --> */}
     </div>
   );
