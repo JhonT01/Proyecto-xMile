@@ -41,7 +41,7 @@ export const Login = () => {
         body: JSON.stringify(obj),
       }
     );
-    
+
     console.log(obj);
   };
 
