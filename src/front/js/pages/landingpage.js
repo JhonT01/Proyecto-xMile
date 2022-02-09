@@ -5,6 +5,7 @@ import foto_kevin from "../../img/team/kevin.jpeg";
 import foto_jhon from "../../img/team/jhon.jpg";
 import foto_luis from "../../img/team/luis.jpeg";
 import foto_facundo from "../../img/team/facundo.jpg";
+import foto_jesús from "../../img/team/jesús.jpg"
 
 export const Landing_page = () => {
   const { store, actions } = useContext(Context);
@@ -150,7 +151,7 @@ export const Landing_page = () => {
             <div className="col-xl-3 col-sm-6 mb-5">
               <div className="bg-white rounded shadow-sm py-5 px-4">
                 <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  src={foto_jesús}
                   alt=""
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
