@@ -160,27 +160,17 @@ export const Landing_page = () => {
                 />
                 <h5 className="mb-0">Jesús León</h5>
                 <span className="small text-uppercase text-muted">
-                  CEO - Founder
+                  Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
                   <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
+                    <a href="https://www.linkedin.com/in/jesus-leon-abb044b8/" className="social-link">
                       <i className="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a href="https://github.com/leonjesusC" className="social-link">
+                      <i className="fa fa-github"></i>
                     </a>
                   </li>
                 </ul>
@@ -199,27 +189,17 @@ export const Landing_page = () => {
                 />
                 <h5 className="mb-0">Jhon Téllez</h5>
                 <span className="small text-uppercase text-muted">
-                  CEO - Founder
+                  Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
+                <li className="list-inline-item">
+                    <a href="www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220" className="social-link">
                       <i className="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a href="https://github.com/JhonT01" className="social-link">
+                      <i className="fa fa-github"></i>
                     </a>
                   </li>
                 </ul>
@@ -238,27 +218,17 @@ export const Landing_page = () => {
                 />
                 <h5 className="mb-0">Kevin Bullor</h5>
                 <span className="small text-uppercase text-muted">
-                  CEO - Founder
+                  Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
+                <li className="list-inline-item">
+                    <a href="https://www.linkedin.com/in/kevin-bullor-08b01576/" className="social-link">
                       <i className="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a href="https://github.com/kevinmillo" className="social-link">
+                      <i className="fa fa-github"></i>
                     </a>
                   </li>
                 </ul>
@@ -277,27 +247,17 @@ export const Landing_page = () => {
                 />
                 <h5 className="mb-0">Luis Alberto</h5>
                 <span className="small text-uppercase text-muted">
-                  CEO - Founder
+                  Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
+                <li className="list-inline-item">
+                    <a href="https://www.linkedin.com/in/luismadridf/" className="social-link">
                       <i className="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a href="https://github.com/DevOpsLuixus" className="social-link">
+                      <i className="fa fa-github"></i>
                     </a>
                   </li>
                 </ul>
@@ -317,29 +277,19 @@ export const Landing_page = () => {
                   />
                   <h5 className="mb-0">Facundo Gul</h5>
                   <span className="small text-uppercase text-muted">
-                    CEO - Founder
+                    Colaborador
                   </span>
                   <ul className="social mb-0 list-inline mt-3">
-                    <li className="list-inline-item">
-                      <a href="#" className="social-link">
-                        <i className="fa fa-facebook-f"></i>
-                      </a>
-                    </li>
-                    <li className="list-inline-item">
-                      <a href="#" className="social-link">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li className="list-inline-item">
-                      <a href="#" className="social-link">
-                        <i className="fa fa-instagram"></i>
-                      </a>
-                    </li>
-                    <li className="list-inline-item">
-                      <a href="#" className="social-link">
-                        <i className="fa fa-linkedin"></i>
-                      </a>
-                    </li>
+                  <li className="list-inline-item">
+                    <a href="https://www.linkedin.com/in/facundoguldossantos/" className="social-link">
+                      <i className="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a href="https://github.com/FacundoGdS" className="social-link">
+                      <i className="fa fa-github"></i>
+                    </a>
+                  </li>
                   </ul>
                 </div>
               </div>
