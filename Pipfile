@@ -17,6 +17,8 @@ flask-cors = "*"
 gunicorn = "*"
 cloudinary = "*"
 flask-admin = "*"
+pandas = "*"
+xlsxwriter = "*"
 
 [requires]
 python_version = "3.8"
