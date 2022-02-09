@@ -24,16 +24,13 @@ const Layout = () => {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Landing_page />
             </Route>
             <Route exact path="/demo">
               <Demo />
             </Route>
             <Route exact path="/single/:theid">
               <Single />
-            </Route>
-            <Route exact path="/landingpage">
-              <Landing_page />
             </Route>
             <Route>
               <h1>Not found!</h1>
