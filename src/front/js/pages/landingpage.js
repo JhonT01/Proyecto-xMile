@@ -42,7 +42,13 @@ export const Landing_page = () => {
             </div> */}
           </div>
           <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
-            <img className="rounded-lg-3" src={imagotipo} alt="" width="600" />
+            <img
+              className="rounded-lg-3"
+              id="hero-image"
+              src={imagotipo}
+              alt=""
+              width="600"
+            />
           </div>
         </div>
       </div>
