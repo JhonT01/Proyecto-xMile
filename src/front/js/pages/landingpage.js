@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/landingpage.css";
+import foto_kevin from "../../img/team/kevin.jpeg";
+import foto_jhon from "../../img/team/jhon.jpg";
+import foto_luis from "../../img/team/luis.jpeg";
 
 export const Landing_page = () => {
   const { store, actions } = useContext(Context);
@@ -151,7 +154,7 @@ export const Landing_page = () => {
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Manuella Nevoresky</h5>
+                <h5 className="mb-0">Jesús León</h5>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>
@@ -185,12 +188,12 @@ export const Landing_page = () => {
             <div className="col-xl-3 col-sm-6 mb-5">
               <div className="bg-white rounded shadow-sm py-5 px-4">
                 <img
-                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                  src={foto_jhon}
                   alt=""
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Samuel Hardy</h5>
+                <h5 className="mb-0">Jhon Téllez</h5>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>
@@ -224,12 +227,12 @@ export const Landing_page = () => {
             <div className="col-xl-3 col-sm-6 mb-5">
               <div className="bg-white rounded shadow-sm py-5 px-4">
                 <img
-                  src="https://bootdey.com/img/Content/avatar/avatar8.png"
+                  src={foto_kevin}
                   alt=""
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Tom Sunderland</h5>
+                <h5 className="mb-0">Kevin Bullor</h5>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>
@@ -263,12 +266,12 @@ export const Landing_page = () => {
             <div className="col-xl-3 col-sm-6 mb-5">
               <div className="bg-white rounded shadow-sm py-5 px-4">
                 <img
-                  src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                  src={foto_luis}
                   alt=""
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">John Tarly</h5>
+                <h5 className="mb-0">Luis Alberto</h5>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>
