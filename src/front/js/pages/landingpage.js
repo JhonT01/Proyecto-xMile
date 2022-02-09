@@ -42,12 +42,7 @@ export const Landing_page = () => {
             </div> */}
           </div>
           <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
-            <img
-              className="rounded-lg-3"
-              src={imagotipo}
-              alt=""
-              width="600"
-            />
+            <img className="rounded-lg-3" src={imagotipo} alt="" width="600" />
           </div>
         </div>
       </div>
@@ -192,7 +187,7 @@ export const Landing_page = () => {
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
                 <li className="list-inline-item">
-                    <a href="#" className="social-link">
+                    <a href="www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220" className="social-link">
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>

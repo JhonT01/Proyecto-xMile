@@ -6,8 +6,10 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Landing_page } from "./pages/landingpage";
+import { Subir_archivo } from "./pages/subir-archivo";
 import injectContext from "./store/appContext";
 
+import { Separador } from "./component/separador";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -24,19 +26,27 @@ const Layout = () => {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Separador>
+                <Landing_page />
+              </Separador>
             </Route>
             <Route exact path="/demo">
-              <Demo />
+              <Separador>
+                <Demo />
+              </Separador>
             </Route>
             <Route exact path="/single/:theid">
-              <Single />
+              <Separador>
+                <Single />
+              </Separador>
             </Route>
-            <Route exact path="/landingpage">
-              <Landing_page />
+            <Route exact path="/subir-archivo">
+              <Subir_archivo />
             </Route>
             <Route>
-              <h1>Not found!</h1>
+              <Separador>
+                <h1>Not found!</h1>
+              </Separador>
             </Route>
           </Switch>
           <Footer />
