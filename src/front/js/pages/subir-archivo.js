@@ -5,6 +5,7 @@ import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
 
 import { Dropzone } from "../component/dropzone-component";
+import { ItemCliente } from "../component/itemCliente";
 
 export const Subir_archivo = () => {
   const { store, actions } = useContext(Context);
@@ -22,7 +23,7 @@ export const Subir_archivo = () => {
       formData.append("file", element);
 
       fetch(
-        "https://3001-jhont01-proyectoxmile-8dimbo8wt0x.ws-us30.gitpod.io/subir",
+        "https://3001-jhont01-proyectoxmile-e8yt4njn2qe.ws-us30.gitpod.io/subir",
         {
           method: "POST",
           body: formData,
@@ -39,31 +40,33 @@ export const Subir_archivo = () => {
   };
 
   return (
-    <div className="form-usuario">
-      <div className="contenedor-form border text-center mt-5 sombra-dark">
-        <img src={logoIma} />
-        <h1>Subir archivos</h1>
+    <>
+      <div className="form-usuario">
+        <div className="contenedor-form border text-center mt-5 sombra-dark">
+          <img src={logoIma} />
+          <h1>Subir archivos</h1>
 
-        <Dropzone
-          acceptedFiles={acceptedFiles}
-          fileRejections={fileRejections}
-          getRootProps={getRootProps}
-          getInputProps={getInputProps}
-          open={open}
-        />
+          <Dropzone
+            acceptedFiles={acceptedFiles}
+            fileRejections={fileRejections}
+            getRootProps={getRootProps}
+            getInputProps={getInputProps}
+            open={open}
+          />
 
-        <div className="container mt-2 mb-2">
-          <button
-            type="button"
-            className="btn"
-            onClick={() => {
-              enviarArchivo(acceptedFiles);
-            }}
-          >
-            Subir Archivos
-          </button>
+          <div className="container mt-2 mb-2">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                enviarArchivo(acceptedFiles);
+              }}
+            >
+              Subir Archivos
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

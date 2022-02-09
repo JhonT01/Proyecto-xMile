@@ -41,7 +41,7 @@ export const Navbar = () => {
               </a>
             </li>
             <li className="nav-item sombreado">
-              <a className="nav-link active pe-auto" href="#">
+              <a className="nav-link active pe-auto" href="/principal/1">
                 Clientes
               </a>
             </li>
@@ -51,9 +51,9 @@ export const Navbar = () => {
               </a>
             </li>
             <li className="nav-item sombreado">
-              <a className="nav-link active pe-auto" href="#">
+              <Link className="nav-link active pe-auto" to="/subir-archivo">
                 Cargar Facturas
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <button

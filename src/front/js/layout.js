@@ -6,6 +6,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Subir_archivo } from "./pages/subir-archivo";
+import { Principal } from "./pages/principal";
 import injectContext from "./store/appContext";
 
 import { Separador } from "./component/separador";
@@ -41,6 +42,11 @@ const Layout = () => {
             </Route>
             <Route exact path="/subir-archivo">
               <Subir_archivo />
+            </Route>
+            <Route exact path="/principal/:clientId">
+              <Separador>
+                <Principal />
+              </Separador>
             </Route>
             <Route>
               <Separador>
