@@ -5,7 +5,8 @@ import foto_kevin from "../../img/team/kevin.jpeg";
 import foto_jhon from "../../img/team/jhon.jpg";
 import foto_luis from "../../img/team/luis.jpeg";
 import foto_facundo from "../../img/team/facundo.jpg";
-import foto_jesús from "../../img/team/jesús.jpg"
+import foto_jesús from "../../img/team/jesús.jpg";
+import imagotipo from "../../img/logos/imagotipo_blanco.png";
 
 export const Landing_page = () => {
   const { store, actions } = useContext(Context);
@@ -17,7 +18,7 @@ export const Landing_page = () => {
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h1 className="display-4 fw-bold lh-1">
-              Border hero with cropped image and shadows
+              Agiliza tus reportes de facturación con...
             </h1>
             <p className="lead">
               Quickly design and customize responsive mobile-first sites with
@@ -40,12 +41,12 @@ export const Landing_page = () => {
               </button>
             </div> */}
           </div>
-          <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
             <img
               className="rounded-lg-3"
-              src="bootstrap-docs.png"
+              src={imagotipo}
               alt=""
-              width="720"
+              width="600"
             />
           </div>
         </div>
@@ -138,7 +139,7 @@ export const Landing_page = () => {
           {/* <!-- Tittle --> */}
           <div className="row mb-4">
             <div className="col-lg-5">
-              <h2 className="display-4 font-weight-light">Our team</h2>
+              <h2 className="display-4 font-weight-light">Nuestro equipo</h2>
               <p className="font-italic text-muted">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </p>

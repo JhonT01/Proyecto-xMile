@@ -39,3 +39,11 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.maincolor {
+  color: rgb(95, 179, 160) !important;
+}
+
+/* Color (monocromático) de XMiLe:
+RGB 	95	179	160
+#5fb3a0 */
