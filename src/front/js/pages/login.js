@@ -28,9 +28,9 @@ export const Login = () => {
     obj["email"] = usuario.email;
 
     if (usuario.email == "" || usuario.password == "") {
-      setError(true);
+      setError(true)
       return;
-    } 
+    } else {
       setError(false);
     }
 
