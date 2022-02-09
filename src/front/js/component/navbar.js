@@ -7,17 +7,17 @@ export const Navbar = () => {
   return (
     <nav className="navbar-fixed navbar-expand-lg navbar-light bg-white pe-none">
       <div className="container-fluid p-0 mt-n1 d-flex">
-        <a className="navbar-brand" href="#">
-          <Link to="/">
-            <img
-              src={Logo}
-              alt="xmile"
-              width="80"
-              height="50"
-              className="d-inline-block align-text-top"
-            />
-          </Link>
-        </a>
+        {/* <a className="navbar-brand" href="#"> */}
+        <Link to="/" className="navbar-brand">
+          <img
+            src={Logo}
+            alt="xmile"
+            width="80"
+            height="50"
+            className="d-inline-block align-text-top"
+          />
+        </Link>
+        {/* </a> */}
         <button
           className="navbar-toggler"
           type="button"
