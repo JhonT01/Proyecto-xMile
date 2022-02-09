@@ -22,7 +22,7 @@ export const Subir_archivo = () => {
       formData.append("file", element);
 
       fetch(
-        "https://3001-jhont01-proyectoxmile-8dimbo8wt0x.ws-us30.gitpod.io/subir",
+        "https://3001-jhont01-proyectoxmile-zot1a83ns2i.ws-us30.gitpod.io/subir",
         {
           method: "POST",
           body: formData,
