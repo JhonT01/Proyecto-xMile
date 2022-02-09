@@ -51,7 +51,7 @@ export const Navbar = () => {
               </a>
             </li>
             <li className="nav-item sombreado">
-              <Link className="nav-link active pe-auto" to="/subir-archivo">
+              <Link className="nav-link active pe-auto" to="/subir-archivo/1">
                 Cargar Facturas
               </Link>
             </li>

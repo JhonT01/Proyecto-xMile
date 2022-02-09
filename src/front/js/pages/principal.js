@@ -25,11 +25,12 @@ export const Principal = () => {
             <h1 className="titulo">Listado de Clientes</h1>
             <div className="list-group">
               {store.clients.length > 0 ? (
-                store.clients.map((elementoActual, indice) => {
+                store.clients.map((cliente) => {
                   return (
                     <ItemCliente
-                      theName={elementoActual.razon_social}
-                      theId={elementoActual.id}
+                      key={cliente.id}
+                      theName={cliente.razon_social}
+                      theId={cliente.id}
                     />
                   );
                 })
@@ -74,25 +75,26 @@ export const Principal = () => {
               </thead>
               <tbody>
                 {store.facturas.length > 0 ? (
-                  store.facturas.map((elementoActual, indice) => {
-                    if (elementoActual.cliente_id == params.clientId) {
+                  store.facturas.map((factura) => {
+                    if (factura.cliente_id == params.clientId) {
                       return (
                         <RowFactura
-                          theId={elementoActual.id}
-                          theDoc={elementoActual.doc}
-                          theFecha={elementoActual.fecha}
-                          theEmisor={elementoActual.emisor}
-                          theEmisorId={elementoActual.emisor_id}
-                          theConsecutivo={elementoActual.num_fac}
-                          theActividad={elementoActual.actividad}
-                          theReceptor={elementoActual.receptor}
-                          theReceptorId={elementoActual.receptor_id}
+                          key={factura.id}
+                          theId={factura.id}
+                          theDoc={factura.doc}
+                          theFecha={factura.fecha}
+                          theEmisor={factura.emisor}
+                          theEmisorId={factura.emisor_id}
+                          theConsecutivo={factura.num_fac}
+                          theActividad={factura.actividad}
+                          theReceptor={factura.receptor}
+                          theReceptorId={factura.receptor_id}
                         />
                       );
                     }
                   })
                 ) : (
-                  <div>Cargando</div>
+                  <span>Cargando</span>
                 )}
               </tbody>
             </table>

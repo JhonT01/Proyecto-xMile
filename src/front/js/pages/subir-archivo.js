@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useDropzone } from "react-dropzone";
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
 
 import { Dropzone } from "../component/dropzone-component";
-import { ItemCliente } from "../component/itemCliente";
+import { ItemClienteSubir } from "../component/itemClienteSubir";
 
 export const Subir_archivo = () => {
   const { store, actions } = useContext(Context);
+
+  const params = useParams();
 
   const { acceptedFiles, fileRejections, getRootProps, getInputProps, open } =
     useDropzone({
@@ -21,9 +24,10 @@ export const Subir_archivo = () => {
     data.forEach(function (element) {
       const formData = new FormData();
       formData.append("file", element);
+      formData.append("client_id", params.clientId);
 
       fetch(
-        "https://3001-jhont01-proyectoxmile-e8yt4njn2qe.ws-us30.gitpod.io/subir",
+        "https://3001-jhont01-proyectoxmile-e8yt4njn2qe.ws-us31.gitpod.io/subir",
         {
           method: "POST",
           body: formData,
@@ -45,6 +49,21 @@ export const Subir_archivo = () => {
         <div className="contenedor-form border text-center mt-5 sombra-dark">
           <img src={logoIma} />
           <h1>Subir archivos</h1>
+          <div className="list-group">
+            {store.clients.length > 0 ? (
+              store.clients.map((cliente) => {
+                return (
+                  <ItemClienteSubir
+                    key={cliente.id}
+                    theName={cliente.razon_social}
+                    theId={cliente.id}
+                  />
+                );
+              })
+            ) : (
+              <div>Cargando</div>
+            )}
+          </div>
 
           <Dropzone
             acceptedFiles={acceptedFiles}

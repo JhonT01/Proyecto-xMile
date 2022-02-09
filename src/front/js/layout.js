@@ -40,7 +40,7 @@ const Layout = () => {
                 <Single />
               </Separador>
             </Route>
-            <Route exact path="/subir-archivo">
+            <Route exact path="/subir-archivo/:clientId">
               <Subir_archivo />
             </Route>
             <Route exact path="/principal/:clientId">

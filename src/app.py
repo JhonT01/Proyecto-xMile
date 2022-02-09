@@ -89,7 +89,7 @@ def allowed_file(filename):
 @app.route('/subir', methods=['POST'])
 def upload_file():
 
-    client_id = 1
+    
     string = str(r'/workspace/Proyecto-xMile/src/uploads')
 
     if request.method == 'POST':
@@ -106,6 +106,8 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             #If the file extension is valid, parse the xml file for addittional tests
+            
+            client_id = request.form['client_id']
             xml = string + "/" + filename
             parser = ET.XMLParser(encoding="utf-8")
             persed = ET.parse(xml, parser=parser)
