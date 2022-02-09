@@ -5,7 +5,9 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { Landing_page } from "./pages/landingpage";
 import { Subir_archivo } from "./pages/subir-archivo";
+import { Principal } from "./pages/principal";
 import injectContext from "./store/appContext";
 
 import { Separador } from "./component/separador";
@@ -26,7 +28,7 @@ const Layout = () => {
           <Switch>
             <Route exact path="/">
               <Separador>
-                <Home />
+                <Landing_page />
               </Separador>
             </Route>
             <Route exact path="/demo">
@@ -39,8 +41,13 @@ const Layout = () => {
                 <Single />
               </Separador>
             </Route>
-            <Route exact path="/subir-archivo">
+            <Route exact path="/subir-archivo/:clientId">
               <Subir_archivo />
+            </Route>
+            <Route exact path="/principal/:clientId">
+              <Separador>
+                <Principal />
+              </Separador>
             </Route>
             <Route>
               <Separador>
