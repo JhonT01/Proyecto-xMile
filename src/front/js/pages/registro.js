@@ -136,12 +136,12 @@ export const Registro = () => {
           <button
             type="submit"
             className="btn btn-outline-info"
-            onClick={actions.crearUsuario(
+            onClick={ () => {actions.crearUsuario(
               usuario.nombre,
               usuario.apellido,
               usuario.email,
               usuario.password
-            )}
+            )}}
           >
             Registrarse
           </button>

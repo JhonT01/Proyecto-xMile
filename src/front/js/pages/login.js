@@ -1,25 +1,24 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
 
 export const Login = () => {
-  
-  
   //State para iniciar Sesion
-  const [usuario, guardarUsuario] = useState({
+  const [usuario, setUsuario] = useState({
     email: "",
     password: "",
   });
-
+  //validacion de campos
+  const [error, setError] = useState(false);
 
   //extraer de usuario
   const { email, password } = usuario;
 
-  const onChange = e => {
-    guardarUsuario({
+  const onChange = (e) => {
+    setUsuario({
       ...usuario, //crea una copa de usuario
-      [e.target.name]: e.target.value //reescribe la actual
+      [e.target.name]: e.target.value, //reescribe la actual
     });
   };
 
@@ -28,15 +27,12 @@ export const Login = () => {
     let obj = {};
     obj["email"] = usuario.email;
 
-
-    if([guardarUsuario].includes('')){
-      console.log("Vacio")
-    }else{
-      console.log('Full')
+    if (usuario.email == "" || usuario.password == "") {
+      setError(true);
+      return;
+    } 
+      setError(false);
     }
-
-
-
 
     fetch(
       "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us30.gitpod.io/login",
@@ -45,13 +41,7 @@ export const Login = () => {
         body: JSON.stringify(obj),
       }
     );
-    // .then((response) => response.json())
-    // .then((result) => {
-    //   console.log("Success:", result);
-    // })
-    // .catch((error) => {
-    //   console.error("Error:", error);
-    // });
+
     console.log(obj);
   };
 
@@ -71,7 +61,7 @@ export const Login = () => {
               name="email"
               className="form-control"
               id="email"
-              placeholder="TuEmail@email.com"
+              placeholder="Correo electrónico"
               value={email}
               onChange={onChange}
             />
@@ -109,10 +99,16 @@ export const Login = () => {
           >
             Iniciar Sesión
           </button>
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              <p>Todos los campos son obligatorios</p>
+            </div>
+          )}
         </form>
         <div className="dropdown-divider"></div>
-        <Link to={'/registro'} className="dropdown-item" >
-          Registrarse
+        <Link to={"/registro"} className="dropdown-item">
+          ¿No tienes una cuenta?{" "}
+          <span className="linkRegistro">Registrate</span>
         </Link>
         <a className="dropdown-item" href="#">
           ¿Olvido su contraseña?
