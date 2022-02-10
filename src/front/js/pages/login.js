@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom'
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
 
@@ -41,7 +41,6 @@ export const Login = () => {
         body: JSON.stringify(obj),
       }
     );
-
     console.log(obj);
   };
 

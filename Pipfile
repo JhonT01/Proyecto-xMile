@@ -18,6 +18,8 @@ gunicorn = "*"
 cloudinary = "*"
 flask-admin = "*"
 flask-jwt-extended = "*"
+pandas = "*"
+xlsxwriter = "*"
 
 [requires]
 python_version = "3.8"
