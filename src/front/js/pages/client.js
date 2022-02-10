@@ -68,6 +68,39 @@ export const Client = () => {
           >
             Crear Cliente
           </button>
+          {store.mensajeclientecreado &&
+            store.mensajeclientecreado == "recibido" && (
+              <div
+                className="alert alert-success d-flex align-items-center"
+                role="alert"
+              >
+                <svg
+                  className="bi flex-shrink-0 me-2"
+                  width="24"
+                  height="24"
+                  role="img"
+                  aria-label="Success:"
+                ></svg>
+                <div>Cliente creado exitosamente.</div>
+              </div>
+            )}
+          {store.mensajeclientecreado &&
+            store.mensajeclientecreado ==
+              "Cliente existente. Registre nuevo cliente" && (
+              <div
+                className="alert alert-warning d-flex align-items-center"
+                role="alert"
+              >
+                <svg
+                  className="bi flex-shrink-0 me-2"
+                  width="24"
+                  height="24"
+                  role="img"
+                  aria-label="Warning:"
+                ></svg>
+                <div>Cliente ya existente. Ingrese un nuevo cliente.</div>
+              </div>
+            )}
         </form>
       </div>
     </div>

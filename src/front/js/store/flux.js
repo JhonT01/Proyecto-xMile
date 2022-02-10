@@ -1,9 +1,10 @@
 const BASE_URL =
-  "https://3001-jhont01-proyectoxmile-2xiqsnfot09.ws-us31.gitpod.io";
+  "https://3001-jhont01-proyectoxmile-e43d46b19xt.ws-us31.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      mensajeclientecreado: "",
       message: null,
       demo: [
         {
@@ -35,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify(nuevoCliente),
         });
         const data = await response.json();
-        console.log(data);
+        setStore({ mensajeclientecreado: data });
       },
 
       // Use getActions to call a function within a fuction
