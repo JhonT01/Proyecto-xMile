@@ -19,10 +19,12 @@ from api.utils import APIException, generate_sitemap
 from api.models import db, User, Factura, Client, Factura_detalle
 from api.routes import api
 from api.admin import setup_admin
+from flask_jwt_extended import JWTManager
 #from models import Person
 
 UPLOAD_FOLDER = './src/uploads'
 ALLOWED_EXTENSIONS = {"xml", "XML"}
+
 
 
 ENV = os.getenv("FLASK_ENV")
@@ -32,8 +34,11 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+
+
 # database condiguration
 db_url = os.getenv("DATABASE_URL")
+
 if db_url is not None:
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url.replace(
         "postgres://", "postgresql://")
@@ -46,6 +51,9 @@ db.init_app(app)
 
 # Allow CORS requests to this API
 CORS(app)
+app.config["JWT_SECRET_KEY"] = os.getenv("SECRET_KEY_JWT")
+jwt = JWTManager(app)
+
 
 # add the admin
 setup_admin(app)

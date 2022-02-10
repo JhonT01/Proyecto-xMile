@@ -12,8 +12,9 @@ class User(db.Model):
     rol =  db.Column(db.String(100), unique=False, nullable=False)
     created_at =  db.Column(db.DateTime(), unique=False, nullable=False)
     user_clients = db.relationship("User_Client", backref="user", lazy=True)
+    
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<User %r>' % self.id
     def serialize(self):
         return {
             "id": self.id,

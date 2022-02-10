@@ -20,6 +20,7 @@ flask-admin = "*"
 flask-jwt-extended = "*"
 pandas = "*"
 xlsxwriter = "*"
+flask-bcrypt = "*"
 
 [requires]
 python_version = "3.8"
