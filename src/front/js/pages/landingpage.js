@@ -6,7 +6,7 @@ import foto_jhon from "../../img/team/jhon.jpg";
 import foto_luis from "../../img/team/luis.jpeg";
 import foto_facundo from "../../img/team/facundo.jpg";
 import foto_jesús from "../../img/team/jesús.jpg";
-import imagotipo from "../../img/logos/imagotipo_blanco.png";
+import imagotipo from "../../img/logos/imagotipo.png";
 
 export const Landing_page = () => {
   const { store, actions } = useContext(Context);
@@ -16,7 +16,7 @@ export const Landing_page = () => {
       {/* <!--     HERO CONTAINER     --> */}
       <div className="container my-5">
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-          <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
             <h1 className="display-4 fw-bold lh-1">
               Agiliza tus reportes de facturación con...
             </h1>
@@ -41,8 +41,11 @@ export const Landing_page = () => {
               </button>
             </div> */}
           </div>
-          <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
+{/*          <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
             <img className="rounded-lg-3" src={imagotipo} alt="" width="600" />
+          </div>*/}
+          <div className="col-1">
+            <img src={imagotipo} alt="" width="500" />
           </div>
         </div>
       </div>
@@ -187,7 +190,7 @@ export const Landing_page = () => {
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
                 <li className="list-inline-item">
-                    <a href="www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220" className="social-link">
+                    <a href="https://www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220/" className="social-link">
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
