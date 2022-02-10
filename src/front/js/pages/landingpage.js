@@ -14,6 +14,7 @@ export const Landing_page = () => {
   return (
     <div>
       {/* <!--     HERO CONTAINER     --> */}
+
       <div className="container my-5">
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
@@ -26,30 +27,17 @@ export const Landing_page = () => {
               featuring Sass variables and mixins, responsive grid system,
               extensive prebuilt components, and powerful JavaScript plugins.
             </p>
-            {/* <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-              <button
-                type="button"
-                className="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
-              >
-                Primary
-              </button>
-              <button
-                type="button"
-                className="btn btn-outline-secondary btn-lg px-4"
-              >
-                Default
-              </button>
-            </div> */}
           </div>
-          <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
-            <img
-              className="rounded-lg-3"
-              id="hero-image"
-              src={imagotipo}
-              alt=""
-              width="600"
-            />
-          </div>
+          {/* <div className="col-10 col-sm-8 col-lg-6 shadow-lg rounded-lg-5"> */}
+          <img
+            className="col-10 col-sm-1 col-lg-5 shadow-lg rounded-lg-5"
+            id="hero-image"
+            src={imagotipo}
+            width="510"
+            height="510"
+            loading="lazy"
+          />
+          {/* </div> */}
         </div>
       </div>
       {/* <!--     /HERO CONTAINER     --> */}
@@ -164,12 +152,18 @@ export const Landing_page = () => {
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
                   <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/jesus-leon-abb044b8/" className="social-link">
+                    <a
+                      href="https://www.linkedin.com/in/jesus-leon-abb044b8/"
+                      className="social-link"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/leonjesusC" className="social-link">
+                    <a
+                      href="https://github.com/leonjesusC"
+                      className="social-link"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
@@ -192,13 +186,19 @@ export const Landing_page = () => {
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                <li className="list-inline-item">
-                    <a href="www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220" className="social-link">
+                  <li className="list-inline-item">
+                    <a
+                      href="www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220"
+                      className="social-link"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/JhonT01" className="social-link">
+                    <a
+                      href="https://github.com/JhonT01"
+                      className="social-link"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
@@ -221,13 +221,19 @@ export const Landing_page = () => {
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/kevin-bullor-08b01576/" className="social-link">
+                  <li className="list-inline-item">
+                    <a
+                      href="https://www.linkedin.com/in/kevin-bullor-08b01576/"
+                      className="social-link"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/kevinmillo" className="social-link">
+                    <a
+                      href="https://github.com/kevinmillo"
+                      className="social-link"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
@@ -250,13 +256,19 @@ export const Landing_page = () => {
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/luismadridf/" className="social-link">
+                  <li className="list-inline-item">
+                    <a
+                      href="https://www.linkedin.com/in/luismadridf/"
+                      className="social-link"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/DevOpsLuixus" className="social-link">
+                    <a
+                      href="https://github.com/DevOpsLuixus"
+                      className="social-link"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
@@ -280,16 +292,22 @@ export const Landing_page = () => {
                     Colaborador
                   </span>
                   <ul className="social mb-0 list-inline mt-3">
-                  <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/facundoguldossantos/" className="social-link">
-                      <i className="fa fa-linkedin"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="https://github.com/FacundoGdS" className="social-link">
-                      <i className="fa fa-github"></i>
-                    </a>
-                  </li>
+                    <li className="list-inline-item">
+                      <a
+                        href="https://www.linkedin.com/in/facundoguldossantos/"
+                        className="social-link"
+                      >
+                        <i className="fa fa-linkedin"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a
+                        href="https://github.com/FacundoGdS"
+                        className="social-link"
+                      >
+                        <i className="fa fa-github"></i>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>
