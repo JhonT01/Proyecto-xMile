@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
 
@@ -98,13 +98,15 @@ export const Login = () => {
           >
             Iniciar Sesión
           </button>
+
           {error && (
-            <div className="alert alert-danger" role="alert">
-              <p>Todos los campos son obligatorios</p>
-            </div>
+            <div className="alert alert-danger rounded mt-3" role="alert">
+            <p>Todos los campos son obligatorios</p>
+          </div>
           )}
+          <div className="dropdown-divider"></div>
         </form>
-        <div className="dropdown-divider"></div>
+
         <Link to={"/registro"} className="dropdown-item">
           ¿No tienes una cuenta?{" "}
           <span className="linkRegistro">Registrate</span>
