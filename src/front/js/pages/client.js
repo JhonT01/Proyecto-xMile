@@ -61,9 +61,15 @@ export const Client = () => {
           <button
             type="submit"
             className="btn btn-outline-info"
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
-              actions.crearCliente(razonSocial, cedulaJuridica);
+              const result = await actions.crearCliente(
+                razonSocial,
+                cedulaJuridica
+              );
+              if (result) {
+                setCliente({ razonSocial: "", cedulaJuridica: "" });
+              }
             }}
           >
             Crear Cliente
@@ -71,16 +77,16 @@ export const Client = () => {
           {store.mensajeclientecreado &&
             store.mensajeclientecreado == "recibido" && (
               <div
-                className="alert alert-success d-flex align-items-center"
+                className="alert alert-success alert-dismissible d-flex align-items-center mt-3"
                 role="alert"
               >
-                <svg
-                  className="bi flex-shrink-0 me-2"
-                  width="24"
-                  height="24"
-                  role="img"
-                  aria-label="Success:"
-                ></svg>
+                <i class="fas fa-check"></i>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
                 <div>Cliente creado exitosamente.</div>
               </div>
             )}
@@ -88,16 +94,23 @@ export const Client = () => {
             store.mensajeclientecreado ==
               "Cliente existente. Registre nuevo cliente" && (
               <div
-                className="alert alert-warning d-flex align-items-center"
+                className="alert alert-danger alert-dismissible d-flex align-items-center mt-3"
                 role="alert"
               >
+                <i class="fas fa-exclamation"></i>
                 <svg
                   className="bi flex-shrink-0 me-2"
                   width="24"
                   height="24"
                   role="img"
                   aria-label="Warning:"
-                ></svg>
+                ></svg>{" "}
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
                 <div>Cliente ya existente. Ingrese un nuevo cliente.</div>
               </div>
             )}

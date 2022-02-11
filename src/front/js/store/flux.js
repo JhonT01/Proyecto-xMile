@@ -1,5 +1,5 @@
 const BASE_URL =
-  "https://3001-jhont01-proyectoxmile-e43d46b19xt.ws-us31.gitpod.io";
+  "https://3001-jhont01-proyectoxmile-che1z3yzzkw.ws-us31.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -27,16 +27,21 @@ const getState = ({ getStore, getActions, setStore }) => {
           cedulajuridica: cedulajuridica,
         };
         console.log(nuevoCliente);
-        let response = await fetch(urlEndPoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+        try {
+          let response = await fetch(urlEndPoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
 
-          body: JSON.stringify(nuevoCliente),
-        });
-        const data = await response.json();
-        setStore({ mensajeclientecreado: data });
+            body: JSON.stringify(nuevoCliente),
+          });
+          const data = await response.json();
+          setStore({ mensajeclientecreado: data });
+          return true;
+        } catch (error) {
+          return false;
+        }
       },
 
       // Use getActions to call a function within a fuction
