@@ -14,7 +14,7 @@ class User(db.Model):
     user_clients = db.relationship("User_Client", backref="user", lazy=True)
     
     def __repr__(self):
-        return '<User %r>' % self.id
+        return '<User %r>' % self.email
     def serialize(self):
         return {
             "id": self.id,

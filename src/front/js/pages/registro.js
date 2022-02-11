@@ -41,13 +41,7 @@ export const Registro = () => {
         body: JSON.stringify(obj),
       }
     );
-    // .then((response) => response.json())
-    // .then((result) => {
-    //   console.log("Success:", result);
-    // })
-    // .catch((error) => {
-    //   console.error("Error:", error);
-    // });
+   
     console.log(obj);
   };
 

@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 
-from flask_jwt_extended import create_access_token ,get_jwt_identity, jwt_required
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 
 # from flask.ext.bcrypt import Bcrypt
 
@@ -24,6 +24,7 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+
 @api.route('/registro', methods=['POST'])
 def crearUser():
     # nombre= request.json['nombre']
@@ -31,21 +32,22 @@ def crearUser():
     # email = request.json['email']
     # contaseña = request.json['password']
     rol = "empty"
-    
-    
+
     body = request.get_json()
-    nuevoUsuario = User(nombre=body["nombre"], apellido=body["apellido"], email=body["email"], password=body["password"], rol = rol, is_active = True, created_at = date.today() )
+    nuevoUsuario = User(nombre=body["nombre"], apellido=body["apellido"], email=body["email"],
+                        password=body["password"], rol=rol, is_active=True, created_at=date.today())
     db.session.add(nuevoUsuario)
     db.session.commit()
     print(request.json)
-    return jsonify({'message':"Usuario Registrado"}), 200
+    return jsonify({'message': "Usuario Registrado"}), 200
+
 
 @api.route("/login", methods=["POST"])
 def login():
-    email= request.json.get("email", None)
+    email = request.json.get("email", None)
     password = request.json.get("password", None)
     user = User.query.filter_by(email=email).first()
-    
+
     if email != user.email:
         return jsonify({"msg": "Bad username or password"}), 401
 
@@ -58,4 +60,10 @@ def login():
 def protected():
     # Access the identity of the current user with get_jwt_identity
     current_user = get_jwt_identity()
-    return jsonify(logged_in_as=current_user), 200
+    print(current_user)
+    # usuario_id = User.query.get(current_user.serialize()["id"])
+    # # print(usuario)
+    # if usuario_id:
+    #     return jsonify({"Resultado":current_user})
+    # else:
+    #     return jsonify({"resultado": "Usuario no existe"})
