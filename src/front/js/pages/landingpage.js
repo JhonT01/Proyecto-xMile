@@ -41,7 +41,7 @@ export const Landing_page = () => {
               </button>
             </div> */}
           </div>
-{/*          <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          {/*          <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
             <img className="rounded-lg-3" src={imagotipo} alt="" width="600" />
           </div>*/}
           <div className="col-1">
@@ -56,7 +56,7 @@ export const Landing_page = () => {
       {/* <!--     FEATURE 1     --> */}
 
       <div className="container px-4 py-5" id="featured-3">
-        <h2 className="pb-2 border-bottom">Columns with icons</h2>
+        <h2 className="pb-2 border-bottom">Objetivos y funciones</h2>
         <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
           <div className="feature col">
             <div className="feature-icon bg-primary bg-gradient">
@@ -64,11 +64,24 @@ export const Landing_page = () => {
                 <use href=""></use>
               </svg>
             </div>
-            <h2>Featured title</h2>
+            <h2>Importa archivos XML</h2>
+            <p>Procesa tus facturas electrónicas en formato XML.</p>
+            <a href="#" className="icon-link">
+              Call to action
+              <svg className="bi" width="1em" height="1em">
+                <use href=""></use>
+              </svg>
+            </a>
+          </div>
+          <div className="feature col">
+            <div className="feature-icon bg-primary bg-gradient">
+              <svg className="bi" width="1em" height="1em">
+                <use href=""></use>
+              </svg>
+            </div>
+            <h2>Genera reportes</h2>
             <p>
-              Paragraph of text beneath the heading to explain the heading.
-              We'll add onto it with another sentence and probably just keep
-              going until we run out of words.
+              Realiza un análisis detallado sobre tus transacciones en formato Excel, PowerBi, o incluso ERPs.
             </p>
             <a href="#" className="icon-link">
               Call to action
@@ -83,30 +96,9 @@ export const Landing_page = () => {
                 <use href=""></use>
               </svg>
             </div>
-            <h2>Featured title</h2>
+            <h2>Seguridad fiscal</h2>
             <p>
-              Paragraph of text beneath the heading to explain the heading.
-              We'll add onto it with another sentence and probably just keep
-              going until we run out of words.
-            </p>
-            <a href="#" className="icon-link">
-              Call to action
-              <svg className="bi" width="1em" height="1em">
-                <use href=""></use>
-              </svg>
-            </a>
-          </div>
-          <div className="feature col">
-            <div className="feature-icon bg-primary bg-gradient">
-              <svg className="bi" width="1em" height="1em">
-                <use href=""></use>
-              </svg>
-            </div>
-            <h2>Featured title</h2>
-            <p>
-              Paragraph of text beneath the heading to explain the heading.
-              We'll add onto it with another sentence and probably just keep
-              going until we run out of words.
+              Gracias a la encriptación de la base de datos en SQL, tus datos están protegidos bajo garantía de tu cuenta.
             </p>
             <a href="#" className="icon-link">
               Call to action
@@ -138,9 +130,7 @@ export const Landing_page = () => {
           <div className="row mb-4">
             <div className="col-lg-5">
               <h2 className="display-4 font-weight-light">Nuestro equipo</h2>
-              <p className="font-italic text-muted">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
+              <p className="font-italic text-muted">Compuesto por los más intrépidos aventureros.</p>
             </div>
           </div>
           {/* <!-- Tittle--> */}
@@ -161,12 +151,18 @@ export const Landing_page = () => {
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
                   <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/jesus-leon-abb044b8/" className="social-link">
+                    <a
+                      href="https://www.linkedin.com/in/jesus-leon-abb044b8/"
+                      className="social-link"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/leonjesusC" className="social-link">
+                    <a
+                      href="https://github.com/leonjesusC"
+                      className="social-link"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
@@ -189,13 +185,19 @@ export const Landing_page = () => {
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220/" className="social-link">
+                  <li className="list-inline-item">
+                    <a
+                      href="https://www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220/"
+                      className="social-link"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/JhonT01" className="social-link">
+                    <a
+                      href="https://github.com/JhonT01"
+                      className="social-link"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
@@ -218,13 +220,19 @@ export const Landing_page = () => {
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/kevin-bullor-08b01576/" className="social-link">
+                  <li className="list-inline-item">
+                    <a
+                      href="https://www.linkedin.com/in/kevin-bullor-08b01576/"
+                      className="social-link"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/kevinmillo" className="social-link">
+                    <a
+                      href="https://github.com/kevinmillo"
+                      className="social-link"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
@@ -247,13 +255,19 @@ export const Landing_page = () => {
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
-                <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/luismadridf/" className="social-link">
+                  <li className="list-inline-item">
+                    <a
+                      href="https://www.linkedin.com/in/luismadridf/"
+                      className="social-link"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/DevOpsLuixus" className="social-link">
+                    <a
+                      href="https://github.com/DevOpsLuixus"
+                      className="social-link"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
@@ -277,16 +291,22 @@ export const Landing_page = () => {
                     Colaborador
                   </span>
                   <ul className="social mb-0 list-inline mt-3">
-                  <li className="list-inline-item">
-                    <a href="https://www.linkedin.com/in/facundoguldossantos/" className="social-link">
-                      <i className="fa fa-linkedin"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="https://github.com/FacundoGdS" className="social-link">
-                      <i className="fa fa-github"></i>
-                    </a>
-                  </li>
+                    <li className="list-inline-item">
+                      <a
+                        href="https://www.linkedin.com/in/facundoguldossantos/"
+                        className="social-link"
+                      >
+                        <i className="fa fa-linkedin"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a
+                        href="https://github.com/FacundoGdS"
+                        className="social-link"
+                      >
+                        <i className="fa fa-github"></i>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>
