@@ -59,7 +59,7 @@ export const Landing_page = () => {
         <h2 className="pb-2 border-bottom">Objetivos y funciones</h2>
         <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
           <div className="feature col">
-            <div className="feature-icon bg-primary bg-gradient">
+            <div className="feature-icon bg-primary maincolor bg-gradient">
               <svg className="bi" width="1em" height="1em">
                 <use href=""></use>
               </svg>
@@ -74,14 +74,15 @@ export const Landing_page = () => {
             </a>
           </div>
           <div className="feature col">
-            <div className="feature-icon bg-primary bg-gradient">
+            <div className="feature-icon bg-primary maincolor bg-gradient">
               <svg className="bi" width="1em" height="1em">
                 <use href=""></use>
               </svg>
             </div>
             <h2>Genera reportes</h2>
             <p>
-              Realiza un análisis detallado sobre tus transacciones en formato Excel, PowerBi, o incluso ERPs.
+              Realiza un análisis detallado sobre tus transacciones en formato
+              Excel, PowerBi, o incluso ERPs.
             </p>
             <a href="#" className="icon-link">
               Call to action
@@ -91,14 +92,15 @@ export const Landing_page = () => {
             </a>
           </div>
           <div className="feature col">
-            <div className="feature-icon bg-primary bg-gradient">
+            <div className="feature-icon bg-primary maincolor bg-gradient">
               <svg className="bi" width="1em" height="1em">
                 <use href=""></use>
               </svg>
             </div>
             <h2>Seguridad fiscal</h2>
             <p>
-              Gracias a la encriptación de la base de datos en SQL, tus datos están protegidos bajo garantía de tu cuenta.
+              Gracias a la encriptación de la base de datos en SQL, tus datos
+              están protegidos bajo garantía de tu cuenta.
             </p>
             <a href="#" className="icon-link">
               Call to action
@@ -130,7 +132,9 @@ export const Landing_page = () => {
           <div className="row mb-4">
             <div className="col-lg-5">
               <h2 className="display-4 font-weight-light">Nuestro equipo</h2>
-              <p className="font-italic text-muted">Compuesto por los más intrépidos aventureros.</p>
+              <p className="font-italic text-muted">
+                Compuesto por los más intrépidos aventureros.
+              </p>
             </div>
           </div>
           {/* <!-- Tittle--> */}
