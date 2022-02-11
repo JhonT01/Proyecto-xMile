@@ -6,7 +6,7 @@ import foto_jhon from "../../img/team/jhon.jpg";
 import foto_luis from "../../img/team/luis.jpeg";
 import foto_facundo from "../../img/team/facundo.jpg";
 import foto_jesús from "../../img/team/jesús.jpg";
-import imagotipo from "../../img/logos/imagotipo_blanco.png";
+import imagotipo from "../../img/logos/imagotipo.png";
 
 export const Landing_page = () => {
   const { store, actions } = useContext(Context);
@@ -17,7 +17,7 @@ export const Landing_page = () => {
 
       <div className="container my-5">
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-          <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
             <h1 className="display-4 fw-bold lh-1">
               Agiliza tus reportes de facturación con...
             </h1>
@@ -27,16 +27,42 @@ export const Landing_page = () => {
               featuring Sass variables and mixins, responsive grid system,
               extensive prebuilt components, and powerful JavaScript plugins.
             </p>
+            {/* <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+              <button
+                type="button"
+                className="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+              >
+                Primary
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-secondary btn-lg px-4"
+              >
+                Default
+              </button>
+            </div> */}
+          </div>
+          {/*          <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
+            <img className="rounded-lg-3" src={imagotipo} alt="" width="600" />
+          </div>*/}
+          <div id="div-img-hero" className="col-5 shadow-lg mb-5">
+            <img
+              id="img-hero"
+              src={imagotipo}
+              max-width="100%"
+              max-height="100%"
+              loading="lazy"
+            />
           </div>
           {/* <div className="col-10 col-sm-8 col-lg-6 shadow-lg rounded-lg-5"> */}
-          <img
+          {/* <img
             className="col-10 col-sm-1 col-lg-5 shadow-lg rounded-lg-5"
             id="hero-image"
             src={imagotipo}
             width="510"
             height="510"
             loading="lazy"
-          />
+          /> */}
           {/* </div> */}
         </div>
       </div>
@@ -188,7 +214,7 @@ export const Landing_page = () => {
                 <ul className="social mb-0 list-inline mt-3">
                   <li className="list-inline-item">
                     <a
-                      href="www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220"
+                      href="https://www.linkedin.com/in/jhon-fernando-tellez-camargo-2675a7220/"
                       className="social-link"
                     >
                       <i className="fa fa-linkedin"></i>
