@@ -13,6 +13,11 @@ export const Landing_page = () => {
 
   return (
     <div>
+      <link
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+      />
+
       {/* <!--     HERO CONTAINER     --> */}
 
       <div className="container my-5">
@@ -77,18 +82,28 @@ export const Landing_page = () => {
         <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
           <div className="feature col">
             <div className="feature-icon bg-primary maincolor bg-gradient">
-              <svg className="bi" width="1em" height="1em">
-                <use href=""></use>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                class="bi bi-filetype-xml"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992 1.274-2.007Zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999h.706Zm4.71-.674h1.696v.674H8.4V11.85h.791v3.325Z"
+                />
               </svg>
             </div>
             <h2>Importa archivos XML</h2>
             <p>Procesa tus facturas electrónicas en formato XML.</p>
-            <a href="#" className="icon-link">
+            {/* <a href="#" className="icon-link">
               Call to action
               <svg className="bi" width="1em" height="1em">
                 <use href=""></use>
               </svg>
-            </a>
+            </a> */}
           </div>
           <div className="feature col">
             <div className="feature-icon bg-primary maincolor bg-gradient">
@@ -101,12 +116,12 @@ export const Landing_page = () => {
               Realiza un análisis detallado sobre tus transacciones en formato
               Excel, PowerBi, o incluso ERPs.
             </p>
-            <a href="#" className="icon-link">
+            {/* <a href="#" className="icon-link">
               Call to action
               <svg className="bi" width="1em" height="1em">
                 <use href=""></use>
               </svg>
-            </a>
+            </a> */}
           </div>
           <div className="feature col">
             <div className="feature-icon bg-primary maincolor bg-gradient">
@@ -119,12 +134,12 @@ export const Landing_page = () => {
               Gracias a la encriptación de la base de datos en SQL, tus datos
               están protegidos bajo garantía de tu cuenta.
             </p>
-            <a href="#" className="icon-link">
+            {/* <a href="#" className="icon-link">
               Call to action
               <svg className="bi" width="1em" height="1em">
                 <use href=""></use>
               </svg>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
@@ -139,11 +154,6 @@ export const Landing_page = () => {
         className="container d-flex align-items-center px-4 py-5"
         id="custom-cards"
       >
-        <link
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-          rel="stylesheet"
-        />
-
         <div className="container">
           {/* <!-- Tittle --> */}
           <div className="row mb-4">
