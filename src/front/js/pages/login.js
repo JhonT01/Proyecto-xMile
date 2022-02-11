@@ -22,10 +22,16 @@ export const Login = () => {
     });
   };
 
-  const handleSubmission = () => {
-    const formData = usuario;
-    let obj = {};
-    obj["email"] = usuario.email;
+  const handleSubmission = (e) => {
+    e.preventDefault();
+    // const formData = usuario;
+    // let obj = {};
+    // obj["email"] = usuario.email;
+
+    const obj = {
+      email: usuario.email,
+      password: usuario.password,
+    };
 
     if (usuario.email == "" || usuario.password == "") {
       setError(true);
@@ -91,6 +97,7 @@ export const Login = () => {
               </label>
             </div>
           </div>
+
           <button
             type="submit"
             className="btn btn-outline-info"
@@ -100,9 +107,13 @@ export const Login = () => {
           </button>
 
           {error && (
-            <div className="alert alert-danger rounded mt-3" role="alert">
-            <p>Todos los campos son obligatorios</p>
-          </div>
+            <div
+              className="alert alert-danger alert-dismissible fade show rounded mt-3"
+              role="alert"
+            >
+              <p>Todos los campos son obligatorios</p>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
           )}
           <div className="dropdown-divider"></div>
         </form>
