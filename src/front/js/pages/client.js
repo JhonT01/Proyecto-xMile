@@ -97,14 +97,7 @@ export const Client = () => {
                 className="alert alert-danger alert-dismissible d-flex align-items-center mt-3"
                 role="alert"
               >
-                <i class="fas fa-exclamation"></i>
-                <svg
-                  className="bi flex-shrink-0 me-2"
-                  width="24"
-                  height="24"
-                  role="img"
-                  aria-label="Warning:"
-                ></svg>{" "}
+                <i class="fas fa-exclamation-circle"></i>
                 <button
                   type="button"
                   class="btn-close"
