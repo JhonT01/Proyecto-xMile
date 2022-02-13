@@ -142,92 +142,96 @@ def upload_file():
             return jsonify({"Msj": "Archivo subido correctamente"})
             
 
-@app.route('/descargar', methods=['GET'])
+@app.route('/descargar', methods=['POST'])
 def descarga():
-    string = str(r'/workspace/Proyecto-xMile/src/outputs')
-    out = string + "/facturas.csv"
 
-    q = db.session.query(Client, Factura, Factura_detalle).filter(Client.id == Factura.client_id).filter(Factura.id == Factura_detalle.factura_id).filter(Client.id==2).all()
-    
-    with open(out, 'w', newline='') as csvFile:
+    if request.method == 'POST':
 
-        #Extraccion de los nombres de todas las columnas
-        csvHeaders = []
-        csvwriter = csv.writer(csvFile, delimiter = ',')
-        clientCols = Client.query.all()
-        clientCols = clientCols[0].serialize()
-        clientCols = clientCols.keys()
-        
-        for k in clientCols:
-            csvHeaders.append(k)
+        frontClient = request.form['client_id']
+        string = str(r'/workspace/Proyecto-xMile/src/outputs')
+        out = string + "/facturas.csv"
 
-        facturaCols = Factura.query.all()
-        facturaCols = facturaCols[0].serialize()
-        facturaCols = facturaCols.keys()
-        
-        for k in facturaCols:
-            csvHeaders.append(k)
+        q = db.session.query(Client, Factura, Factura_detalle).filter(Client.id == Factura.client_id).filter(Factura.id == Factura_detalle.factura_id).filter(Client.id==frontClient).all()
 
-        detalleCols = Factura_detalle.query.all()
-        detalleCols = detalleCols[0].serialize()
-        detalleCols = detalleCols.keys()
-        
-        for k in detalleCols:
-            csvHeaders.append(k)
+        with open(out, 'w', newline='') as csvFile:
 
-        print(csvHeaders)
+            #Extraccion de los nombres de todas las columnas
+            csvHeaders = []
+            csvwriter = csv.writer(csvFile, delimiter = ',')
+            clientCols = Client.query.all()
+            clientCols = clientCols[0].serialize()
+            clientCols = clientCols.keys()
+            
+            for k in clientCols:
+                csvHeaders.append(k)
 
-        #Insercion de todos los registros
-        csvwriter.writerow(csvHeaders)
-        for row in q:
-            regClient = row[0].serialize()  
-            regFactura = row[1].serialize()
-            regDetalle = row[2].serialize()
-            csvwriter.writerow(
-                #Registros Cliente
-                [regClient['id'],
-                regClient['fiscal_id'],
-                regClient['razon_social'],
-                #Registros Factura
-                regFactura['id'],
-                regFactura['cliente_id'],
-                regFactura['doc'],
-                regFactura['num_fac'],
-                regFactura['fecha'],
-                regFactura['emisor'],
-                regFactura['emisor_id'],
-                regFactura['receptor'],
-                regFactura['receptor_id'],
-                regFactura['moneda'],
-                regFactura['actividad'],
-                #Registros Detalle
-                regDetalle['id'],
-                regDetalle['factura_id'],
-                regDetalle['lin_fac'],
-                regDetalle['codigo'],
-                regDetalle['detalle'],
-                regDetalle['tarifa'],
-                regDetalle['precio_unit'],
-                regDetalle['cantidad'],
-                regDetalle['unidad'],
-                regDetalle['gravado_isc'],
-                regDetalle['exento_isc'],
-                regDetalle['imp_especif'],
-                regDetalle['monto_linea'],
-                regDetalle['gravado'],
-                regDetalle['exento'],
-                regDetalle['exonerado'],
-                regDetalle['si_otro'],
-                regDetalle['descuento'],
-                regDetalle['subtotal'],
-                regDetalle['monto_isc'],
-                regDetalle['impuesto'],
-                regDetalle['mon_total'],
-                regDetalle['auto_exon'],
-                regDetalle['fecha_exon'],
-                ])
+            facturaCols = Factura.query.all()
+            facturaCols = facturaCols[0].serialize()
+            facturaCols = facturaCols.keys()
+            
+            for k in facturaCols:
+                csvHeaders.append(k)
 
-    return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
+            detalleCols = Factura_detalle.query.all()
+            detalleCols = detalleCols[0].serialize()
+            detalleCols = detalleCols.keys()
+            
+            for k in detalleCols:
+                csvHeaders.append(k)
+
+            print(csvHeaders)
+
+            #Insercion de todos los registros
+            csvwriter.writerow(csvHeaders)
+            for row in q:
+                regClient = row[0].serialize()  
+                regFactura = row[1].serialize()
+                regDetalle = row[2].serialize()
+                csvwriter.writerow(
+                    #Registros Cliente
+                    [regClient['id'],
+                    regClient['fiscal_id'],
+                    regClient['razon_social'],
+                    #Registros Factura
+                    regFactura['id'],
+                    regFactura['cliente_id'],
+                    regFactura['doc'],
+                    regFactura['num_fac'],
+                    regFactura['fecha'],
+                    regFactura['emisor'],
+                    regFactura['emisor_id'],
+                    regFactura['receptor'],
+                    regFactura['receptor_id'],
+                    regFactura['moneda'],
+                    regFactura['actividad'],
+                    #Registros Detalle
+                    regDetalle['id'],
+                    regDetalle['factura_id'],
+                    regDetalle['lin_fac'],
+                    regDetalle['codigo'],
+                    regDetalle['detalle'],
+                    regDetalle['tarifa'],
+                    regDetalle['precio_unit'],
+                    regDetalle['cantidad'],
+                    regDetalle['unidad'],
+                    regDetalle['gravado_isc'],
+                    regDetalle['exento_isc'],
+                    regDetalle['imp_especif'],
+                    regDetalle['monto_linea'],
+                    regDetalle['gravado'],
+                    regDetalle['exento'],
+                    regDetalle['exonerado'],
+                    regDetalle['si_otro'],
+                    regDetalle['descuento'],
+                    regDetalle['subtotal'],
+                    regDetalle['monto_isc'],
+                    regDetalle['impuesto'],
+                    regDetalle['mon_total'],
+                    regDetalle['auto_exon'],
+                    regDetalle['fecha_exon'],
+                    ])
+                
+            return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
 
 @app.route('/clients', methods=['GET'])
 def get_clients():
