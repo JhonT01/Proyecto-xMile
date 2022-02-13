@@ -4,12 +4,21 @@ import { Context } from "../store/appContext";
 import { useDropzone } from "react-dropzone";
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
+import "../../styles/toasty.css";
 
 import { Dropzone } from "../component/dropzone-component";
 import { ItemClienteSubir } from "../component/itemClienteSubir";
+import { ToastySuccess } from "../component/toastySuccess";
+import { ToastyFail } from "../component/toastyFail";
 
 export const Subir_archivo = () => {
   const { store, actions } = useContext(Context);
+
+  var element1 = document.getElementById("toastySuccess");
+  var myToastSuccess = new bootstrap.Toast(element1);
+
+  var element2 = document.getElementById("toastyFail");
+  var myToastFail = new bootstrap.Toast(element2);
 
   const params = useParams();
 
@@ -21,13 +30,17 @@ export const Subir_archivo = () => {
     });
 
   const enviarArchivo = (data) => {
+    if (acceptedFiles.length === 0) {
+      myToastFail.show();
+    }
     data.forEach(function (element) {
       const formData = new FormData();
       formData.append("file", element);
       formData.append("client_id", params.clientId);
 
       fetch(
-        "https://3001-jhont01-proyectoxmile-ayu39oih1lc.ws-us31.gitpod.io/subir",
+
+        "https://3001-jhont01-proyectoxmile-8769ilzx40q.ws-us31.gitpod.io/subir",
         {
           method: "POST",
           body: formData,
@@ -36,9 +49,11 @@ export const Subir_archivo = () => {
         .then((response) => response.json())
         .then((result) => {
           console.log("Success:", result);
+          myToastSuccess.show();
         })
         .catch((error) => {
           console.error("Error:", error);
+          myToastFail.show();
         });
     });
   };
@@ -86,6 +101,8 @@ export const Subir_archivo = () => {
           </div>
         </div>
       </div>
+      <ToastySuccess mensaje="Archivo subido exitosamente."></ToastySuccess>
+      <ToastyFail mensaje="Error subiendo archivo."></ToastyFail>
     </>
   );
 };
