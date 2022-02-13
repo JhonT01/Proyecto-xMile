@@ -16,3 +16,9 @@
 .tableHeader {
   color: rgb(38, 136, 113);
 }
+
+.fxRate {
+  font-weight: bold;
+  font-size: larger;
+  color: rgb(38, 136, 113);
+}
