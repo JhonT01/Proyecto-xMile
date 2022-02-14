@@ -4,6 +4,51 @@ import Logo from "../../img/Logo-con-nombre.png";
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
+
+  const params = useParams();
+
+  const estatus = true;
+
+  const is_logged = (estatus) => {
+    if (estatus == true) {
+      return (
+        <>
+          <li className="nav-item sombreado">
+            <a className="nav-link active pe-auto" aria-current="page" href="#">
+              Profile
+            </a>
+          </li>
+          <li className="nav-item sombreado">
+            <a className="nav-link active pe-auto" href="/principal/1">
+              Clientes
+            </a>
+          </li>
+          <li className="nav-item sombreado">
+            <a className="nav-link active pe-auto" href="#">
+              Crear Cliente
+            </a>
+          </li>
+          <li className="nav-item sombreado">
+            <Link className="nav-link active pe-auto" to="/subir-archivo/1">
+              Cargar Facturas
+            </Link>
+          </li>
+          <li className="nav-item">
+            <button
+              type="button"
+              className="btn pe-auto position-absolute end-0 pr-2"
+            >
+              Cerrar Sesión
+            </button>
+          </li>
+        </>
+      );
+    } else {
+      return <></>;
+    }
+  };
+
   return (
     <nav className="navbar-fixed navbar-expand-lg navbar-light bg-white pe-none">
       <div className="container-fluid p-0 mt-n1 d-flex">
@@ -31,38 +76,9 @@ export const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mt-n1 p-0">
-            <li className="nav-item sombreado">
-              <a
-                className="nav-link active pe-auto"
-                aria-current="page"
-                href="#"
-              >
-                Profile
-              </a>
-            </li>
-            <li className="nav-item sombreado">
-              <a className="nav-link active pe-auto" href="/principal/1">
-                Clientes
-              </a>
-            </li>
-            <li className="nav-item sombreado">
-              <a className="nav-link active pe-auto" href="#">
-                Crear Cliente
-              </a>
-            </li>
-            <li className="nav-item sombreado">
-              <Link className="nav-link active pe-auto" to="/subir-archivo/1">
-                Cargar Facturas
-              </Link>
-            </li>
-            <li className="nav-item">
-              <button
-                type="button"
-                className="btn pe-auto position-absolute end-0 pr-2"
-              >
-                Cerrar Sesión
-              </button>
-            </li>
+            {(estatus) => {
+              is_logged(estatus);
+            }}
           </ul>
         </div>
       </div>
