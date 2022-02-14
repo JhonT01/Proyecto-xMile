@@ -18,6 +18,11 @@ export const Navbar = () => {
           />
         </Link>
         {/* </a> */}
+
+        
+
+
+
         <button
           className="navbar-toggler"
           type="button"
@@ -37,7 +42,7 @@ export const Navbar = () => {
                 aria-current="page"
                 href="#"
               >
-                Profile
+                Usuario Registrado
               </a>
             </li>
             <li className="nav-item sombreado">
@@ -55,7 +60,10 @@ export const Navbar = () => {
                 Cargar Facturas
               </Link>
             </li>
+           
             <li className="nav-item">
+
+            
               <button
                 type="button"
                 className="btn pe-auto position-absolute end-0 pr-2"

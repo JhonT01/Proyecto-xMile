@@ -7,7 +7,7 @@ export const Registro = () => {
   //State para iniciar Sesion
   const { store, actions } = useContext(Context);
 
-  const [usuario, guardarUsuario] = useState({
+  const [usuario, setUsuario] = useState({
     nombre: "",
     apellido: "",
     email: "",
@@ -19,13 +19,14 @@ export const Registro = () => {
   const { nombre, apellido, email, password, confirmar } = usuario;
 
   const onChange = (e) => {
-    guardarUsuario({
+    setUsuario({
       ...usuario,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmission = () => {
+  const handleSubmission = (e) => {
+    e.preventDefault();
     const formData = usuario;
 
     let obj = {};
@@ -34,6 +35,11 @@ export const Registro = () => {
 
     //formData.append("file", selectedFile);
 
+    //validar campos vacios
+    //password de 6 caracteres
+    //los dos password iguales
+    //enviarlo al action
+
     fetch(
       "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us30.gitpod.io/registro",
       {
@@ -41,7 +47,7 @@ export const Registro = () => {
         body: JSON.stringify(obj),
       }
     );
-   
+
     console.log(obj);
   };
 
@@ -130,12 +136,14 @@ export const Registro = () => {
           <button
             type="submit"
             className="btn btn-outline-info"
-            onClick={ () => {actions.crearUsuario(
-              usuario.nombre,
-              usuario.apellido,
-              usuario.email,
-              usuario.password
-            )}}
+            onClick={() => {
+              actions.crearUsuario(
+                usuario.nombre,
+                usuario.apellido,
+                usuario.email,
+                usuario.password
+              );
+            }}
           >
             Registrarse
           </button>

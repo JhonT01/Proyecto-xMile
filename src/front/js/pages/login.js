@@ -15,18 +15,20 @@ export const Login = () => {
   //extraer de usuario
   const { email, password } = usuario;
 
-  const onChange = (e) => {
+  const onChange = e => {
     setUsuario({
       ...usuario, //crea una copa de usuario
       [e.target.name]: e.target.value, //reescribe la actual
     });
   };
 
-  const handleSubmission = (e) => {
+  const handleSubmission = e => {
     e.preventDefault();
     // const formData = usuario;
     // let obj = {};
     // obj["email"] = usuario.email;
+
+    //Pasarlo al action
 
     const obj = {
       email: usuario.email,
