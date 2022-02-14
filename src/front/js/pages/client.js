@@ -80,14 +80,14 @@ export const Client = () => {
                 className="alert alert-success alert-dismissible d-flex align-items-center mt-3"
                 role="alert"
               >
-                <i class="fas fa-check"></i>
+                <i className="fas fa-check"></i>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="alert"
                   aria-label="Close"
                 ></button>
-                <div>Cliente creado exitosamente.</div>
+                <div className="ms-1">Cliente creado exitosamente.</div>
               </div>
             )}
           {store.mensajeclientecreado &&
@@ -97,14 +97,16 @@ export const Client = () => {
                 className="alert alert-danger alert-dismissible d-flex align-items-center mt-3"
                 role="alert"
               >
-                <i class="fas fa-exclamation-circle"></i>
+                <i className="fas fa-exclamation-circle"></i>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="alert"
                   aria-label="Close"
                 ></button>
-                <div>Cliente ya existente. Ingrese un nuevo cliente.</div>
+                <div className="ms-1">
+                  Cliente ya existente. Ingrese un nuevo cliente.
+                </div>
               </div>
             )}
         </form>
