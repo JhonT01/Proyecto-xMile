@@ -4,6 +4,9 @@ const BASE_URL =
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      clients: [],
+      facturas: [],
+      detalles: [],
       mensajeclientecreado: "",
       message: null,
       demo: [
@@ -71,6 +74,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         //reset the global store
         setStore({ demo: demo });
+      },
+      getClients: async () => {
+        try {
+          let response = await fetch(process.env.BACKEND_URL + "/clients");
+          let responseObject = await response.json();
+          console.log();
+          setStore({
+            clients: responseObject,
+          });
+          console.log("CLIENTS SET");
+        } catch (error) {
+          console.log();
+        }
+      },
+      getFacturas: async () => {
+        try {
+          let response = await fetch(process.env.BACKEND_URL + "/facturas");
+          let responseObject = await response.json();
+          console.log();
+          setStore({
+            facturas: responseObject,
+          });
+          console.log("FACTURAS SET");
+        } catch (error) {
+          console.log();
+        }
       },
     },
   };
