@@ -230,8 +230,8 @@ def descarga():
                     regDetalle['auto_exon'],
                     regDetalle['fecha_exon'],
                     ])
-                
-            return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
+            
+        return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
 
 @app.route('/clients', methods=['GET'])
 def get_clients():
