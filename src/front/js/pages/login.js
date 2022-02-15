@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
+import { Context } from "../store/appContext";
 
 export const Login = () => {
   //State para iniciar Sesion
@@ -11,24 +12,20 @@ export const Login = () => {
   });
   //validacion de campos
   const [error, setError] = useState(false);
+  const { store, actions } = useContext(Context);
 
   //extraer de usuario
   const { email, password } = usuario;
 
-  const onChange = e => {
+  const onChange = (e) => {
     setUsuario({
       ...usuario, //crea una copa de usuario
       [e.target.name]: e.target.value, //reescribe la actual
     });
   };
 
-  const handleSubmission = e => {
+  const handleSubmission = async (e) => {
     e.preventDefault();
-    // const formData = usuario;
-    // let obj = {};
-    // obj["email"] = usuario.email;
-
-    //Pasarlo al action
 
     const obj = {
       email: usuario.email,
@@ -42,14 +39,17 @@ export const Login = () => {
       setError(false);
     }
 
-    fetch(
-      "https://3000-jhont01-proyectoxmile-8qyohhug9r5.ws-us31.gitpod.io/login",
+    const response = await fetch(
+      "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us31.gitpod.io/api/login",
       {
+        headers: { "Content-Type": "application/json" },
         method: "POST",
         body: JSON.stringify(obj),
       }
     );
-    console.log(obj);
+    const data = await response.json();
+    sessionStorage.setItem("access_token", data.access_token);
+    actions.authHandle(data.access_token, true);
   };
 
   return (
@@ -114,7 +114,12 @@ export const Login = () => {
               role="alert"
             >
               <p>Todos los campos son obligatorios</p>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
             </div>
           )}
           <div className="dropdown-divider"></div>

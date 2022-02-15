@@ -4,6 +4,10 @@ const BASE_URL =
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      auth: {
+        isAuth: false,
+        token: null,
+      },
       message: null,
       clients: [],
       facturas: [],
@@ -96,6 +100,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         } catch (error) {
           console.log();
         }
+      },
+      authHandle: (token, isAuth) => {
+        //reset the global store
+        setStore({
+          auth: {
+            isAuth: isAuth,
+            token: token,
+          },
+        });
       },
     },
   };
