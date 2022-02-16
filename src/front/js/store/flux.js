@@ -1,6 +1,13 @@
+const BASE_URL =
+  "https://3001-jhont01-proyectoxmile-kt2skh7trnh.ws-us31.gitpod.io";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      clients: [],
+      facturas: [],
+      detalles: [],
+      mensajeclientecreado: "",
       message: null,
       demo: [
         {
@@ -14,11 +21,32 @@ const getState = ({ getStore, getActions, setStore }) => {
           initial: "white",
         },
       ],
-      clients: [],
-      facturas: [],
-      detalles: [],
     },
     actions: {
+      crearCliente: async (razonsocial, cedulajuridica) => {
+        let urlEndPoint = BASE_URL + "/api/client";
+        let nuevoCliente = {
+          razonsocial: razonsocial,
+          cedulajuridica: cedulajuridica,
+        };
+        console.log(nuevoCliente);
+        try {
+          let response = await fetch(urlEndPoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify(nuevoCliente),
+          });
+          const data = await response.json();
+          setStore({ mensajeclientecreado: data });
+          return true;
+        } catch (error) {
+          return false;
+        }
+      },
+
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
         getActions().changeColor(0, "green");
