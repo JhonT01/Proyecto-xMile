@@ -39,8 +39,7 @@ export const Subir_archivo = () => {
       formData.append("client_id", params.clientId);
 
       fetch(
-
-        "https://3001-jhont01-proyectoxmile-xz8r1xro2ro.ws-us31.gitpod.io/subir",
+        "https://3001-jhont01-proyectoxmile-8769ilzx40q.ws-us31.gitpod.io/subir",
         {
           method: "POST",
           body: formData,

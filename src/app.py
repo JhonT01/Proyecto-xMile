@@ -80,6 +80,15 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0  # avoid cache memory
     return response
 
+@app.route('/client', methods=['POST'])
+def add_client():
+    body = request.get_json()
+    print (body)
+    newclient = Client(fiscal_id=body["cedulajuridica"], razon_social=body["razonsocial"])
+    db.session.add(newclient)
+    db.session.commit()
+    return jsonify({"mensaje": "Cliente creado exitosamente"}), 201
+
 
 def allowed_file(filename):
     return '.' in filename and \
