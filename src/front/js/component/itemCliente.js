@@ -11,11 +11,23 @@ export const ItemCliente = (props) => {
   return (
     <Link
       to={`/principal/${props.theId}`}
-      className={`list-group-item list-group-item-action ${
+      className={`col-8 list-group-item list-group-item-action ${
         params.clientId == props.theId && "activo"
       }`}
     >
-      {props.theName}
+      <div className="row">
+        <div className="col-10">{props.theName}</div>
+
+        <div className="col-2">
+          <button
+            type="button"
+            className="eliminar btn btn-primary justify-content-end"
+            onClick={props.theFunction}
+          >
+            X
+          </button>
+        </div>
+      </div>
     </Link>
   );
 };
@@ -23,4 +35,5 @@ export const ItemCliente = (props) => {
 ItemCliente.propTypes = {
   theName: PropTypes.string,
   theId: PropTypes.number,
+  theFunction: PropTypes.func,
 };
