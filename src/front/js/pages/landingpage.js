@@ -6,7 +6,7 @@ import foto_jhon from "../../img/team/jhon.jpg";
 import foto_luis from "../../img/team/luis.jpeg";
 import foto_facundo from "../../img/team/facundo.jpg";
 import foto_jesús from "../../img/team/jesús.jpg";
-import imagotipo from "../../img/logos/imagotipo.png";
+import imagotipo from "../../img/logos/imagotipo_blanco.png";
 
 export const Landing_page = () => {
   const { store, actions } = useContext(Context);
@@ -18,14 +18,12 @@ export const Landing_page = () => {
       <div className="container my-5">
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
-            <h1 className="display-4 fw-bold lh-1">
+            <h1 className="display-4 fw-bold lh-1 fontExo">
               Agiliza tus reportes de facturación con...
             </h1>
             <p className="lead">
-              Quickly design and customize responsive mobile-first sites with
-              Bootstrap, the worlds most popular front-end open source toolkit,
-              featuring Sass variables and mixins, responsive grid system,
-              extensive prebuilt components, and powerful JavaScript plugins.
+            Toda la información previsiblemente fiscal al alcance de sus dedos.
+            ¡Extracción confiable y certera en un abrir y cerrar de ojos!.
             </p>
             {/* <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
               <button
@@ -73,7 +71,7 @@ export const Landing_page = () => {
       {/* <!--     FEATURE 1     --> */}
 
       <div className="container px-4 py-5" id="featured-3">
-        <h2 className="pb-2 border-bottom">Objetivos y funciones</h2>
+        <h2 className="pb-2 border-bottom fontExo">Objetivos y funciones</h2>
         <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
           <div className="feature col">
             <div className="feature-icon bg-primary maincolor bg-gradient">
@@ -81,8 +79,8 @@ export const Landing_page = () => {
                 <use href=""></use>
               </svg>
             </div>
-            <h2>Importa archivos XML</h2>
-            <p>Procesa tus facturas electrónicas en formato XML.</p>
+            <h2 className="fontExo">Importa archivos XML</h2>
+            <p className="fontExo">Procesa tus facturas electrónicas en formato XML.</p>
             <a href="#" className="icon-link">
               Call to action
               <svg className="bi" width="1em" height="1em">
@@ -96,8 +94,8 @@ export const Landing_page = () => {
                 <use href=""></use>
               </svg>
             </div>
-            <h2>Genera reportes</h2>
-            <p>
+            <h2 className="fontExo">Genera reportes</h2>
+            <p className="fontExo">
               Realiza un análisis detallado sobre tus transacciones en formato
               Excel, PowerBi, o incluso ERPs.
             </p>
@@ -114,8 +112,8 @@ export const Landing_page = () => {
                 <use href=""></use>
               </svg>
             </div>
-            <h2>Seguridad fiscal</h2>
-            <p>
+            <h2 className="fontExo">Seguridad fiscal</h2>
+            <p className="fontExo">
               Gracias a la encriptación de la base de datos en SQL, tus datos
               están protegidos bajo garantía de tu cuenta.
             </p>
@@ -148,8 +146,8 @@ export const Landing_page = () => {
           {/* <!-- Tittle --> */}
           <div className="row mb-4">
             <div className="col-lg-5">
-              <h2 className="display-4 font-weight-light">Nuestro equipo</h2>
-              <p className="font-italic text-muted">
+              <h2 className="display-4 font-weight-light fontExo">Nuestro equipo</h2>
+              <p className="font-italic text-muted fontExo">
                 Compuesto por los más intrépidos aventureros.
               </p>
             </div>
@@ -166,8 +164,8 @@ export const Landing_page = () => {
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Jesús León</h5>
-                <span className="small text-uppercase text-muted">
+                <h5 className="mb-0 fontExo">Jesús León</h5>
+                <span className="small text-uppercase text-muted fontExo">
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
@@ -201,8 +199,8 @@ export const Landing_page = () => {
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Jhon Téllez</h5>
-                <span className="small text-uppercase text-muted">
+                <h5 className="mb-0 fontExo">Jhon Téllez</h5>
+                <span className="small text-uppercase text-muted fontExo">
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
@@ -236,8 +234,8 @@ export const Landing_page = () => {
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Kevin Bullor</h5>
-                <span className="small text-uppercase text-muted">
+                <h5 className="mb-0 fontExo">Kevin Bullor</h5>
+                <span className="small text-uppercase text-muted fontExo">
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
@@ -271,8 +269,8 @@ export const Landing_page = () => {
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Luis Alberto</h5>
-                <span className="small text-uppercase text-muted">
+                <h5 className="mb-0 fontExo">Luis Alberto</h5>
+                <span className="small text-uppercase text-muted fontExo">
                   Colaborador
                 </span>
                 <ul className="social mb-0 list-inline mt-3">
@@ -307,8 +305,8 @@ export const Landing_page = () => {
                     width="100"
                     className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                   />
-                  <h5 className="mb-0">Facundo Gul</h5>
-                  <span className="small text-uppercase text-muted">
+                  <h5 className="mb-0 fontExo">Facundo Gul</h5>
+                  <span className="small text-uppercase text-muted fontExo">
                     Colaborador
                   </span>
                   <ul className="social mb-0 list-inline mt-3">
