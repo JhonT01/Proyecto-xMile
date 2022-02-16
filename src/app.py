@@ -239,8 +239,8 @@ def descarga():
                     regDetalle['auto_exon'],
                     regDetalle['fecha_exon'],
                     ])
-                
-            return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
+            
+        return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
 
 @app.route('/clients', methods=['GET'])
 def get_clients():
@@ -262,6 +262,18 @@ def get_facturas():
         response.append(factura)
 
     print('Query exitoso')    
+    return jsonify(response),200
+
+@app.route('/delete-client', methods=['POST'])
+def delete_client():
+    frontClient = request.form['client_id']
+    print(frontClient)
+    qFac = db.session.query(Client).filter(Client.id==frontClient).delete()
+    db.session.commit()
+    response = {"ayy":"lmao"}
+
+
+    print('AYY')    
     return jsonify(response),200
    
 # this only runs if `$ python src/main.py` is executed

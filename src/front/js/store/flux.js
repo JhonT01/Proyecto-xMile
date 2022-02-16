@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       clients: [],
       facturas: [],
       detalles: [],
+      fxRate: [],
       mensajeclientecreado: "",
       message: null,
       demo: [
@@ -97,6 +98,21 @@ const getState = ({ getStore, getActions, setStore }) => {
             facturas: responseObject,
           });
           console.log("FACTURAS SET");
+        } catch (error) {
+          console.log();
+        }
+      },
+      getFXRate: async () => {
+        try {
+          let response = await fetch(
+            "https://openexchangerates.org/api/latest.json?app_id=668687a098774224850d3983e6a5ca0f"
+          );
+          let responseObject = await response.json();
+          console.log();
+          setStore({
+            fxRate: responseObject["rates"],
+          });
+          console.log("FX SET");
         } catch (error) {
           console.log();
         }
