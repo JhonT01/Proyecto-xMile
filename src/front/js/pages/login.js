@@ -56,11 +56,11 @@ export const Login = () => {
     <div className="form-usuario">
       <div className=" contenedor-form text-center mt-5 sombra-dark">
         <img src={logoIma} />
-        <h1>Iniciar Sesión</h1>
+        <h1 className="fontExo">Iniciar Sesión</h1>
 
         <form className="px-4 py-3">
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
+            <label htmlFor="email" className="form-label fontExo">
               Usuario Email
             </label>
             <input
@@ -74,7 +74,7 @@ export const Login = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+            <label htmlFor="password" className="form-label fontExo">
               Contraseña
             </label>
             <input
@@ -94,7 +94,7 @@ export const Login = () => {
                 className="form-check-input"
                 id="dropdownCheck"
               />
-              <label className="form-check-label" htmlFor="dropdownCheck">
+              <label className="form-check-label fontExo" htmlFor="dropdownCheck">
                 Recordar
               </label>
             </div>
@@ -102,7 +102,7 @@ export const Login = () => {
 
           <button
             type="submit"
-            className="btn btn-outline-info"
+            className="btn btn-outline-info fontExo"
             onClick={handleSubmission}
           >
             Iniciar Sesión
@@ -113,7 +113,7 @@ export const Login = () => {
               className="alert alert-danger alert-dismissible fade show rounded mt-3"
               role="alert"
             >
-              <p>Todos los campos son obligatorios</p>
+              <p className="fontExo">Todos los campos son obligatorios</p>
               <button
                 type="button"
                 class="btn-close"
@@ -125,12 +125,12 @@ export const Login = () => {
           <div className="dropdown-divider"></div>
         </form>
 
-        <Link to={"/registro"} className="dropdown-item">
+        <Link to={"/registro"} className="dropdown-item fontExo">
           ¿No tienes una cuenta?{" "}
-          <span className="linkRegistro">Registrate</span>
+          <span className="linkRegistro fontExo">Registrate</span>
         </Link>
-        <a className="dropdown-item" href="#">
-          ¿Olvido su contraseña?
+        <a className="dropdown-item fontExo" href="#">
+          ¿Olvidó su contraseña?
         </a>
       </div>
     </div>
