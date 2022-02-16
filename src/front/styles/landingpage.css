@@ -35,7 +35,7 @@ body {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #fff;
+  background-color: rgb(95, 179, 160);
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -63,6 +63,18 @@ body {
 
 .maincolor {
   background-color: rgb(95, 179, 160) !important;
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  border-radius: 0.75rem;
 }
 
 /* Color (monocromático) de XMiLe:
