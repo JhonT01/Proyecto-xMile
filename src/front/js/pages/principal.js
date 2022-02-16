@@ -11,8 +11,6 @@ export const Principal = () => {
 
   const params = useParams();
 
-  console.log(store);
-
   const descargarArchivo = () => {
     const formData = new FormData();
     formData.append("client_id", params.clientId);
@@ -33,6 +31,28 @@ export const Principal = () => {
         document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
         a.click();
         a.remove(); //afterwards we remove the element again
+      });
+  };
+
+  const eliminarCliente = () => {
+    const formData = new FormData();
+    formData.append("client_id", params.clientId);
+    console.log(params.clientId);
+
+    fetch(
+      "https://3001-jhont01-proyectoxmile-xz8r1xro2ro.ws-us32.gitpod.io/delete-client",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Success:", result);
+        window.location.reload(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
   };
 
@@ -59,6 +79,7 @@ export const Principal = () => {
                       key={cliente.id}
                       theName={cliente.razon_social}
                       theId={cliente.id}
+                      theFunction={eliminarCliente}
                     />
                   );
                 })

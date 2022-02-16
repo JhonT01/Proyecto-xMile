@@ -254,6 +254,18 @@ def get_facturas():
 
     print('Query exitoso')    
     return jsonify(response),200
+
+@app.route('/delete-client', methods=['POST'])
+def delete_client():
+    frontClient = request.form['client_id']
+    print(frontClient)
+    qFac = db.session.query(Client).filter(Client.id==frontClient).delete()
+    db.session.commit()
+    response = {"ayy":"lmao"}
+
+
+    print('AYY')    
+    return jsonify(response),200
    
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
