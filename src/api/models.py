@@ -30,7 +30,7 @@ class Client(db.Model):
     fiscal_id = db.Column(db.String, unique=True, nullable=False)
     razon_social = db.Column(db.String(80), unique=False, nullable=False)
     client_users = db.relationship("User_Client",  backref="client", lazy=True)
-    client_factura = db.relationship("Factura",  backref="client", lazy=True)
+    client_factura = db.relationship("Factura",  cascade="all, delete", backref="client", lazy=True)
 
     def __repr__(self):
         return '<Client %r>' % self.id
@@ -45,7 +45,7 @@ class Client(db.Model):
 class Factura(db.Model):
     __tablename__ = 'factura'
     id = db.Column(db.Integer, primary_key=True)
-    client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=False, nullable=False)
+    client_id = db.Column(db.Integer, db.ForeignKey('client.id',  ondelete="CASCADE"), unique=False, nullable=False)
     doc = db.Column(db.String(100), unique=False, nullable=False)
     num_fac = db.Column(db.String(100), unique=False, nullable=False)
     fecha = db.Column(db.DateTime(), unique=False, nullable=False)
@@ -55,7 +55,7 @@ class Factura(db.Model):
     receptor_id = db.Column(db.String(100), unique=False, nullable=False)
     moneda = db.Column(db.String(100), unique=False, nullable=False)
     actividad = db.Column(db.Integer, unique=False, nullable=False)
-    factura_detalles = db.relationship("Factura_detalle",  backref="factura", lazy=True)
+    factura_detalles = db.relationship("Factura_detalle", cascade="all, delete",  backref="factura", lazy=True)
 
     def __repr__(self):
         return '<Factura %r>' % self.id
@@ -63,7 +63,7 @@ class Factura(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "cliente_id": self.client_id,
+            "client_id": self.client_id,
             "doc": self.doc,
             "num_fac": self.num_fac,
             "fecha": self.fecha,
@@ -78,7 +78,7 @@ class Factura(db.Model):
 class Factura_detalle(db.Model):
     __tablename__ = 'factura_detalle'
     id = db.Column(db.Integer, primary_key=True)
-    factura_id = db.Column(db.Integer, db.ForeignKey('factura.id'), unique=False, nullable=False)
+    factura_id = db.Column(db.Integer, db.ForeignKey('factura.id', ondelete="CASCADE"), unique=False, nullable=False)
     lin_fac = db.Column(db.Integer, unique=False, nullable=False)
     codigo = db.Column(db.String(100), unique=False, nullable=True)
     detalle = db.Column(db.String(100), unique=False, nullable=True)

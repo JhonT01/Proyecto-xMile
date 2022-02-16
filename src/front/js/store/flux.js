@@ -1,49 +1,124 @@
+const BASE_URL =
+  "https://3001-jhont01-proyectoxmile-kt2skh7trnh.ws-us31.gitpod.io";
+
 const getState = ({ getStore, getActions, setStore }) => {
-	return {
-		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
-		},
-		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+  return {
+    store: {
+      clients: [],
+      facturas: [],
+      detalles: [],
+      fxRate: [],
+      mensajeclientecreado: "",
+      message: null,
+      demo: [
+        {
+          title: "FIRST",
+          background: "white",
+          initial: "white",
+        },
+        {
+          title: "SECOND",
+          background: "white",
+          initial: "white",
+        },
+      ],
+    },
+    actions: {
+      crearCliente: async (razonsocial, cedulajuridica) => {
+        let urlEndPoint = BASE_URL + "/api/client";
+        let nuevoCliente = {
+          razonsocial: razonsocial,
+          cedulajuridica: cedulajuridica,
+        };
+        console.log(nuevoCliente);
+        try {
+          let response = await fetch(urlEndPoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
 
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+            body: JSON.stringify(nuevoCliente),
+          });
+          const data = await response.json();
+          setStore({ mensajeclientecreado: data });
+          return true;
+        } catch (error) {
+          return false;
+        }
+      },
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+      // Use getActions to call a function within a fuction
+      exampleFunction: () => {
+        getActions().changeColor(0, "green");
+      },
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
-		}
-	};
+      getMessage: () => {
+        // fetching data from the backend
+        fetch(process.env.BACKEND_URL + "/api/hello")
+          .then((resp) => resp.json())
+          .then((data) => setStore({ message: data.message }))
+          .catch((error) =>
+            console.log("Error loading message from backend", error)
+          );
+      },
+      changeColor: (index, color) => {
+        //get the store
+        const store = getStore();
+
+        //we have to loop the entire demo array to look for the respective index
+        //and change its color
+        const demo = store.demo.map((elm, i) => {
+          if (i === index) elm.background = color;
+          return elm;
+        });
+
+        //reset the global store
+        setStore({ demo: demo });
+      },
+      getClients: async () => {
+        try {
+          let response = await fetch(process.env.BACKEND_URL + "/clients");
+          let responseObject = await response.json();
+          console.log();
+          setStore({
+            clients: responseObject,
+          });
+          console.log("CLIENTS SET");
+        } catch (error) {
+          console.log();
+        }
+      },
+      getFacturas: async () => {
+        try {
+          let response = await fetch(process.env.BACKEND_URL + "/facturas");
+          let responseObject = await response.json();
+          console.log();
+          setStore({
+            facturas: responseObject,
+          });
+          console.log("FACTURAS SET");
+        } catch (error) {
+          console.log();
+        }
+      },
+      getFXRate: async () => {
+        try {
+          let response = await fetch(
+            "https://openexchangerates.org/api/latest.json?app_id=668687a098774224850d3983e6a5ca0f"
+          );
+          let responseObject = await response.json();
+          console.log();
+          setStore({
+            fxRate: responseObject["rates"],
+          });
+          console.log("FX SET");
+        } catch (error) {
+          console.log();
+        }
+      },
+    },
+  };
 };
 
 export default getState;

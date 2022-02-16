@@ -1,0 +1,28 @@
+.bienvenida {
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(95, 179, 160);
+}
+
+.titulo {
+  font-size: large;
+  font-weight: bold;
+}
+
+.activo {
+  background-color: rgb(95, 179, 160) !important;
+}
+
+.tableHeader {
+  color: rgb(38, 136, 113);
+}
+
+.fxRate {
+  font-weight: bold;
+  font-size: larger;
+  color: rgb(38, 136, 113);
+}
+
+.eliminar {
+  border-width: 0px;
+}
