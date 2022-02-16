@@ -101,6 +101,8 @@ export const Navbar = () => {
           </a>
         </Link>
 
+        {/* </a> */}
+
         <button
           className="navbar-toggler"
           type="button"
@@ -115,6 +117,38 @@ export const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mt-n1 p-0">
+            <li className="nav-item sombreado">
+              <a
+                className="nav-link active pe-auto"
+                aria-current="page"
+                href="#"
+              >
+                Usuario Registrado
+              </a>
+            </li>
+            <li className="nav-item sombreado">
+              <a className="nav-link active pe-auto" href="/principal/1">
+                Clientes
+              </a>
+            </li>
+            <li className="nav-item sombreado">
+              <a className="nav-link active pe-auto" href="#">
+                Crear Cliente
+              </a>
+            </li>
+            <li className="nav-item sombreado">
+              <Link className="nav-link active pe-auto" to="/subir-archivo/1">
+                Cargar Facturas
+              </Link>
+            </li>
+            <li className="nav-item">
+              <button
+                type="button"
+                className="btn pe-auto position-absolute end-0 pr-2"
+              >
+                Cerrar Sesión
+              </button>
+            </li>
             {status ? <IsLogged /> : <IsNotLogged />}
           </ul>
         </div>

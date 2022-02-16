@@ -1,15 +1,20 @@
 const BASE_URL =
-  "https://3001-jhont01-proyectoxmile-kt2skh7trnh.ws-us31.gitpod.io";
+  "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us31.gitpod.io";
+
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      clients: [],
-      facturas: [],
-      detalles: [],
+      auth: {
+        isAuth: false,
+        token: null,
+      },
       fxRate: [],
       mensajeclientecreado: "",
       message: null,
+      clients: [],
+      facturas: [],
+      detalles: [],
       demo: [
         {
           title: "FIRST",
@@ -23,7 +28,26 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
     },
+
     actions: {
+      crearUsuario: async (nombre, apellido, email, password) => {
+        let urlEndPoint = BASE_URL + "/api/registro";
+        let actions = getActions();
+        //if para confirmar password +  confirmar
+        let nuevoUsuario = {
+          nombre: nombre,
+          apellido: apellido,
+          email: email,
+          password: password,
+        };
+        let response = await fetch(urlEndPoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(nuevoUsuario),
+        });
       crearCliente: async (razonsocial, cedulajuridica) => {
         let urlEndPoint = BASE_URL + "/api/client";
         let nuevoCliente = {
@@ -102,6 +126,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log();
         }
       },
+      authHandle: (token, isAuth) => {
+        //reset the global store
+        setStore({
+          auth: {
+            isAuth: isAuth,
+            token: token,
+          },
+        });
       getFXRate: async () => {
         try {
           let response = await fetch(
