@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Exo:wght@100;400&display=swap');
+
+.fontExo {
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+}
+
 .sombreado:hover {
   background-color: #5fb3a0;
   font-weight: bolder;
@@ -22,6 +29,10 @@
   color: white;
 }
 
+
+.margin-right {
+  margin-right: 30px;
+  
 .nombre-usuario {
   color: #06bfa7;
   font-size: 2.1rem;
@@ -29,4 +40,5 @@
 }
 .nombre-usuario span {
   font-weight: 400;
+
 }
