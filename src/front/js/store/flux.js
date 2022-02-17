@@ -1,7 +1,20 @@
+const BASE_URL =
+  "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us31.gitpod.io";
+
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      auth: {
+        isAuth: false,
+        token: null,
+      },
+      fxRate: [],
+      mensajeclientecreado: "",
       message: null,
+      clients: [],
+      facturas: [],
+      detalles: [],
       demo: [
         {
           title: "FIRST",
@@ -14,11 +27,51 @@ const getState = ({ getStore, getActions, setStore }) => {
           initial: "white",
         },
       ],
-      clients: [],
-      facturas: [],
-      detalles: [],
     },
+
     actions: {
+      crearUsuario: async (nombre, apellido, email, password) => {
+        let urlEndPoint = BASE_URL + "/api/registro";
+        let actions = getActions();
+        //if para confirmar password +  confirmar
+        let nuevoUsuario = {
+          nombre: nombre,
+          apellido: apellido,
+          email: email,
+          password: password,
+        };
+        let response = await fetch(urlEndPoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(nuevoUsuario),
+        });
+      crearCliente: async (razonsocial, cedulajuridica) => {
+        let urlEndPoint = BASE_URL + "/api/client";
+        let nuevoCliente = {
+          razonsocial: razonsocial,
+          cedulajuridica: cedulajuridica,
+        };
+        console.log(nuevoCliente);
+        try {
+          let response = await fetch(urlEndPoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify(nuevoCliente),
+          });
+          const data = await response.json();
+          setStore({ mensajeclientecreado: data });
+          return true;
+        } catch (error) {
+          return false;
+        }
+      },
+
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
         getActions().changeColor(0, "green");
@@ -69,6 +122,29 @@ const getState = ({ getStore, getActions, setStore }) => {
             facturas: responseObject,
           });
           console.log("FACTURAS SET");
+        } catch (error) {
+          console.log();
+        }
+      },
+      authHandle: (token, isAuth) => {
+        //reset the global store
+        setStore({
+          auth: {
+            isAuth: isAuth,
+            token: token,
+          },
+        });
+      getFXRate: async () => {
+        try {
+          let response = await fetch(
+            "https://openexchangerates.org/api/latest.json?app_id=668687a098774224850d3983e6a5ca0f"
+          );
+          let responseObject = await response.json();
+          console.log();
+          setStore({
+            fxRate: responseObject["rates"],
+          });
+          console.log("FX SET");
         } catch (error) {
           console.log();
         }

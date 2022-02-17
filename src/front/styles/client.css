@@ -1,16 +1,9 @@
-/*
-    home.css: This website contains selectors only used in home.css
-
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
 :root {
   --blanco: #ffffff;
 }
 
-.form-usuario {
-  background-image: linear-gradient(135deg, #42fefe 0%, #06bfa7 100%);
+.form-cliente {
+  background: #06bfa7;
   height: 100vh;
   min-height: 800px;
   display: flex;
@@ -19,7 +12,8 @@
 }
 
 .contenedor-form {
-  padding: 2rem 3rem;
+  margin: 0%;
+  padding: 1px;
   max-width: 500px;
   width: 95%;
   background-color: var(--blanco);
@@ -34,11 +28,5 @@
 
 .form-label {
   flex: 0 0 100px;
-  font-weight: bold;
-  
-}
-
-.linkRegistro {
-  color: #06bfa7;
   font-weight: bold;
 }

@@ -1,5 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
-
 db = SQLAlchemy()
 
 class User(db.Model):
@@ -13,39 +12,35 @@ class User(db.Model):
     rol =  db.Column(db.String(100), unique=False, nullable=False)
     created_at =  db.Column(db.DateTime(), unique=False, nullable=False)
     user_clients = db.relationship("User_Client", backref="user", lazy=True)
-
+    
     def __repr__(self):
-        return '<User %r>' % self.username
-
+        return '<User %r>' % self.email
     def serialize(self):
         return {
             "id": self.id,
             "email": self.email
             # do not serialize the password, its a security breach
         }
-
 class Client(db.Model):
     __tablename__ = 'client'
     id = db.Column(db.Integer, primary_key=True)
     fiscal_id = db.Column(db.String, unique=True, nullable=False)
     razon_social = db.Column(db.String(80), unique=False, nullable=False)
     client_users = db.relationship("User_Client",  backref="client", lazy=True)
-    client_factura = db.relationship("Factura",  backref="client", lazy=True)
+    client_factura = db.relationship("Factura",  cascade="all, delete", backref="client", lazy=True)
 
     def __repr__(self):
         return '<Client %r>' % self.id
-
     def serialize(self):
         return {
             "id": self.id,
             "fiscal_id": self.fiscal_id,
             "razon_social": self.razon_social
         }
-
 class Factura(db.Model):
     __tablename__ = 'factura'
     id = db.Column(db.Integer, primary_key=True)
-    client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=False, nullable=False)
+    client_id = db.Column(db.Integer, db.ForeignKey('client.id',  ondelete="CASCADE"), unique=False, nullable=False)
     doc = db.Column(db.String(100), unique=False, nullable=False)
     num_fac = db.Column(db.String(100), unique=False, nullable=False)
     fecha = db.Column(db.DateTime(), unique=False, nullable=False)
@@ -55,15 +50,15 @@ class Factura(db.Model):
     receptor_id = db.Column(db.String(100), unique=False, nullable=False)
     moneda = db.Column(db.String(100), unique=False, nullable=False)
     actividad = db.Column(db.Integer, unique=False, nullable=False)
-    factura_detalles = db.relationship("Factura_detalle",  backref="factura", lazy=True)
+
+    factura_detalles = db.relationship("Factura_detalle", cascade="all, delete",  backref="factura", lazy=True)
 
     def __repr__(self):
         return '<Factura %r>' % self.id
-
     def serialize(self):
         return {
             "id": self.id,
-            "cliente_id": self.client_id,
+            "client_id": self.client_id,
             "doc": self.doc,
             "num_fac": self.num_fac,
             "fecha": self.fecha,
@@ -74,11 +69,10 @@ class Factura(db.Model):
             "moneda": self.moneda,
             "actividad": self.actividad
         }
-
 class Factura_detalle(db.Model):
     __tablename__ = 'factura_detalle'
     id = db.Column(db.Integer, primary_key=True)
-    factura_id = db.Column(db.Integer, db.ForeignKey('factura.id'), unique=False, nullable=False)
+    factura_id = db.Column(db.Integer, db.ForeignKey('factura.id', ondelete="CASCADE"), unique=False, nullable=False)
     lin_fac = db.Column(db.Integer, unique=False, nullable=False)
     codigo = db.Column(db.String(100), unique=False, nullable=True)
     detalle = db.Column(db.String(100), unique=False, nullable=True)
@@ -104,7 +98,6 @@ class Factura_detalle(db.Model):
 
     def __repr__(self):
         return '<Factura_detalle %r>' % self.id
-
     def serialize(self):
         return {
             "id": self.id,
@@ -132,9 +125,7 @@ class Factura_detalle(db.Model):
             "auto_exon": self.auto_exon,
             "fecha_exon": self.fecha_exon
         }
-
 # --------------------- Tablas Pivote -------------------------------------------------------
-
 class User_Client(db.Model):
     __tablename__ = 'user_Client'
     id = db.Column(db.Integer, primary_key=True)
@@ -142,10 +133,8 @@ class User_Client(db.Model):
     client_id = db.Column(db.Integer, db.ForeignKey('client.id'), unique=False, nullable=False)
     #user = db.relationship("User", back_populates="user.id")
     #client = db.relationship("Client", back_populates="client.id")
-
     def __repr__(self):
         return '<User_Client %r>' % self.id
-
     def serialize(self):
         return {
             "id": self.id,
