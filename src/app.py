@@ -88,6 +88,15 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0  # avoid cache memory
     return response
 
+@app.route('/client', methods=['POST'])
+def add_client():
+    body = request.get_json()
+    print (body)
+    newclient = Client(fiscal_id=body["cedulajuridica"], razon_social=body["razonsocial"])
+    db.session.add(newclient)
+    db.session.commit()
+    return jsonify({"mensaje": "Cliente creado exitosamente"}), 201
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -238,8 +247,8 @@ def descarga():
                     regDetalle['auto_exon'],
                     regDetalle['fecha_exon'],
                     ])
-                
-            return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
+            
+        return send_file(out,mimetype='text/csv',attachment_filename='reporteFacturas.csv',as_attachment=True)
 
 @app.route('/clients', methods=['GET'])
 def get_clients():
@@ -261,6 +270,18 @@ def get_facturas():
         response.append(factura)
 
     print('Query exitoso')    
+    return jsonify(response),200
+
+@app.route('/delete-client', methods=['POST'])
+def delete_client():
+    frontClient = request.form['client_id']
+    print(frontClient)
+    qFac = db.session.query(Client).filter(Client.id==frontClient).delete()
+    db.session.commit()
+    response = {"ayy":"lmao"}
+
+
+    print('AYY')    
     return jsonify(response),200
    
 # this only runs if `$ python src/main.py` is executed

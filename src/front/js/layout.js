@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
+import { Client } from "./pages/client";
 import { Single } from "./pages/single";
 import { Registro } from "./pages/registro";
 import { Landing_page } from "./pages/landingpage";
@@ -56,6 +57,9 @@ const Layout = () => {
               <Separador>
                 <Principal />
               </Separador>
+            </Route>
+            <Route exact path="/client">
+              <Client />
             </Route>
             <Route>
               <Separador>

@@ -1,2 +1,0 @@
-id,fiscal_id,razon_social,id,cliente_id,doc,num_fac,fecha,emisor,emisor_id,receptor,receptor_id,moneda,actividad,id,factura_id,lin_fac,codigo,detalle,tarifa,precio_unit,cantidad,unidad,gravado_isc,exento_isc,imp_especif,monto_linea,gravado,exento,exonerado,si_otro,descuento,subtotal,monto_isc,impuesto,mon_total,auto_exon,fecha_exon
-

@@ -1,6 +1,7 @@
 const BASE_URL =
   "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us31.gitpod.io";
 
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -8,6 +9,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         isAuth: false,
         token: null,
       },
+      fxRate: [],
+      mensajeclientecreado: "",
       message: null,
       clients: [],
       facturas: [],
@@ -45,6 +48,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 
           body: JSON.stringify(nuevoUsuario),
         });
+      crearCliente: async (razonsocial, cedulajuridica) => {
+        let urlEndPoint = BASE_URL + "/api/client";
+        let nuevoCliente = {
+          razonsocial: razonsocial,
+          cedulajuridica: cedulajuridica,
+        };
+        console.log(nuevoCliente);
+        try {
+          let response = await fetch(urlEndPoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify(nuevoCliente),
+          });
+          const data = await response.json();
+          setStore({ mensajeclientecreado: data });
+          return true;
+        } catch (error) {
+          return false;
+        }
       },
 
       // Use getActions to call a function within a fuction
@@ -109,6 +134,20 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: token,
           },
         });
+      getFXRate: async () => {
+        try {
+          let response = await fetch(
+            "https://openexchangerates.org/api/latest.json?app_id=668687a098774224850d3983e6a5ca0f"
+          );
+          let responseObject = await response.json();
+          console.log();
+          setStore({
+            fxRate: responseObject["rates"],
+          });
+          console.log("FX SET");
+        } catch (error) {
+          console.log();
+        }
       },
     },
   };

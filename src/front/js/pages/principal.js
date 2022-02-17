@@ -11,14 +11,12 @@ export const Principal = () => {
 
   const params = useParams();
 
-  console.log(store);
-
   const descargarArchivo = () => {
     const formData = new FormData();
     formData.append("client_id", params.clientId);
 
     fetch(
-      "https://3001-jhont01-proyectoxmile-ayu39oih1lc.ws-us31.gitpod.io/descargar",
+      "https://3001-jhont01-proyectoxmile-xz8r1xro2ro.ws-us31.gitpod.io/descargar",
       {
         method: "POST",
         body: formData,
@@ -36,11 +34,38 @@ export const Principal = () => {
       });
   };
 
+  const eliminarCliente = () => {
+    const formData = new FormData();
+    formData.append("client_id", params.clientId);
+    console.log(params.clientId);
+
+    fetch(
+      "https://3001-jhont01-proyectoxmile-xz8r1xro2ro.ws-us32.gitpod.io/delete-client",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Success:", result);
+        window.location.reload(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <>
       <div className="container">
         <div className="row justify-content-md-center">
-          <p className="bienvenida">Bienvenid@, John Doe. </p>
+          <div className="col-8">
+            <p className="bienvenida">Bienvenid@, John Doe. </p>
+          </div>
+          <div className="col-3">
+            <p className="fxRate">FX USD/CRC: {store.fxRate["CRC"]}</p>
+          </div>
         </div>
 
         <div className="row justify-content-md-center mt-3">
@@ -54,6 +79,7 @@ export const Principal = () => {
                       key={cliente.id}
                       theName={cliente.razon_social}
                       theId={cliente.id}
+                      theFunction={eliminarCliente}
                     />
                   );
                 })

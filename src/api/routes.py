@@ -2,8 +2,11 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Client
 from api.utils import generate_sitemap, APIException
+#from flask_jwt_extended import create_access_token
+#from flask_jwt_extended import get_jwt_identity
+#from flask_jwt_extended import jwt_required
 
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 
@@ -23,7 +26,6 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
-
 
 @api.route('/registro', methods=['POST'])
 def crearUser():
@@ -67,3 +69,17 @@ def protected():
     #     return jsonify({"Resultado":current_user})
     # else:
     #     return jsonify({"resultado": "Usuario no existe"})
+
+    
+@api.route('/client', methods=['POST'])
+def crearCliente():
+    body=request.get_json()
+    cliente = Client.query.filter_by(fiscal_id = body["cedulajuridica"]).first()
+    if not cliente:
+        newclient = Client(fiscal_id = body["cedulajuridica"], razon_social=body["razonsocial"])
+        db.session.add(newclient)
+        db.session.commit()
+    else:
+        return jsonify("Cliente existente. Registre nuevo cliente")    
+    return jsonify("recibido")
+
