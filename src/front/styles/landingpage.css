@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Exo:wght@100;400&display=swap');
+
+.fontExo {
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+}
+
+#demo {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+#div-img-hero {
+  background: white;
+}
+
+#img-hero {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .b-example-divider {
   height: 3rem;
   background-color: rgba(0, 0, 0, 0.1);
@@ -14,7 +35,7 @@ body {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #fff;
+  background-color: rgb(95, 179, 160);
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -41,7 +62,19 @@ body {
 }
 
 .maincolor {
-  color: rgb(95, 179, 160) !important;
+  background-color: rgb(95, 179, 160) !important;
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  border-radius: 0.75rem;
 }
 
 /* Color (monocromático) de XMiLe:

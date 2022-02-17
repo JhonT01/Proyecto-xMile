@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../../img/Logo-con-nombre.png";
+import Logo from "../../img/logos/logonavbar.png";
 import "../../styles/navbar.css";
 
 const IsLogged = () => {
   return (
     <>
       <li className="nav-item sombreado">
+
         <Link className="nav-link active pe-auto" to="/principal/1">
           Principal
         </Link>
@@ -18,7 +19,7 @@ const IsLogged = () => {
         </Link>
       </li>
       <li className="nav-item sombreado">
-        <Link className="nav-link active pe-auto" to="/subir-archivo/1">
+        <Link className="nav-link active pe-auto fontExo" to="/subir-archivo/1">
           Cargar Facturas
         </Link>
       </li>
@@ -29,10 +30,8 @@ const IsLogged = () => {
             className="btn pe-auto position-absolute end-0 pr-2"
           >
             Cerrar Sesión
-          </button>
-          
+          </button>  
         </Link>
-
       </li>
     </>
   );
@@ -68,8 +67,8 @@ export const Navbar = () => {
             <img
               src={Logo}
               alt="xmile"
-              width="50"
-              height="50"
+              width="95px"
+              height="50px"
               className="d-inline-block align-text-top"
             />
           </a>
