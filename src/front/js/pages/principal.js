@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { BASE_URL } from "../store/flux";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import logoIma from "../../img/Prototipo3.png";
@@ -13,15 +14,12 @@ export const Principal = () => {
 
   const descargarArchivo = () => {
     const formData = new FormData();
-    formData.append("client_id", params.clientId);
+    formData.append("cliente_id", params.clientId);
 
-    fetch(
-      "https://3001-jhont01-proyectoxmile-xz8r1xro2ro.ws-us31.gitpod.io/descargar",
-      {
-        method: "POST",
-        body: formData,
-      }
-    )
+    fetch(BASE_URL + "/descargar", {
+      method: "POST",
+      body: formData,
+    })
       .then((response) => response.blob())
       .then((blob) => {
         var url = window.URL.createObjectURL(blob);
@@ -39,13 +37,10 @@ export const Principal = () => {
     formData.append("client_id", params.clientId);
     console.log(params.clientId);
 
-    fetch(
-      "https://3001-jhont01-proyectoxmile-xz8r1xro2ro.ws-us32.gitpod.io/delete-client",
-      {
-        method: "POST",
-        body: formData,
-      }
-    )
+    fetch(BASE_URL + "/delete-client", {
+      method: "POST",
+      body: formData,
+    })
       .then((response) => response.json())
       .then((result) => {
         console.log("Success:", result);
@@ -126,7 +121,7 @@ export const Principal = () => {
                 <tbody>
                   {store.facturas.length > 0 ? (
                     store.facturas.map((factura) => {
-                      if (factura.cliente_id == params.clientId) {
+                      if (factura.client_id == params.clientId) {
                         return (
                           <RowFactura
                             key={factura.id}

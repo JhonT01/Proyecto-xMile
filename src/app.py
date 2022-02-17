@@ -164,7 +164,7 @@ def descarga():
 
     if request.method == 'POST':
 
-        frontClient = request.form['client_id']
+        frontClient = request.form['cliente_id']
         string = str(r'/workspace/Proyecto-xMile/src/outputs')
         out = string + "/facturas.csv"
 
@@ -201,7 +201,7 @@ def descarga():
             #Insercion de todos los registros
             csvwriter.writerow(csvHeaders)
             for row in q:
-                regClient = row[0].serialize()  
+                regClient = row[0].serialize()
                 regFactura = row[1].serialize()
                 regDetalle = row[2].serialize()
                 csvwriter.writerow(
@@ -211,7 +211,7 @@ def descarga():
                     regClient['razon_social'],
                     #Registros Factura
                     regFactura['id'],
-                    regFactura['cliente_id'],
+                    regFactura['client_id'],
                     regFactura['doc'],
                     regFactura['num_fac'],
                     regFactura['fecha'],

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { BASE_URL } from "../store/flux";
 import logoIma from "../../img/Xmile.png";
 import "../../styles/client.css";
 import { Context } from "../store/appContext";

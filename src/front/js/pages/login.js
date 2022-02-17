@@ -1,8 +1,12 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
+import { BASE_URL } from "../store/flux";
+
+import { ToastySuccess } from "../component/toastySuccess";
+import { ToastyFail } from "../component/toastyFail";
 
 export const Login = () => {
   //State para iniciar Sesion
@@ -13,6 +17,9 @@ export const Login = () => {
   //validacion de campos
   const [error, setError] = useState(false);
   const { store, actions } = useContext(Context);
+
+  // routing a pagina en caso de login exitoso
+  let history = useHistory();
 
   //extraer de usuario
   const { email, password } = usuario;
@@ -26,6 +33,11 @@ export const Login = () => {
 
   const handleSubmission = async (e) => {
     e.preventDefault();
+    let element1 = document.getElementById("toastySuccess");
+    let myToastSuccess = new bootstrap.Toast(element1);
+
+    let element2 = document.getElementById("toastyFail");
+    let myToastFail = new bootstrap.Toast(element2);
 
     const obj = {
       email: usuario.email,
@@ -38,18 +50,20 @@ export const Login = () => {
     } else {
       setError(false);
     }
-
-    const response = await fetch(
-      "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us31.gitpod.io/api/login",
-      {
+    try {
+      const response = await fetch(BASE_URL + "/api/login", {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         body: JSON.stringify(obj),
-      }
-    );
-    const data = await response.json();
-    sessionStorage.setItem("access_token", data.access_token);
-    actions.authHandle(data.access_token, true);
+      });
+      const data = await response.json();
+      sessionStorage.setItem("access_token", data.access_token);
+      actions.authHandle(data.access_token, true);
+      myToastSuccess.show();
+      history.push("/principal/1");
+    } catch (error) {
+      myToastFail.show();
+    }
   };
 
   return (
@@ -133,6 +147,8 @@ export const Login = () => {
           ¿Olvidó su contraseña?
         </a>
       </div>
+      <ToastySuccess mensaje="Login Exitoso"></ToastySuccess>
+      <ToastyFail mensaje="Login fail"></ToastyFail>
     </div>
   );
 };
