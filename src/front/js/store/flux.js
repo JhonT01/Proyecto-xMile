@@ -1,5 +1,5 @@
-const BASE_URL =
-  "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us31.gitpod.io";
+
+export const BASE_URL = process.env.BACKEND_URL;
 
 
 const getState = ({ getStore, getActions, setStore }) => {
@@ -48,6 +48,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
           body: JSON.stringify(nuevoUsuario),
         });
+      },
+
       crearCliente: async (razonsocial, cedulajuridica) => {
         let urlEndPoint = BASE_URL + "/api/client";
         let nuevoCliente = {
@@ -134,6 +136,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: token,
           },
         });
+      },
+
       getFXRate: async () => {
         try {
           let response = await fetch(

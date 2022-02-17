@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { BASE_URL } from "../store/flux";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useDropzone } from "react-dropzone";
@@ -38,13 +39,10 @@ export const Subir_archivo = () => {
       formData.append("file", element);
       formData.append("client_id", params.clientId);
 
-      fetch(
-        "https://3001-jhont01-proyectoxmile-8769ilzx40q.ws-us31.gitpod.io/subir",
-        {
-          method: "POST",
-          body: formData,
-        }
-      )
+      fetch(BASE_URL + "/subir", {
+        method: "POST",
+        body: formData,
+      })
         .then((response) => response.json())
         .then((result) => {
           console.log("Success:", result);

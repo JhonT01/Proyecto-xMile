@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica">
+  <Clave>50612012200310161019800100024010020813610200000000</Clave>
+  <CodigoActividad>642005</CodigoActividad>
+  <NumeroConsecutivo>00100024010020813610</NumeroConsecutivo>
+  <FechaEmision>2022-01-12T23:40:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Telefónica de Costa Rica TC, S.A</Nombre>
+    <Identificacion>
+      <Tipo>02</Tipo>
+      <Numero>3101610198</Numero>
+    </Identificacion>
+    <Ubicacion>
+      <Provincia>1</Provincia>
+      <Canton>02</Canton>
+      <Distrito>03</Distrito>
+      <Barrio>26</Barrio>
+      <OtrasSenas>Centro Corporativo El Cedral, San Rafael, Escazú, San José. Sobre Autopista Próspero Fernández</OtrasSenas>
+    </Ubicacion>
+    <Telefono>
+      <CodigoPais>506</CodigoPais>
+      <NumTelefono>41009000</NumTelefono>
+    </Telefono>
+    <Fax>
+      <CodigoPais>506</CodigoPais>
+      <NumTelefono>41009000</NumTelefono>
+    </Fax>
+    <CorreoElectronico>telefonica@telefonica.cr</CorreoElectronico>
+  </Emisor>
+  <Receptor>
+    <Nombre>JESUS DAVID  LEON CHACIN</Nombre>
+    <Identificacion>
+      <Tipo>03</Tipo>
+      <Numero>186200561813</Numero>
+    </Identificacion>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <PlazoCredito />
+  <MedioPago>01</MedioPago>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>PAQUETE INTERNET OFERTA CONTROL</Detalle>
+      <PrecioUnitario>0</PrecioUnitario>
+      <MontoTotal>0</MontoTotal>
+      <SubTotal>0</SubTotal>
+      <MontoTotalLinea>0</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>2</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>SERVICIO LLAMADA EN ESPERA</Detalle>
+      <PrecioUnitario>0</PrecioUnitario>
+      <MontoTotal>0</MontoTotal>
+      <SubTotal>0</SubTotal>
+      <MontoTotalLinea>0</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>3</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>SERVICIO DESVIO DE LLAMADAS</Detalle>
+      <PrecioUnitario>0</PrecioUnitario>
+      <MontoTotal>0</MontoTotal>
+      <SubTotal>0</SubTotal>
+      <MontoTotalLinea>0</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>4</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>SERVICIO ACCESO LDI</Detalle>
+      <PrecioUnitario>0</PrecioUnitario>
+      <MontoTotal>0</MontoTotal>
+      <SubTotal>0</SubTotal>
+      <MontoTotalLinea>0</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>5</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>SERVICIO ACCESO ROAMING</Detalle>
+      <PrecioUnitario>0</PrecioUnitario>
+      <MontoTotal>0</MontoTotal>
+      <SubTotal>0</SubTotal>
+      <MontoTotalLinea>0</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>6</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>SERVICIO BUZON DE VOZ</Detalle>
+      <PrecioUnitario>0</PrecioUnitario>
+      <MontoTotal>0</MontoTotal>
+      <SubTotal>0</SubTotal>
+      <MontoTotalLinea>0</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>7</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>SERVICIO IDENTIFICACION DE LLAMADAS</Detalle>
+      <PrecioUnitario>0</PrecioUnitario>
+      <MontoTotal>0</MontoTotal>
+      <SubTotal>0</SubTotal>
+      <MontoTotalLinea>0</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>8</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>SERVICIO CONFERENCIA TRIPARTITA</Detalle>
+      <PrecioUnitario>0</PrecioUnitario>
+      <MontoTotal>0</MontoTotal>
+      <SubTotal>0</SubTotal>
+      <MontoTotalLinea>0</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>9</NumeroLinea>
+      <Codigo>8419000000000</Codigo>
+      <CodigoComercial>
+        <Tipo>01</Tipo>
+        <Codigo>587</Codigo>
+      </CodigoComercial>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Os</UnidadMedida>
+      <Detalle>RENTA MENSUAL</Detalle>
+      <PrecioUnitario>9292.04</PrecioUnitario>
+      <MontoTotal>9292.04</MontoTotal>
+      <SubTotal>9292.04</SubTotal>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifa>08</CodigoTarifa>
+        <Tarifa>13</Tarifa>
+        <Monto>1207.97</Monto>
+      </Impuesto>
+      <MontoTotalLinea>10500.01</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <OtrosCargos>
+    <TipoDocumento>01</TipoDocumento>
+    <NumeroIdentidadTercero />
+    <NombreTercero />
+    <Detalle>SERVICIO 911  0,75%</Detalle>
+    <Porcentaje>0.75</Porcentaje>
+    <MontoCargo>69.69</MontoCargo>
+  </OtrosCargos>
+  <OtrosCargos>
+    <TipoDocumento>01</TipoDocumento>
+    <NumeroIdentidadTercero />
+    <NombreTercero />
+    <Detalle>IMPUESTO CRUZ ROJA 1%</Detalle>
+    <Porcentaje>1</Porcentaje>
+    <MontoCargo>92.92</MontoCargo>
+  </OtrosCargos>
+  <ResumenFactura>
+    <CodigoTipoMoneda>
+      <CodigoMoneda>CRC</CodigoMoneda>
+      <TipoCambio>1</TipoCambio>
+    </CodigoTipoMoneda>
+    <TotalServGravados>9292.04</TotalServGravados>
+    <TotalServExentos>0.00</TotalServExentos>
+    <TotalServExonerado>0</TotalServExonerado>
+    <TotalMercanciasGravadas>0</TotalMercanciasGravadas>
+    <TotalMercanciasExentas>0</TotalMercanciasExentas>
+    <TotalMercExonerada>0</TotalMercExonerada>
+    <TotalGravado>9292.04</TotalGravado>
+    <TotalExento>0.00</TotalExento>
+    <TotalExonerado>0.00</TotalExonerado>
+    <TotalVenta>9292.04</TotalVenta>
+    <TotalDescuentos>0</TotalDescuentos>
+    <TotalVentaNeta>9292.04</TotalVentaNeta>
+    <TotalImpuesto>1207.97</TotalImpuesto>
+    <TotalIVADevuelto>0</TotalIVADevuelto>
+    <TotalOtrosCargos>162.61</TotalOtrosCargos>
+    <TotalComprobante>10662.62</TotalComprobante>
+  </ResumenFactura>
+  <Otros>
+    <OtroTexto codigo="Email_Receptor">LEONJESUS@OUTLOOK.COM</OtroTexto>
+  </Otros>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-f3f856bb-8829-4323-b856-25d033bef440"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><ds:Reference Id="Reference-adc789a3-a8b2-465d-86c0-4fc37b4c19f1" URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>09UgZTyXZJRSQYS6qn0igGcTo41GGB6Zc5E0xEXrmy8=</ds:DigestValue></ds:Reference><ds:Reference Id="ReferenceKeyInfo" URI="#KeyInfoId-Signature-f3f856bb-8829-4323-b856-25d033bef440"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>q/Z+a7ctIeH+QrTb5jhzAcld0Dquzvp9o1awe10tQnc=</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#SignedProperties-Signature-f3f856bb-8829-4323-b856-25d033bef440"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>PK2EcgjoMvAXzDcRzdCb+d/jN9oGTfW+oG+3PEuNkHY=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="SignatureValue-f3f856bb-8829-4323-b856-25d033bef440">zSu5bBs0pP07wEswE/JYJhwHBKOQp0kKOeSs+MlbCAPsepCQ4PsNvu28lrm2QnsNYfroHyGLCAg6xNXJKv1ARA0cgVny6s1QfXGfBFTmXpftgDhEPy9Py/eJvD48Yi4twGd3OjC+1uMDt6HZ/YQsySyh6gXIZR8DPm7MIYQQtNbGIqgLXnqiDC8yHKqarL2kTvyGAzzYiaaFgQEvvGIF+EneMDhgtO7MZj0CCk3KBqzCZ2pFAkRPZ0Ziw8+w+jEer3N0ndqwLgprXROCZUyG3u4IeQ0Bwj/x/DVBBRKVy2Nm+1129dDWjAir3LKhTlSR5uiLsXbkGXx06hymFPVAsA==</ds:SignatureValue><ds:KeyInfo Id="KeyInfoId-Signature-f3f856bb-8829-4323-b856-25d033bef440"><ds:X509Data><ds:X509Certificate>MIIFLjCCAxagAwIBAgIGAXvNsQInMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNVBAYTAkNSMR8wHQYDVQQKDBZNSU5JU1RFUklPIERFIEhBQ0lFTkRBMQwwCgYDVQQLDANER1QxHDAaBgNVBAMME0NBIFBFUlNPTkEgSlVSSURJQ0EwHhcNMjEwOTEwMDMxMjE0WhcNMjUwOTA5MDMxMjE0WjCBiDEZMBcGA1UEBRMQQ1BKLTMtMTAxLTYxMDE5ODELMAkGA1UEBhMCQ1IxGTAXBgNVBAoMEFBFUlNPTkEgSlVSSURJQ0ExDDAKBgNVBAsMA0NQSjE1MDMGA1UEAwwsVEVMRUZPTklDQSBERSBDT1NUQSBSSUNBIFRDIFNPQ0lFREFEIEFOT05JTUEwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDayBiHv1qtaWZy88VjJ3hTWK4rhaoYrIwIPy2QyvcHQvs9Kv8EBAJf8qKnHmKPZEhAO/u8S0rkGkYy3RmtDcTQcFmyTtEDAu786ERrex7kX41xzYzybZQgt34+1tho4YKUpXDRp3Qx/a0pH3u/a4p7nmbkVpyavFKbd4riaB6x4tws7hv6RiADbxlHThILbtvUZ/d8unH5o7y8UEJvpeyckSUePmwM9baNMmLAsgIlp8LUkV0EwJjeS21uWAs6sRnlHGVNE3YrkqpP2B2+L7Q4RK3Uy6ViXfqiL5moSFZVVLSk1sDn7xbuRZGE1foMtDVDdiNFlE7frp1rgN1MrPt3AgMBAAGjgcowgccwHwYDVR0jBBgwFoAUO21X9dZ86Z4QAiBB470azM+zTpUwHQYDVR0OBBYEFJPTQ8BsLIVwjUHlJvSckY70LWWbMAsGA1UdDwQEAwIGwDATBgNVHSUEDDAKBggrBgEFBQcDBDBjBggrBgEFBQcBAQRXMFUwUwYIKwYBBQUHMAKGR2h0dHBzOi8vcGtpLmNvbXByb2JhbnRlc2VsZWN0cm9uaWNvcy5nby5jci9wcm9kL2ludGVybWVkaWF0ZS1wai1wZW0uY3J0MA0GCSqGSIb3DQEBCwUAA4ICAQB0Lpt7+lf5WGvvubgPlTpOdEhNxAzUTwHdHF1k+mCZigihdN2680C0ojdB9qfu06RMfwJm86Lr/Qt/l7STkF0tkQWDopDksP53B8fvNOGChOilHU2uMJBEGwXT0KY8t5kLUtM0VzlRJSamXXzh4F1MZemxLNcgj+l3Dm7APGnvARAU4/mLG6ij7PcdFRZAOYZQm90HmI6cjvoTDjOc1K/vk7Nl+JdOA1tGxIHk5kA1AWSQmJD4M6n1QE9jB2G+B6sOTFDBUY2ul7BM9/5V2O577ngrGOiepOG9v6K+VlV+TBcgFmQQeS5KZZDBZlhtUjf4RFYEyFU7CdnkVcWkIC/1nmtYbTeykfmdkuxxsmxQwWRuYvQSos8XaF0cLaCcMPO52nmxWvxSUIRNHui0jmmaY6kCIc9D8yJOGEuN73pX4uRquo0h+Qtlb/G1zio2UhvoeRQ9PB6nEueqM+8XvxOhhWUqPYsYL3lifZlvfpwNPwTEPICaA6WDIl3YyjoywCAkwb+sCvsA9wlGQQvQ/pxYQVlezgjkZb5xrFrzE9/vND8BVIsqSbrn4462lyHMKUaUiBAScYHcMeA24zM/h1CxbpKd3MhZf7PfOijAFQjw1w2FZ/4Sq2TZAILqLdQAVTebfLhfSB8hdzD/eYY1r30vTSI/zrE7bvqlgwmVLI6S+w==</ds:X509Certificate></ds:X509Data><ds:KeyValue><ds:RSAKeyValue><ds:Modulus>2sgYh79arWlmcvPFYyd4U1iuK4WqGKyMCD8tkMr3B0L7PSr/BAQCX/Kipx5ij2RIQDv7vEtK5BpGMt0ZrQ3E0HBZsk7RAwLu/OhEa3se5F+Ncc2M8m2UILd+PtbYaOGClKVw0ad0Mf2tKR97v2uKe55m5FacmrxSm3eK4mgeseLcLO4b+kYgA28ZR04SC27b1Gf3fLpx+aO8vFBCb6XsnJElHj5sDPW2jTJiwLICJafC1JFdBMCY3kttblgLOrEZ5RxlTRN2K5KqT9gdvi+0OESt1MulYl36oi+ZqEhWVVS0pNbA5+8W7kWRhNX6DLQ1Q3YjRZRO366da4DdTKz7dw==</ds:Modulus><ds:Exponent>AQAB</ds:Exponent></ds:RSAKeyValue></ds:KeyValue></ds:KeyInfo><ds:Object Id="XadesObjectId-60adb6ec-07bd-4f68-87e1-450df9eeee4d"><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="QualifyingProperties-c121d80f-8e98-4857-a9c8-f72e1b9181a3" Target="#Signature-f3f856bb-8829-4323-b856-25d033bef440"><xades:SignedProperties Id="SignedProperties-Signature-f3f856bb-8829-4323-b856-25d033bef440"><xades:SignedSignatureProperties><xades:SigningTime>2022-01-12T23:40:00-06:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>sNfAcQe6gq80kJEhwHqPQZy8l4d/i8oU2wPkkkvDbUs=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=CA PERSONA JURIDICA, OU=DGT, O=MINISTERIO DE HACIENDA, C=CR</ds:X509IssuerName><ds:X509SerialNumber>1631243534887</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/Resolucion_Comprobantes_Electronicos_DGT-R-48-2016.pdf</xades:Identifier><xades:Description /></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>NmI5Njk1ZThkNzI0MmIzMGJmZDAyNDc4YjUwNzkzODM2NTBiOWUxNTBkMmI2YjgzYzZjM2I5NTZlNDQ4OWQzMQ==</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="#Reference-adc789a3-a8b2-465d-86c0-4fc37b4c19f1"><xades:MimeType>text/xml</xades:MimeType><xades:Encoding>UTF-8</xades:Encoding></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></FacturaElectronica>

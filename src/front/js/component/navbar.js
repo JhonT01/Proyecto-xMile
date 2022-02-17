@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../img/Logo-con-nombre.png";
 import "../../styles/navbar.css";
@@ -7,20 +8,14 @@ const IsLogged = () => {
   return (
     <>
       <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" aria-current="page" href="#">
-          Profile
-        </a>
-      </li>
-      x
-      <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" href="/principal/1">
-          Clientes
-        </a>
+        <Link className="nav-link active pe-auto" to="/principal/1">
+          Principal
+        </Link>
       </li>
       <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" href="#">
+        <Link className="nav-link active pe-auto" to="/client">
           Crear Cliente
-        </a>
+        </Link>
       </li>
       <li className="nav-item sombreado">
         <Link className="nav-link active pe-auto" to="/subir-archivo/1">
@@ -28,12 +23,16 @@ const IsLogged = () => {
         </Link>
       </li>
       <li className="nav-item">
-        <button
-          type="button"
-          className="btn pe-auto position-absolute end-0 pr-2"
-        >
-          Cerrar Sesión
-        </button>
+        <Link to="/"> 
+          <button
+            type="button"
+            className="btn pe-auto position-absolute end-0 pr-2"
+          >
+            Cerrar Sesión
+          </button>
+          
+        </Link>
+
       </li>
     </>
   );
@@ -42,49 +41,24 @@ const IsLogged = () => {
 const IsNotLogged = () => {
   return (
     <>
-      <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" aria-current="page" href="#">
-          Profile
-        </a>
-      </li>
-
-      <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" href="/principal/1">
-          Clientes
-        </a>
-      </li>
-
-      <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" href="#">
-          Crear Cliente
-        </a>
-      </li>
-
-      <li className="nav-item sombreado">
-        <Link className="nav-link active pe-auto" to="/subir-archivo/1">
-          Cargar Facturas
-        </Link>
-      </li>
-
       <li className="nav-item  position-absolute end-0 pr-2">
-        <button type="button" className="btn pe-auto">
-          Registrarse
-        </button>
-
-        <button type="button" className="btn pe-auto">
-          Iniciar Sesión
-        </button>
+        <Link to="/registro">
+          <button type="button" className="btn pe-auto">
+            Registrarse
+          </button>
+        </Link>
+        <Link to="/login">         
+          <button type="button" className="btn pe-auto">
+            Iniciar Sesión
+          </button>
+        </Link>
       </li>
     </>
   );
 };
 
 export const Navbar = () => {
-  // const { store, actions } = useContext(Context);
-
-  // const params = useParams();
-
-  const [status, setStatus] = useState(false);
+  const { store, actions } = useContext(Context);
 
   return (
     <nav className="navbar-fixed navbar-expand-lg navbar-light bg-white">
@@ -101,8 +75,6 @@ export const Navbar = () => {
           </a>
         </Link>
 
-        {/* </a> */}
-
         <button
           className="navbar-toggler"
           type="button"
@@ -117,39 +89,7 @@ export const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mt-n1 p-0">
-            <li className="nav-item sombreado">
-              <a
-                className="nav-link active pe-auto"
-                aria-current="page"
-                href="#"
-              >
-                Usuario Registrado
-              </a>
-            </li>
-            <li className="nav-item sombreado">
-              <a className="nav-link active pe-auto" href="/principal/1">
-                Clientes
-              </a>
-            </li>
-            <li className="nav-item sombreado">
-              <a className="nav-link active pe-auto" href="#">
-                Crear Cliente
-              </a>
-            </li>
-            <li className="nav-item sombreado">
-              <Link className="nav-link active pe-auto" to="/subir-archivo/1">
-                Cargar Facturas
-              </Link>
-            </li>
-            <li className="nav-item">
-              <button
-                type="button"
-                className="btn pe-auto position-absolute end-0 pr-2"
-              >
-                Cerrar Sesión
-              </button>
-            </li>
-            {status ? <IsLogged /> : <IsNotLogged />}
+            {store.auth.isAuth ? <IsLogged /> : <IsNotLogged />}
           </ul>
         </div>
       </div>
