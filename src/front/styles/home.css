@@ -5,6 +5,12 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Exo:wght@100;400&display=swap');
+
+.fontExo {
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+}
 
 :root {
   --blanco: #ffffff;
@@ -35,5 +41,11 @@
 
 .form-label {
   flex: 0 0 100px;
+  font-weight: bold;
+  
+}
+
+.linkRegistro {
+  color: #06bfa7;
   font-weight: bold;
 }
