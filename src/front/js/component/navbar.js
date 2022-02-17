@@ -1,36 +1,36 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../../img/Logo-con-nombre.png";
+import Logo from "../../img/logos/logonavbar.png";
 import "../../styles/navbar.css";
 
 const IsLogged = () => {
   return (
     <>
       <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" aria-current="page" href="#">
+        <a className="nav-link active pe-auto fontExo" aria-current="page" href="#">
           Profile
         </a>
       </li>
       x
       <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" href="/principal/1">
+        <a className="nav-link active pe-auto fontExo" href="/principal/1">
           Clientes
         </a>
       </li>
       <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" href="#">
+        <a className="nav-link active pe-auto fontExo" href="#">
           Crear Cliente
         </a>
       </li>
       <li className="nav-item sombreado">
-        <Link className="nav-link active pe-auto" to="/subir-archivo/1">
+        <Link className="nav-link active pe-auto fontExo" to="/subir-archivo/1">
           Cargar Facturas
         </Link>
       </li>
       <li className="nav-item">
         <button
           type="button"
-          className="btn pe-auto position-absolute end-0 pr-2"
+          className="btn pe-auto position-absolute end-0 pr-2 fontExo"
         >
           Cerrar Sesión
         </button>
@@ -43,35 +43,35 @@ const IsNotLogged = () => {
   return (
     <>
       <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" aria-current="page" href="#">
+        <a className="nav-link active pe-auto fontExo" aria-current="page" href="#">
           Profile
         </a>
       </li>
 
       <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" href="/principal/1">
+        <a className="nav-link active pe-auto fontExo" href="/principal/1">
           Clientes
         </a>
       </li>
 
       <li className="nav-item sombreado">
-        <a className="nav-link active pe-auto" href="#">
+        <a className="nav-link active pe-auto fontExo" href="#">
           Crear Cliente
         </a>
       </li>
 
       <li className="nav-item sombreado">
-        <Link className="nav-link active pe-auto" to="/subir-archivo/1">
+        <Link className="nav-link active pe-auto fontExo" to="/subir-archivo/1">
           Cargar Facturas
         </Link>
       </li>
 
       <li className="nav-item  position-absolute end-0 pr-2">
-        <button type="button" className="btn pe-auto">
+        <button type="button" className="btn pe-auto fontExo margin-right">
           Registrarse
         </button>
 
-        <button type="button" className="btn pe-auto">
+        <button type="button" className="btn pe-auto fontExo margin-right">
           Iniciar Sesión
         </button>
       </li>
@@ -94,8 +94,8 @@ export const Navbar = () => {
             <img
               src={Logo}
               alt="xmile"
-              width="50"
-              height="50"
+              width="95px"
+              height="50px"
               className="d-inline-block align-text-top"
             />
           </a>
