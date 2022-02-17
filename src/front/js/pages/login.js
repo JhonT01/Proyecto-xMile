@@ -33,11 +33,11 @@ export const Login = () => {
 
   const handleSubmission = async (e) => {
     e.preventDefault();
-    var element1 = document.getElementById("toastySuccess");
-    var myToastSuccess = new bootstrap.Toast(element1);
+    let element1 = document.getElementById("toastySuccess");
+    let myToastSuccess = new bootstrap.Toast(element1);
 
-    var element2 = document.getElementById("toastyFail");
-    var myToastFail = new bootstrap.Toast(element2);
+    let element2 = document.getElementById("toastyFail");
+    let myToastFail = new bootstrap.Toast(element2);
 
     const obj = {
       email: usuario.email,
