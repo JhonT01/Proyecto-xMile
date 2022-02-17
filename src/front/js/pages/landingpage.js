@@ -27,8 +27,8 @@ export const Landing_page = () => {
               Agiliza tus reportes de facturación con...
             </h1>
             <p className="lead">
-            Toda la información previsiblemente fiscal al alcance de sus dedos.
-            ¡Extracción confiable y certera en un abrir y cerrar de ojos!.
+            Toda la información previsiblemente fiscal al alcance de tus dedos.
+            ¡Extracción confiable y certera en un abrir y cerrar de ojos!
             </p>
             {/* <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
               <button
