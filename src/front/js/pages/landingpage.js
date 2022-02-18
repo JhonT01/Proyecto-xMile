@@ -21,7 +21,7 @@ export const Landing_page = () => {
       {/* <!--     HERO CONTAINER     --> */}
 
       <div className="container my-5">
-        <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center justify-content-center rounded-3 border shadow-lg">
           <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
             <h1 className="display-4 fw-bold lh-1 fontExo">
               Agiliza tus reportes de facturación con...
@@ -48,7 +48,10 @@ export const Landing_page = () => {
           {/*          <div className="col-lg-7 offset-lg-1 p-0 overflow-hidden shadow-lg">
             <img className="rounded-lg-3" src={imagotipo} alt="" width="600" />
           </div>*/}
-          <div id="div-img-hero" className="col-5 shadow-lg mb-5">
+          <div
+            id="div-img-hero"
+            className="col-lg-5 col-sm-8 col-md-8 shadow-lg mb-5 align-items-center"
+          >
             <img
               id="img-hero"
               src={imagotipo}
@@ -95,8 +98,10 @@ export const Landing_page = () => {
               </svg>
             </div>
             <h2 className="fontExo">Importa archivos XML</h2>
-            <p className="fontExo">Procesa tus facturas electrónicas en formato XML.</p>
-{/*            <a href="#" className="icon-link">
+            <p className="fontExo">
+              Procesa tus facturas electrónicas en formato XML.
+            </p>
+            {/*            <a href="#" className="icon-link">
               Call to action
               <svg className="bi" width="1em" height="1em">
                 <use href=""></use>
@@ -171,7 +176,9 @@ export const Landing_page = () => {
           {/* <!-- Tittle --> */}
           <div className="row mb-4">
             <div className="col-lg-5">
-              <h2 className="display-4 font-weight-light fontExo">Nuestro equipo</h2>
+              <h2 className="display-4 font-weight-light fontExo">
+                Nuestro equipo
+              </h2>
               <p className="font-italic text-muted fontExo">
                 Compuesto por los más intrépidos aventureros.
               </p>
@@ -179,7 +186,7 @@ export const Landing_page = () => {
           </div>
           {/* <!-- Tittle--> */}
 
-          <div className="row text-center align-items-center">
+          <div className="row text-center justify-content-center align-items-center">
             {/* <!-- Team item--> */}
             <div className="col-xl-3 col-sm-6 mb-5">
               <div className="bg-white rounded shadow-sm py-5 px-4">
@@ -321,40 +328,40 @@ export const Landing_page = () => {
             {/* <!-- End--> */}
 
             {/* <!-- Team item--> */}
-            <span className="team5">
-              <div className="col-xl-3 col-sm-6 mb-5">
-                <div className="bg-white rounded shadow-sm py-5 px-4">
-                  <img
-                    src={foto_facundo}
-                    alt=""
-                    width="100"
-                    className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
-                  />
-                  <h5 className="mb-0 fontExo">Facundo Gul</h5>
-                  <span className="small text-uppercase text-muted fontExo">
-                    Colaborador
-                  </span>
-                  <ul className="social mb-0 list-inline mt-3">
-                    <li className="list-inline-item">
-                      <a
-                        href="https://www.linkedin.com/in/facundoguldossantos/"
-                        className="social-link"
-                      >
-                        <i className="fa fa-linkedin"></i>
-                      </a>
-                    </li>
-                    <li className="list-inline-item">
-                      <a
-                        href="https://github.com/FacundoGdS"
-                        className="social-link"
-                      >
-                        <i className="fa fa-github"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+            {/* <span className="team5"> */}
+            <div className="col-xl-3 col-sm-6 mb-5">
+              <div className="bg-white rounded shadow-sm py-5 px-4">
+                <img
+                  src={foto_facundo}
+                  alt=""
+                  width="100"
+                  className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
+                />
+                <h5 className="mb-0 fontExo">Facundo Gul</h5>
+                <span className="small text-uppercase text-muted fontExo">
+                  Colaborador
+                </span>
+                <ul className="social mb-0 list-inline mt-3">
+                  <li className="list-inline-item">
+                    <a
+                      href="https://www.linkedin.com/in/facundoguldossantos/"
+                      className="social-link"
+                    >
+                      <i className="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a
+                      href="https://github.com/FacundoGdS"
+                      className="social-link"
+                    >
+                      <i className="fa fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </span>
+            </div>
+            {/* </span> */}
 
             {/* <!-- End--> */}
           </div>

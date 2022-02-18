@@ -13,7 +13,7 @@ export const Footer = () => (
   <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div className="col-md-4 d-flex align-items-center">
       <a href="https://4geeksacademy.com/"><img src={geeks} alt="4geeksacademy" width="95" height="25" className="mgeek"></img></a>
-      <span className="text-muted mleft fontExo"> © 4Geeks Academy LLC 2019</span>
+      <span className="text-muted mleft fontExo "> © 4Geeks Academy LLC 2019</span>
     </div>
     <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
       <li className="ms-3 inline">
