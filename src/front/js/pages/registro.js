@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { BASE_URL } from "../store/flux";
 import logoIma from "../../img/Prototipo3.png";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
@@ -40,13 +41,10 @@ export const Registro = () => {
     //los dos password iguales
     //enviarlo al action
 
-    fetch(
-      "https://3001-jhont01-proyectoxmile-8qyohhug9r5.ws-us30.gitpod.io/registro",
-      {
-        method: "POST",
-        body: JSON.stringify(obj),
-      }
-    );
+    fetch(BASE_URL + "/registro", {
+      method: "POST",
+      body: JSON.stringify(obj),
+    });
 
     console.log(obj);
   };
