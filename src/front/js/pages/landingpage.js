@@ -26,7 +26,7 @@ export const Landing_page = () => {
             <h1 className="display-4 fw-bold lh-1 fontExo">
               Agiliza tus reportes de facturación con...
             </h1>
-            <p className="lead">
+            <p className="lead fontExo">
             Toda la información previsiblemente fiscal al alcance de tus manos.
             ¡Extracción confiable y certera en un abrir y cerrar de ojos!
             </p>
