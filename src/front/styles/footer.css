@@ -1,5 +1,18 @@
-.fa-twitter-square {
-  width: 4rem;
-  height: 4rem;
+.margin {
+  display: inline;
+  font-size: 21px !important;
   color: rgb(0, 0, 0);
+  margin-left: 13px;
+}
+
+.inline {
+  display: inline;
+}
+
+.mgeek {
+  margin-left: 90px;
+}
+
+.mleft {
+  margin-left: 10px;
 }
