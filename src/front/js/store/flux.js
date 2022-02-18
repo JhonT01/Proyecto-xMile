@@ -1,6 +1,4 @@
-
 export const BASE_URL = process.env.BACKEND_URL;
-
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -134,6 +132,16 @@ const getState = ({ getStore, getActions, setStore }) => {
           auth: {
             isAuth: isAuth,
             token: token,
+          },
+        });
+      },
+      cerrarSesion: () => {
+        //reset the global store
+        sessionStorage.removeItem("access_token");
+        setStore({
+          auth: {
+            isAuth: false,
+            token: null,
           },
         });
       },
