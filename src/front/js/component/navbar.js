@@ -5,10 +5,10 @@ import Logo from "../../img/logos/logonavbar.png";
 import "../../styles/navbar.css";
 
 const IsLogged = () => {
+  const { store, actions } = useContext(Context);
   return (
     <>
       <li className="nav-item sombreado">
-
         <Link className="nav-link active pe-auto" to="/principal/1">
           Principal
         </Link>
@@ -24,13 +24,16 @@ const IsLogged = () => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/"> 
+        <Link to="/">
           <button
             type="button"
             className="btn pe-auto position-absolute end-0 pr-2"
+            onClick={() => {
+              actions.cerrarSesion();
+            }}
           >
             Cerrar Sesión
-          </button>  
+          </button>
         </Link>
       </li>
     </>
@@ -46,7 +49,7 @@ const IsNotLogged = () => {
             Registrarse
           </button>
         </Link>
-        <Link to="/login">         
+        <Link to="/login">
           <button type="button" className="btn pe-auto">
             Iniciar Sesión
           </button>
