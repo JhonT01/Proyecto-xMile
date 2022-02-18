@@ -17,10 +17,10 @@ export const Footer = () => (
     </div>
     <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
       <li className="ms-3 inline">
-          <a href="https://github.com/4GeeksAcademy"><i className="fa fa-github margin"></i></a>
-          <a href="https://www.facebook.com/4geeksacademy/"><i className="fa fa-facebook margin"></i></a>
-          <a href="https://twitter.com/4GeeksAcademy"><i className="fa fa-twitter margin"></i></a>
-          <a href="https://www.instagram.com/4GeeksAcademy/"><i className="fa fa-instagram margin"></i></a>
+          <a href="https://github.com/4GeeksAcademy"><i className="fa fa-github set"></i></a>
+          <a href="https://www.facebook.com/4geeksacademy/"><i className="fa fa-facebook set"></i></a>
+          <a href="https://twitter.com/4GeeksAcademy"><i className="fa fa-twitter set"></i></a>
+          <a href="https://www.instagram.com/4GeeksAcademy/"><i className="fa fa-instagram set"></i></a>
       </li>
       <li className="ms-3">
         <a className="text-muted" href="#">
