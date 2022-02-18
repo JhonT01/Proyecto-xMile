@@ -65,16 +65,14 @@ export const Navbar = () => {
   return (
     <nav className="navbar-fixed navbar-expand-lg navbar-light bg-white">
       <div className="container-fluid p-0 mt-n1 d-flex">
-        <Link to="/" className="navbar-brand">
-          <a className="navbar-brand" href="/">
-            <img
-              src={Logo}
-              alt="xmile"
-              width="95px"
-              height="50px"
-              className="d-inline-block align-text-top"
-            />
-          </a>
+        <Link className="navbar-brand" to="/">
+          <img
+            src={Logo}
+            alt="xmile"
+            width="95px"
+            height="50px"
+            className="d-inline-block align-text-top"
+          />
         </Link>
 
         <button
