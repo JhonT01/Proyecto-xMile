@@ -8,9 +8,15 @@ import { ItemCliente } from "../component/itemCliente";
 import { RowFactura } from "../component/rowFactura";
 
 export const Principal = () => {
+  
   const { store, actions } = useContext(Context);
 
   const params = useParams();
+
+  useEffect(() => {
+    actions.getFacturas();
+    actions.getClients();
+  }, []);
 
   const descargarArchivo = () => {
     const formData = new FormData();

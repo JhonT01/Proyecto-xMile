@@ -278,10 +278,8 @@ def delete_client():
     print(frontClient)
     qFac = db.session.query(Client).filter(Client.id==frontClient).delete()
     db.session.commit()
-    response = {"ayy":"lmao"}
-
-
-    print('AYY')    
+    response = {"mensaje":"Cliente eliminado exitosamente"}
+    
     return jsonify(response),200
    
 # this only runs if `$ python src/main.py` is executed
