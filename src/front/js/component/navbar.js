@@ -33,7 +33,7 @@ const IsLogged = () => {
       <ul className="navbar-nav mt-n1 p-0">
         <li className="nav-item">
           <Link to="/">
-            <button type="button" className="btn pe-auto">
+            <button type="button" className="btn pe-auto" onClick={() => {actions.cerrarSesion();}}>
               Cerrar Sesión
             </button>
           </Link>
