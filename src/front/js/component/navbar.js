@@ -52,14 +52,14 @@ const IsNotLogged = () => {
       <ul className="navbar-nav mt-n1 p-0">
         <li className="nav-item">
           <Link to="/registro">
-            <button type="button" className="btn pe-auto">
+            <button type="button" className="btn pe-auto fontExo">
               Registrarse
             </button>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/login">
-            <button type="button" className="btn pe-auto">
+            <button type="button" className="btn pe-auto fontExo">
               Iniciar Sesión
             </button>
           </Link>
