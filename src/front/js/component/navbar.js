@@ -12,12 +12,12 @@ const IsLogged = () => {
     >
       <ul className="navbar-nav mt-n1 p-0">
         <li className="nav-item sombreado">
-          <Link className="nav-link active pe-auto" to="/principal/1">
+          <Link className="nav-link active pe-auto fontExo" to="/principal/1">
             Principal
           </Link>
         </li>
         <li className="nav-item sombreado">
-          <Link className="nav-link active pe-auto" to="/client">
+          <Link className="nav-link active pe-auto fontExo" to="/client">
             Crear Cliente
           </Link>
         </li>
