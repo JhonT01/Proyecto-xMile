@@ -59,7 +59,7 @@ const IsNotLogged = () => {
         </li>
         <li className="nav-item">
           <Link to="/login">
-            <button type="button" className="btn pe-auto fontExo">
+            <button type="button" className="btn pe-auto fontExo margenav">
               Iniciar Sesión
             </button>
           </Link>
