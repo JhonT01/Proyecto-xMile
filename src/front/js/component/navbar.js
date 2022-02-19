@@ -99,8 +99,7 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* {store.auth.isAuth ? <IsLogged /> : <IsNotLogged />} */}
-        <IsNotLogged />
+        {store.auth.isAuth ? <IsLogged /> : <IsNotLogged />}
       </div>
     </nav>
   );
