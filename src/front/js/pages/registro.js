@@ -53,11 +53,11 @@ export const Registro = () => {
     <div className="form-usuario">
       <div className=" contenedor-form text-center mt-5 sombra-dark">
         <img src={logoIma} />
-        <h1>Registro</h1>
+        <h1 className="fontExo">Registro</h1>
 
         <form className="px-4 py-7">
           <div className="mb-4">
-            <label htmlFor="nombre" className="form-label">
+            <label htmlFor="nombre" className="form-label fontExo">
               Nombre
             </label>
             <input
@@ -72,7 +72,7 @@ export const Registro = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="apellido" className="form-label">
+            <label htmlFor="apellido" className="form-label fontExo">
               Apellido
             </label>
             <input
@@ -87,7 +87,7 @@ export const Registro = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
+            <label htmlFor="email" className="form-label fontExo">
               Usuario Email
             </label>
             <input
@@ -102,7 +102,7 @@ export const Registro = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+            <label htmlFor="password" className="form-label fontExo">
               Contraseña
             </label>
             <input
@@ -117,7 +117,7 @@ export const Registro = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="confirmar" className="form-label">
+            <label htmlFor="confirmar" className="form-label fontExo">
               Confirmar Contraseña
             </label>
             <input
@@ -133,7 +133,7 @@ export const Registro = () => {
 
           <button
             type="submit"
-            className="btn btn-outline-info"
+            className="btn btn-outline-info fontExo"
             onClick={() => {
               actions.crearUsuario(
                 usuario.nombre,
