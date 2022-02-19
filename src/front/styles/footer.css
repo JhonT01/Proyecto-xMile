@@ -1,7 +1,7 @@
-.margin {
+.set {
   display: inline;
   font-size: 21px !important;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0) !important;
   margin-left: 13px;
 }
 
