@@ -8,7 +8,6 @@ import { ItemCliente } from "../component/itemCliente";
 import { RowFactura } from "../component/rowFactura";
 
 export const Principal = () => {
-  
   const { store, actions } = useContext(Context);
 
   const params = useParams();
@@ -50,7 +49,6 @@ export const Principal = () => {
       .then((response) => response.json())
       .then((result) => {
         console.log("Success:", result);
-        window.location.reload(false);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -62,7 +60,7 @@ export const Principal = () => {
       <div className="container">
         <div className="row justify-content-md-center">
           <div className="col-8">
-            <p className="bienvenida">Bienvenid@, John Doe. </p>
+            <p className="bienvenida">Bienvenid@, Geek. </p>
           </div>
           <div className="col-3">
             <p className="fxRate">FX USD/CRC: {store.fxRate["CRC"]}</p>

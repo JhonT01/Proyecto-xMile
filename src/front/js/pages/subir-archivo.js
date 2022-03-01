@@ -99,7 +99,7 @@ export const Subir_archivo = () => {
         </div>
       </div>
       <ToastySuccess mensaje="Archivo subido exitosamente."></ToastySuccess>
-      <ToastyFail mensaje="Error subiendo archivo."></ToastyFail>
+      <ToastyFail mensaje="Archivo subido exitosamente."></ToastyFail>
     </>
   );
 };
